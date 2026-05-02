@@ -6,7 +6,8 @@ manifest:
       url-base: https://github.com/nrfconnect
 
   projects:
-    - name: nrf
+    - name: sdk-nrf
+      path: nrf
       remote: nordicsemi
       revision: v3.3.0
       import: true
