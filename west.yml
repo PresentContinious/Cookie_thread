@@ -1,0 +1,15 @@
+manifest:
+  version: "0.13"
+
+  remotes:
+    - name: nordicsemi
+      url-base: https://github.com/nrfconnect
+
+  projects:
+    - name: nrf
+      remote: nordicsemi
+      revision: v3.3.0
+      import: true
+
+  self:
+    path: cookie-thread-mesh

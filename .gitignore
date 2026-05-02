@@ -1,0 +1,16 @@
+# Build outputs
+build/
+build_*/
+.build/
+
+# West / Zephyr workspace state
+.west/
+
+# IDE
+.vscode/
+*.swp
+*.bak
+
+# OS
+Thumbs.db
+.DS_Store
