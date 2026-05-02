@@ -1,0 +1,6 @@
+board:
+  name: cookie_nrf_v200
+  full_name: Cookie nRF V2.00 sensor node
+  vendor: cei
+  socs:
+    - name: nrf52840

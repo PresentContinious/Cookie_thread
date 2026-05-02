@@ -1,0 +1,18 @@
+identifier: cookie_nrf_v200/nrf52840
+name: Cookie nRF V2.00
+type: mcu
+arch: arm
+toolchain:
+  - gnuarmemb
+  - zephyr
+ram: 256
+flash: 1024
+supported:
+  - i2c
+  - adc
+  - gpio
+  - serial
+  - usb_device
+  - watchdog
+  - counter
+  - pwm
