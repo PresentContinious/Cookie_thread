@@ -1,0 +1,23 @@
+mainmenu "Cookie sensor node"
+
+choice
+	prompt "Node role profile"
+	default NODE_PROFILE_FTD
+
+config NODE_PROFILE_FTD
+	bool "Full Thread Device (router-eligible, always-on)"
+
+config NODE_PROFILE_MED
+	bool "Minimal End Device (always-on, no routing)"
+
+config NODE_PROFILE_SED
+	bool "Sleepy End Device (deep sleep, periodic wake)"
+
+endchoice
+
+config NODE_REPORT_INTERVAL_SEC
+	int "Sensor reporting cadence (seconds)"
+	default 5  if NODE_PROFILE_FTD || NODE_PROFILE_MED
+	default 30 if NODE_PROFILE_SED
+
+source "Kconfig.zephyr"
