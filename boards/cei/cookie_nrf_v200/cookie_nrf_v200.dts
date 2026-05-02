@@ -81,9 +81,8 @@
 	clock-frequency = <I2C_BITRATE_FAST>;
 
 	shtc3: shtc3@70 {
-		compatible = "sensirion,shtcx";
+		compatible = "sensirion,shtc3", "sensirion,shtcx";
 		reg = <0x70>;
-		chip = "shtc3";
 		measure-mode = "normal";
 		clock-stretching;
 	};
