@@ -1,6 +1,16 @@
+/*
+ * Sensor-node entry point.
+ *
+ * OpenThread auto-starts via Zephyr glue (SYS_INIT) with the dataset
+ * baked into prj.conf. main() blinks the LED, waits for first attach,
+ * brings up CoAP, and dispatches to the AUTO or SED loop.
+ */
+
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
 #include <zephyr/drivers/gpio.h>
+
+#include <zephyr/net/openthread.h>
 
 #include "thread_setup.h"
 #include "node_loop.h"
@@ -38,10 +48,20 @@ int main(void)
 
 	bsp_init();
 
-	if (cookie_thread_start() != 0) {
-		LOG_ERR("OpenThread bring-up failed");
+	/* MANUAL_START defaults to y in this NCS configuration, so we run
+	 * OT explicitly. The Kconfig dataset has already been loaded by
+	 * openthread_init() in SYS_INIT; openthread_run() brings the
+	 * interface up and starts the protocol. */
+	int orc = openthread_run();
+	if (orc) {
+		LOG_ERR("openthread_run: %d", orc);
 		return -1;
 	}
+
+	/* Wait for first attach. Up to 60 s. If we time out we still
+	 * proceed — first CoAP push will trigger discovery once attachment
+	 * finally happens. */
+	(void)cookie_thread_wait_attached(K_SECONDS(60));
 
 	if (cookie_coap_init() != 0) {
 		LOG_ERR("CoAP init failed");

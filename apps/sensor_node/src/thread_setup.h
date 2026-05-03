@@ -5,24 +5,17 @@
 #include <stdbool.h>
 
 /**
- * Install operational dataset from Kconfig credentials, configure profile-
- * specific link mode (rxOnWhenIdle = false for SED), and start OpenThread.
- *
- * @return 0 on success, negative errno otherwise.
- */
-int cookie_thread_start(void);
-
-/**
- * Block until the local OpenThread role reaches at least CHILD, or the
- * timeout expires.
+ * Block until the local OpenThread role reaches at least CHILD, or until
+ * the timeout expires. OT auto-starts in SYS_INIT, so by the time main()
+ * runs the interface is up and attempting to attach.
  *
  * @return 0 if attached, -ETIMEDOUT otherwise.
  */
 int cookie_thread_wait_attached(k_timeout_t timeout);
 
 /**
- * Read the runtime Thread role as a string ("LEADER", "ROUTER", "REED",
- * "CHILD", "DETACHED"). Pointer is valid forever (static literals).
+ * Read the runtime Thread role as a string ("LEADER", "ROUTER", "CHILD",
+ * "DETACHED", "DISABLED", "SED" for SED-profile builds).
  */
 const char *cookie_thread_role_str(void);
 
@@ -32,14 +25,12 @@ const char *cookie_thread_role_str(void);
 void cookie_thread_format_src(char src_out[5]);
 
 /**
- * @return RSSI to parent in dBm, or 0 if there is no parent
- *         (Leader, REED with no parent slot, or detached).
+ * @return RSSI to parent in dBm, or 0 if there is no parent.
  */
 int8_t cookie_thread_parent_rssi(void);
 
 /**
- * @return number of hops from this node to the Leader, or 0 if self is
- *         the Leader / unattached.
+ * @return number of hops to the Leader (coarse estimate).
  */
 uint8_t cookie_thread_hops_to_leader(void);
 

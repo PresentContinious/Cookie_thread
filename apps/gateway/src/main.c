@@ -61,16 +61,31 @@ int main(void)
 
 	openthread_state_changed_callback_register(&ot_state_cb);
 
+	int orc = openthread_run();
+	if (orc) {
+		LOG_ERR("openthread_run: %d", orc);
+		return -1;
+	}
+
 	if (gateway_coap_server_start() != 0) {
 		LOG_ERR("CoAP server start failed");
 		return -1;
 	}
 
+	uint32_t tick = 0;
 	while (1) {
 		if (led_green.port) {
 			gpio_pin_toggle_dt(&led_green);
 		}
 		k_sleep(K_MSEC(1000));
+		if ((++tick % 5) == 0) {
+			otInstance *inst = openthread_get_default_instance();
+			if (inst) {
+				LOG_INF("heartbeat tick=%u role=%s",
+					tick,
+					otThreadDeviceRoleToString(otThreadGetDeviceRole(inst)));
+			}
+		}
 	}
 	return 0;
 }
