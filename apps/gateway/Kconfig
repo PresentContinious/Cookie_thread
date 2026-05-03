@@ -1,28 +1,11 @@
 mainmenu "Cookie gateway"
 
-menu "Cookie Thread network credentials"
-
-config COOKIE_THREAD_NETWORK_NAME
-	string "Network name"
-	default "CookieMesh"
-
-config COOKIE_THREAD_NETWORK_KEY
-	string "Network key (32 hex chars, 16 bytes)"
-	default "00112233445566778899aabbccddeeff"
-
-config COOKIE_THREAD_PAN_ID
-	hex "PAN ID"
-	default 0xABCD
-
-config COOKIE_THREAD_EXT_PAN_ID
-	string "Extended PAN ID (16 hex chars, 8 bytes)"
-	default "dead00beef00cafe"
-
-config COOKIE_THREAD_CHANNEL
-	int "802.15.4 radio channel"
-	range 11 26
-	default 25
-
-endmenu
+# Thread network credentials live in upstream Kconfig:
+#   CONFIG_OPENTHREAD_NETWORK_NAME
+#   CONFIG_OPENTHREAD_NETWORKKEY
+#   CONFIG_OPENTHREAD_PANID
+#   CONFIG_OPENTHREAD_XPANID
+#   CONFIG_OPENTHREAD_CHANNEL
+# Defaults are set in apps/gateway/prj.conf.
 
 source "Kconfig.zephyr"

@@ -14,3 +14,12 @@ build_*/
 # OS
 Thumbs.db
 .DS_Store
+
+# PC tool
+tools/pc_tool/.venv/
+tools/pc_tool/*.egg-info/
+tools/pc_tool/sample_run.jsonl
+tools/pc_tool/chapter6_demo.html
+__pycache__/
+.pytest_cache/
+*.pyc
