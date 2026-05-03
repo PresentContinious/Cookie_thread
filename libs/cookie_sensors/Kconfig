@@ -1,0 +1,24 @@
+menuconfig COOKIE_SENSORS
+	bool "Cookie sensor wrappers"
+	help
+	  Thin wrappers over Zephyr sensor API for the SHTC3 (T+RH) and
+	  later the ICM-20648 (IMU). Keeps main loops free of fetch/get
+	  boilerplate and centralises power-aware sampling.
+
+if COOKIE_SENSORS
+
+config COOKIE_SENSORS_SHTC3
+	bool "SHTC3 temperature/humidity wrapper"
+	default y if SENSOR
+	help
+	  Enables the SHTC3 wrapper. Requires Zephyr SHTC3 driver
+	  (CONFIG_SHTC3=y) and a compatible "sensirion,shtc3" or
+	  "sensirion,shtcx" node in the devicetree.
+
+config COOKIE_SENSORS_LOG_LEVEL
+	int "Log level for cookie_sensors"
+	depends on LOG
+	range 0 4
+	default 3
+
+endif

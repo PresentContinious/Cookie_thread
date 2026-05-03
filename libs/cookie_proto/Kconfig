@@ -1,0 +1,30 @@
+menuconfig COOKIE_PROTO
+	bool "Cookie Thread mesh protocol library"
+	help
+	  Frame schema, JSON codec, and CoAP push client used by the
+	  Cookie sensor-node firmware and the gateway.
+
+if COOKIE_PROTO
+
+config COOKIE_PROTO_FRAME_BUF_SIZE
+	int "Maximum encoded frame size (bytes)"
+	default 384
+	help
+	  Upper bound on the JSON payload of a single sensor frame.
+	  Used to size stack buffers in the encoder and the CoAP send path.
+
+config COOKIE_PROTO_COAP_BLOCK_SIZE
+	int "Working CoAP send buffer size (bytes)"
+	default 512
+
+config COOKIE_PROTO_DISCOVERY_TIMEOUT_MS
+	int "Discovery response timeout (ms)"
+	default 1500
+
+config COOKIE_PROTO_LOG_LEVEL
+	int "Log level for cookie_proto"
+	depends on LOG
+	range 0 4
+	default 3
+
+endif

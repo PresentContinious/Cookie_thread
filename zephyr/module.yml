@@ -1,4 +1,6 @@
+name: cookie_thread_mesh
 build:
   settings:
     board_root: .
     dts_root: .
+    soc_root: .

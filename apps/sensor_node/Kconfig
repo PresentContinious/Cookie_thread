@@ -1,23 +1,49 @@
 mainmenu "Cookie sensor node"
 
 choice
-	prompt "Node role profile"
-	default NODE_PROFILE_FTD
+	prompt "Node operation profile"
+	default NODE_PROFILE_AUTO
+	help
+	  Selects the runtime shape of the node. AUTO is the headline
+	  self-organising-mesh image (FTD, role elected by Thread).
+	  SED is the sleepy-end-device variant for low-power measurement.
 
-config NODE_PROFILE_FTD
-	bool "Full Thread Device (router-eligible, always-on)"
-
-config NODE_PROFILE_MED
-	bool "Minimal End Device (always-on, no routing)"
+config NODE_PROFILE_AUTO
+	bool "AUTO — FTD, role elected by Thread"
 
 config NODE_PROFILE_SED
-	bool "Sleepy End Device (deep sleep, periodic wake)"
+	bool "SED — sleepy end device, periodic wake"
 
 endchoice
 
 config NODE_REPORT_INTERVAL_SEC
 	int "Sensor reporting cadence (seconds)"
-	default 5  if NODE_PROFILE_FTD || NODE_PROFILE_MED
+	default 5  if NODE_PROFILE_AUTO
 	default 30 if NODE_PROFILE_SED
+
+menu "Cookie Thread network credentials"
+
+config COOKIE_THREAD_NETWORK_NAME
+	string "Network name"
+	default "CookieMesh"
+
+config COOKIE_THREAD_NETWORK_KEY
+	string "Network key (32 hex chars, 16 bytes)"
+	default "00112233445566778899aabbccddeeff"
+
+config COOKIE_THREAD_PAN_ID
+	hex "PAN ID"
+	default 0xABCD
+
+config COOKIE_THREAD_EXT_PAN_ID
+	string "Extended PAN ID (16 hex chars, 8 bytes)"
+	default "dead00beef00cafe"
+
+config COOKIE_THREAD_CHANNEL
+	int "802.15.4 radio channel"
+	range 11 26
+	default 25
+
+endmenu
 
 source "Kconfig.zephyr"
