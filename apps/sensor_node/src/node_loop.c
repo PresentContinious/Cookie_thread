@@ -5,6 +5,10 @@
  * the work handler samples sensors and pushes a CoAP frame. main()
  * returns to the Zephyr idle thread; scheduler keeps OT + timer + work
  * alive.
+ *
+ * Sensor readings are best-effort: a missing sensor (Dongle-only build,
+ * unwired ICM, broken SAADC channel) leaves the corresponding optional
+ * fields cleared and the frame still goes out with whatever is available.
  */
 
 #include "node_loop.h"
@@ -13,6 +17,8 @@
 #include <cookie_proto/coap_client.h>
 #include <cookie_proto/frame.h>
 #include <cookie_sensors/shtc3.h>
+#include <cookie_sensors/icm20648.h>
+#include <cookie_power/power.h>
 
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
@@ -21,6 +27,47 @@ LOG_MODULE_REGISTER(node_loop, LOG_LEVEL_INF);
 
 static struct k_timer report_timer;
 static struct k_work  report_work;
+
+static void fill_environmental(struct sensor_frame *f)
+{
+	if (cookie_shtc3_present()) {
+		float t, h;
+		if (cookie_shtc3_read(&t, &h) == 0) {
+			f->has_temp  = true;
+			f->temp_c    = t;
+			f->has_humid = true;
+			f->humid_pct = h;
+		}
+	}
+}
+
+static void fill_inertial(struct sensor_frame *f)
+{
+	if (cookie_icm20648_present()) {
+		float a[3], g[3];
+		if (cookie_icm20648_read(a, g) == 0) {
+			f->has_accel = true;
+			memcpy(f->accel_g, a, sizeof(a));
+			f->has_gyro = true;
+			memcpy(f->gyro_dps, g, sizeof(g));
+		}
+	}
+}
+
+static void fill_power(struct sensor_frame *f)
+{
+	if (cookie_power_present()) {
+		struct cookie_power_sample s;
+		if (cookie_power_sample_burst(&s) == 0) {
+			f->has_i_avg  = true;
+			f->i_avg_ma   = s.i_avg_ma;
+			f->has_i_pk   = true;
+			f->i_pk_ma    = s.i_pk_ma;
+			f->has_vbat   = true;
+			f->vbat_mv    = s.vbat_mv;
+		}
+	}
+}
 
 static void report_work_handler(struct k_work *w)
 {
@@ -38,15 +85,9 @@ static void report_work_handler(struct k_work *w)
 	f.hops      = cookie_thread_hops_to_leader();
 	cookie_thread_format_src(f.src);
 
-	if (cookie_shtc3_present()) {
-		float t, h;
-		if (cookie_shtc3_read(&t, &h) == 0) {
-			f.has_temp  = true;
-			f.temp_c    = t;
-			f.has_humid = true;
-			f.humid_pct = h;
-		}
-	}
+	fill_environmental(&f);
+	fill_inertial(&f);
+	fill_power(&f);
 
 	int rc = cookie_coap_push_frame(&f);
 	if (rc < 0) {

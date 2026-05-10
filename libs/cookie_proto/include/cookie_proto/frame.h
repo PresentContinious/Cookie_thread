@@ -1,6 +1,11 @@
 /*
  * Sensor frame schema, common to producer (sensor_node) and consumer (gateway).
  * Optional fields gated by has_* flags; encoder skips them when false.
+ *
+ * Schema is additive: new optional fields may be appended without breaking
+ * consumers that only read the older subset. The PC tool's parser preserves
+ * unknown keys in an `extras` map so even a producer ahead of the parser
+ * loses no information.
  */
 
 #ifndef COOKIE_PROTO_FRAME_H_
@@ -31,6 +36,23 @@ struct sensor_frame {
 
 	bool     has_t_active;
 	uint32_t t_active_ms;       /* SED only: wake-window duration */
+
+	/* IMU (ICM-20648) */
+	bool  has_accel;
+	float accel_g[3];           /* X, Y, Z in g */
+
+	bool  has_gyro;
+	float gyro_dps[3];          /* X, Y, Z in deg/s */
+
+	/* Self-current pipeline (INA333 + SAADC) */
+	bool  has_i_avg;
+	float i_avg_ma;             /* mean current over the active window */
+
+	bool  has_i_pk;
+	float i_pk_ma;              /* peak current over the active window */
+
+	bool     has_vbat;
+	uint16_t vbat_mv;           /* battery voltage in mV (raw VDD x divider) */
 };
 
 /**

@@ -8,6 +8,7 @@ def test_parse_full_frame():
     line = (
         '{"src":"a1b2","role":"LEADER","ts":1234,"rssi":-67,"hops":2,'
         '"temp_c":24.31,"humid_pct":41.2,"t_active_ms":87,'
+        '"accel_g":[0.01,-0.02,0.99],"gyro_dps":[0.3,-0.1,0.05],'
         '"i_avg_ma":6.4,"i_pk_ma":51.0,"vbat_mv":2940}'
     )
     rec = parse_line(line, ts_host_ns=1000)
@@ -17,7 +18,23 @@ def test_parse_full_frame():
     assert rec.rssi_dbm == -67 and rec.hops == 2
     assert rec.temp_c == 24.31 and rec.humid_pct == 41.2
     assert rec.t_active_ms == 87
+    assert rec.accel_g == (0.01, -0.02, 0.99)
+    assert rec.gyro_dps == (0.3, -0.1, 0.05)
     assert rec.i_avg_ma == 6.4 and rec.i_pk_ma == 51.0 and rec.vbat_mv == 2940
+
+
+def test_accel_magnitude_property():
+    rec = parse_line('{"src":"x","role":"SED","accel_g":[3.0,4.0,0.0]}', ts_host_ns=1)
+    assert isinstance(rec, Frame)
+    # |(3,4,0)| = 5 by 3-4-5 triangle
+    assert rec.accel_mag_g is not None
+    assert abs(rec.accel_mag_g - 5.0) < 1e-9
+
+
+def test_gyro_magnitude_property():
+    rec = parse_line('{"src":"x","role":"SED","gyro_dps":[0.0,0.0,10.0]}', ts_host_ns=1)
+    assert isinstance(rec, Frame)
+    assert rec.gyro_mag_dps == 10.0
 
 
 def test_parse_frame_with_only_required_fields():
@@ -25,6 +42,14 @@ def test_parse_frame_with_only_required_fields():
     assert isinstance(rec, Frame)
     assert rec.src == "abcd"
     assert rec.temp_c is None and rec.i_avg_ma is None
+    assert rec.accel_g is None and rec.gyro_dps is None
+
+
+def test_malformed_imu_array_falls_back_to_none():
+    # Wrong length array should not raise — field stays None.
+    rec = parse_line('{"src":"x","role":"SED","accel_g":[1.0,2.0]}', ts_host_ns=1)
+    assert isinstance(rec, Frame)
+    assert rec.accel_g is None
 
 
 def test_parse_event():
@@ -35,9 +60,9 @@ def test_parse_event():
 
 
 def test_unknown_extra_fields_preserved():
-    rec = parse_line('{"src":"a1b2","role":"SED","new_v2_field":42}', ts_host_ns=1)
+    rec = parse_line('{"src":"a1b2","role":"SED","new_v3_field":42}', ts_host_ns=1)
     assert isinstance(rec, Frame)
-    assert rec.extras == {"new_v2_field": 42}
+    assert rec.extras == {"new_v3_field": 42}
 
 
 def test_malformed_json_becomes_log_line():

@@ -1,0 +1,55 @@
+menuconfig COOKIE_POWER
+	bool "Cookie self-current and battery monitoring"
+	depends on ADC
+	help
+	  ADC pipeline for the on-board INA333 instrumentation amplifier
+	  (Cookie self-current) and the internal NRF_SAADC_VDD divider
+	  (battery voltage). Boards without the matching DT channels compile
+	  a no-op fallback so sensor_node binaries stay portable.
+
+if COOKIE_POWER
+
+config COOKIE_POWER_BURST_SAMPLES
+	int "Samples per burst (i_avg / i_pk window)"
+	default 32
+	range 1 256
+	help
+	  Number of consecutive ADC reads taken to compute one (i_avg, i_pk)
+	  pair. With the default 32 samples and ~25 us per acquisition, one
+	  burst takes about 1 ms — short enough to stay inside the SED wake
+	  window budget.
+
+config COOKIE_POWER_SHUNT_MOHM
+	int "Shunt resistor (milliohms)"
+	default 100
+	help
+	  Sense resistor in series with the load. Cookie V2.00 BOM ships
+	  100 milliohms by default; replace with the actual value if the
+	  shunt is changed at assembly.
+
+config COOKIE_POWER_INA333_GAIN
+	int "INA333 gain (1 + 100k/Rg, integer)"
+	default 101
+	help
+	  INA333 amplifier gain set by the Rg resistor. With the default
+	  Rg = 1 kohm the gain is 101. Recompute and override here if Rg
+	  is replaced.
+
+config COOKIE_POWER_VBAT_MV_PER_LSB_X1000
+	int "VBAT scale factor (microvolts per LSB)"
+	default 4395
+	help
+	  ADC LSB to battery millivolts conversion factor, in microvolts per
+	  LSB (i.e. multiply ADC raw by this and divide by 1000 to get mV).
+	  Default 4395 corresponds to: gain 1/6, ref 0.6 V, internal /5
+	  divider, 12-bit resolution
+	     -> 0.6 V / (1/6) / 4096 * 5 = 4.395 mV/LSB.
+	  Override only if the ADC channel configuration is changed in DT.
+
+config COOKIE_POWER_LOG_LEVEL
+	int "Log level for cookie_power"
+	depends on LOG
+	range 0 4
+	default 3
+
+endif

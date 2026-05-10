@@ -1,5 +1,6 @@
 if(CONFIG_COOKIE_SENSORS)
 	zephyr_library_named(cookie_sensors)
-	zephyr_library_sources_ifdef(CONFIG_COOKIE_SENSORS_SHTC3 src/shtc3.c)
+	zephyr_library_sources_ifdef(CONFIG_COOKIE_SENSORS_SHTC3    src/shtc3.c)
+	zephyr_library_sources_ifdef(CONFIG_COOKIE_SENSORS_ICM20648 src/icm20648.c)
 	zephyr_include_directories(include)
 endif()

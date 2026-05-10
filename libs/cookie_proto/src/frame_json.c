@@ -56,6 +56,27 @@ int cookie_frame_to_json(const struct sensor_frame *f, char *buf, size_t buf_len
 	if (f->has_t_active) {
 		APPEND(",\"t_active_ms\":%u", (unsigned int)f->t_active_ms);
 	}
+	if (f->has_accel) {
+		APPEND(",\"accel_g\":[%.3f,%.3f,%.3f]",
+		       (double)f->accel_g[0],
+		       (double)f->accel_g[1],
+		       (double)f->accel_g[2]);
+	}
+	if (f->has_gyro) {
+		APPEND(",\"gyro_dps\":[%.2f,%.2f,%.2f]",
+		       (double)f->gyro_dps[0],
+		       (double)f->gyro_dps[1],
+		       (double)f->gyro_dps[2]);
+	}
+	if (f->has_i_avg) {
+		APPEND(",\"i_avg_ma\":%.3f", (double)f->i_avg_ma);
+	}
+	if (f->has_i_pk) {
+		APPEND(",\"i_pk_ma\":%.3f", (double)f->i_pk_ma);
+	}
+	if (f->has_vbat) {
+		APPEND(",\"vbat_mv\":%u", (unsigned int)f->vbat_mv);
+	}
 
 	APPEND("}");
 	return (int)off;
@@ -137,6 +158,38 @@ static const char *parse_float(const char *p, const char *end, float *out)
 	}
 	*out = v;
 	return endp;
+}
+
+/* Parses a JSON array of exactly `n` floats into out[]. Caller must have
+ * advanced past the opening '['. Returns position after closing ']'. */
+static const char *parse_float_array(const char *p, const char *end,
+				     float *out, size_t n)
+{
+	for (size_t i = 0; i < n; i++) {
+		p = skip_ws(p, end);
+		if (p >= end) {
+			return NULL;
+		}
+		p = parse_float(p, end, &out[i]);
+		if (!p) {
+			return NULL;
+		}
+		p = skip_ws(p, end);
+		if (p >= end) {
+			return NULL;
+		}
+		if (i < n - 1) {
+			if (*p != ',') {
+				return NULL;
+			}
+			p++;
+		}
+	}
+	p = skip_ws(p, end);
+	if (p >= end || *p != ']') {
+		return NULL;
+	}
+	return p + 1;
 }
 
 int cookie_frame_from_json(const char *buf, size_t buf_len, struct sensor_frame *out)
@@ -254,6 +307,46 @@ int cookie_frame_from_json(const char *buf, size_t buf_len, struct sensor_frame 
 			}
 			out->t_active_ms = (uint32_t)v;
 			out->has_t_active = true;
+		} else if (klen == 7 && strncmp(key, "accel_g", 7) == 0) {
+			if (*p != '[') {
+				return -EINVAL;
+			}
+			p++;
+			p = parse_float_array(p, end, out->accel_g, 3);
+			if (!p) {
+				return -EINVAL;
+			}
+			out->has_accel = true;
+		} else if (klen == 8 && strncmp(key, "gyro_dps", 8) == 0) {
+			if (*p != '[') {
+				return -EINVAL;
+			}
+			p++;
+			p = parse_float_array(p, end, out->gyro_dps, 3);
+			if (!p) {
+				return -EINVAL;
+			}
+			out->has_gyro = true;
+		} else if (klen == 8 && strncmp(key, "i_avg_ma", 8) == 0) {
+			p = parse_float(p, end, &out->i_avg_ma);
+			if (!p) {
+				return -EINVAL;
+			}
+			out->has_i_avg = true;
+		} else if (klen == 7 && strncmp(key, "i_pk_ma", 7) == 0) {
+			p = parse_float(p, end, &out->i_pk_ma);
+			if (!p) {
+				return -EINVAL;
+			}
+			out->has_i_pk = true;
+		} else if (klen == 7 && strncmp(key, "vbat_mv", 7) == 0) {
+			long v;
+			p = parse_long(p, end, &v);
+			if (!p) {
+				return -EINVAL;
+			}
+			out->vbat_mv = (uint16_t)v;
+			out->has_vbat = true;
 		} else {
 			/* Unknown key — skip the value. Supports number, string,
 			 * array (one level), object (one level). */

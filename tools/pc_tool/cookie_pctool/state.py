@@ -27,6 +27,8 @@ class NodeRow:
     temp_c: float | None = None
     humid_pct: float | None = None
     t_active_ms: int | None = None
+    accel_g: tuple[float, float, float] | None = None
+    gyro_dps: tuple[float, float, float] | None = None
     i_avg_ma: float | None = None
     i_pk_ma: float | None = None
     vbat_mv: int | None = None
@@ -75,6 +77,10 @@ class MeshState:
             row.humid_pct = frame.humid_pct
         if frame.t_active_ms is not None:
             row.t_active_ms = frame.t_active_ms
+        if frame.accel_g is not None:
+            row.accel_g = frame.accel_g
+        if frame.gyro_dps is not None:
+            row.gyro_dps = frame.gyro_dps
         if frame.i_avg_ma is not None:
             row.i_avg_ma = frame.i_avg_ma
         if frame.i_pk_ma is not None:

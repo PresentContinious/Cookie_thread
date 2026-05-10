@@ -25,6 +25,16 @@ def test_node_row_carries_last_values():
     assert len(state.history["a1b2"]) == 2
 
 
+def test_node_row_carries_imu_values():
+    state = MeshState()
+    feed(state, [
+        '{"src":"c3d4","role":"SED","accel_g":[0.0,0.0,1.0],"gyro_dps":[0.1,0.2,0.3]}',
+    ])
+    row = state.nodes["c3d4"]
+    assert row.accel_g == (0.0, 0.0, 1.0)
+    assert row.gyro_dps == (0.1, 0.2, 0.3)
+
+
 def test_topology_event_updates_tree():
     state = MeshState()
     feed(state, [

@@ -28,10 +28,26 @@ class Frame:
     temp_c: float | None = None
     humid_pct: float | None = None
     t_active_ms: int | None = None
+    accel_g: tuple[float, float, float] | None = None
+    gyro_dps: tuple[float, float, float] | None = None
     i_avg_ma: float | None = None
     i_pk_ma: float | None = None
     vbat_mv: int | None = None
     extras: dict[str, Any] = field(default_factory=dict)
+
+    @property
+    def accel_mag_g(self) -> float | None:
+        if self.accel_g is None:
+            return None
+        ax, ay, az = self.accel_g
+        return (ax * ax + ay * ay + az * az) ** 0.5
+
+    @property
+    def gyro_mag_dps(self) -> float | None:
+        if self.gyro_dps is None:
+            return None
+        gx, gy, gz = self.gyro_dps
+        return (gx * gx + gy * gy + gz * gz) ** 0.5
 
 
 @dataclass
@@ -96,6 +112,7 @@ def _frame_from_obj(obj: dict[str, Any], ts_host_ns: int) -> Frame:
     known = {
         "src", "role", "ts", "rssi", "hops",
         "temp_c", "humid_pct", "t_active_ms",
+        "accel_g", "gyro_dps",
         "i_avg_ma", "i_pk_ma", "vbat_mv",
     }
     extras = {k: v for k, v in obj.items() if k not in known}
@@ -109,6 +126,8 @@ def _frame_from_obj(obj: dict[str, Any], ts_host_ns: int) -> Frame:
         temp_c=_opt_float(obj.get("temp_c")),
         humid_pct=_opt_float(obj.get("humid_pct")),
         t_active_ms=_opt_int(obj.get("t_active_ms")),
+        accel_g=_opt_xyz(obj.get("accel_g")),
+        gyro_dps=_opt_xyz(obj.get("gyro_dps")),
         i_avg_ma=_opt_float(obj.get("i_avg_ma")),
         i_pk_ma=_opt_float(obj.get("i_pk_ma")),
         vbat_mv=_opt_int(obj.get("vbat_mv")),
@@ -122,6 +141,17 @@ def _opt_int(v: Any) -> int | None:
 
 def _opt_float(v: Any) -> float | None:
     return float(v) if v is not None else None
+
+
+def _opt_xyz(v: Any) -> tuple[float, float, float] | None:
+    if v is None:
+        return None
+    if not isinstance(v, (list, tuple)) or len(v) != 3:
+        return None
+    try:
+        return (float(v[0]), float(v[1]), float(v[2]))
+    except (TypeError, ValueError):
+        return None
 
 
 def parse_lines(lines: Iterable[str]) -> Iterable[Record]:

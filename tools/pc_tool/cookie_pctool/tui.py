@@ -22,7 +22,7 @@ from rich.table import Table
 from rich.text import Text
 
 from .frames import parse_line
-from .state import MeshState
+from .state import MeshState, NodeRow
 
 REFRESH_HZ = 4.0
 
@@ -143,9 +143,16 @@ def _render(layout: Layout, state: MeshState) -> None:
     layout["log"].update(Panel(_render_log(state), title="Log", border_style="yellow"))
 
 
+def _accel_mag(row: NodeRow) -> float | None:
+    if row.accel_g is None:
+        return None
+    ax, ay, az = row.accel_g
+    return (ax * ax + ay * ay + az * az) ** 0.5
+
+
 def _render_nodes(state: MeshState) -> Table:
     t = Table(expand=True)
-    for col in ("src", "role", "temp", "rh", "i_avg", "i_pk", "vbat", "rssi", "hops", "last"):
+    for col in ("src", "role", "T", "RH", "|a|", "i_avg", "i_pk", "vbat", "rssi", "hops", "last"):
         t.add_column(col)
     now_ns = time.monotonic_ns()
     for src in sorted(state.nodes):
@@ -154,8 +161,9 @@ def _render_nodes(state: MeshState) -> Table:
         t.add_row(
             row.src,
             row.role,
-            _fmt(row.temp_c, "{:.2f} °C"),
+            _fmt(row.temp_c, "{:.2f} C"),
             _fmt(row.humid_pct, "{:.1f} %"),
+            _fmt(_accel_mag(row), "{:.2f} g"),
             _fmt(row.i_avg_ma, "{:.2f} mA"),
             _fmt(row.i_pk_ma, "{:.1f} mA"),
             _fmt(row.vbat_mv, "{} mV"),

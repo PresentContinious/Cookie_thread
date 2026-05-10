@@ -1,0 +1,4 @@
+name: cookie_power
+build:
+  cmake: .
+  kconfig: Kconfig

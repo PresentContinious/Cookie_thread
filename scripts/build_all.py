@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Build all four firmware variants in one go.
+Build all firmware variants in one go.
 
 Works from any shell: if `west` isn't on PATH and ZEPHYR_BASE isn't set,
 the script wraps each build with `nrfutil toolchain-manager launch
@@ -12,7 +12,7 @@ cookie-thread-mesh repo as a sibling of nrf/, zephyr/, ...):
 
     python cookie-thread-mesh/scripts/build_all.py
     python cookie-thread-mesh/scripts/build_all.py --pristine
-    python cookie-thread-mesh/scripts/build_all.py --only dongle_node_auto
+    python cookie-thread-mesh/scripts/build_all.py --only cookie_gateway
     python cookie-thread-mesh/scripts/build_all.py --ncs-version v3.3.0
 """
 
@@ -27,19 +27,38 @@ REPO = Path(__file__).resolve().parent.parent
 APPS = REPO / "apps"
 
 VARIANTS = [
+    # --- Cookie hardware (full sensor + power telemetry available) ----------
+    {
+        "name":    "cookie_gateway",
+        "app":     APPS / "gateway",
+        "board":   "cookie_nrf_v200/nrf52840",
+        "extra":   [],
+        "comment": "Cookie as Leader/gateway. Hardware UART console; PC tool "
+                   "reads JSON lines over the on-board UART.",
+    },
     {
         "name":    "cookie_node_auto",
         "app":     APPS / "sensor_node",
         "board":   "cookie_nrf_v200/nrf52840",
         "extra":   ["overlays/profile_auto.conf"],
-        "comment": "Cookie sensor node, AUTO profile (compile only — no Cookie HW yet).",
+        "comment": "Cookie sensor node, AUTO profile (FTD, role elected).",
     },
+    {
+        "name":    "cookie_node_sed",
+        "app":     APPS / "sensor_node",
+        "board":   "cookie_nrf_v200/nrf52840",
+        "extra":   ["overlays/profile_sed.conf"],
+        "comment": "Cookie sensor node, SED profile. Headline image for the "
+                   "Chapter 6 sleep-current measurement.",
+    },
+    # --- Dongle hardware (no SHTC3 / ICM-20648 / INA333; mesh-scale only) ---
     {
         "name":    "dongle_gateway",
         "app":     APPS / "gateway",
         "board":   "nrf52840dongle/nrf52840",
         "extra":   [],
-        "comment": "Stub gateway on Dongle: CoAP server + USB-CDC raw passthrough.",
+        "comment": "Dongle as gateway. Kept buildable for fallback testing; "
+                   "see project notes for the OT+USB-CDC SYS_INIT issue.",
     },
     {
         "name":    "dongle_node_auto",
@@ -140,7 +159,7 @@ def detect_env(ncs_version: str):
 # --- build invocation -------------------------------------------------------
 
 def run(cmd, env=None):
-    print(f"+ {' '.join(str(c) for c in cmd)}")
+    print(f"+ {' '.join(str(c) for c in cmd)}", flush=True)
     return subprocess.run(cmd, env=env, check=False)
 
 

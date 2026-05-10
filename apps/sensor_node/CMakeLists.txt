@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.20.0)
 list(APPEND ZEPHYR_EXTRA_MODULES
 	"${CMAKE_CURRENT_SOURCE_DIR}/../../libs/cookie_proto"
 	"${CMAKE_CURRENT_SOURCE_DIR}/../../libs/cookie_sensors"
+	"${CMAKE_CURRENT_SOURCE_DIR}/../../libs/cookie_power"
 )
 
 # Make Zephyr discover boards/cei/cookie_nrf_v200/ in this repo.
