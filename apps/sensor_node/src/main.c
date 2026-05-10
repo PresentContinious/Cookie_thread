@@ -11,6 +11,8 @@
 #include <zephyr/drivers/gpio.h>
 
 #include <zephyr/net/openthread.h>
+#include <openthread/instance.h>
+#include <openthread/thread.h>
 
 #include "thread_setup.h"
 #include "node_loop.h"
@@ -47,6 +49,20 @@ int main(void)
 	);
 
 	bsp_init();
+
+	/* DIAG: wipe persistent OT state on every boot so the Kconfig
+	 * dataset (channel/key/PAN) takes effect fresh. Without this, two
+	 * Dongles refuse to merge because each loads its own saved partition
+	 * from NVS and remains Leader of its own partition. */
+	{
+		otInstance *inst_for_reset = openthread_get_default_instance();
+		if (inst_for_reset) {
+			otThreadSetEnabled(inst_for_reset, false);
+			otIp6SetEnabled(inst_for_reset, false);
+			(void)otInstanceErasePersistentInfo(inst_for_reset);
+			LOG_INF("OT factory-reset on boot");
+		}
+	}
 
 	/* MANUAL_START defaults to y in this NCS configuration, so we run
 	 * OT explicitly. The Kconfig dataset has already been loaded by

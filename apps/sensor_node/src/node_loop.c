@@ -133,6 +133,8 @@ static void report_work_handler(struct k_work *w)
 {
 	ARG_UNUSED(w);
 
+	LOG_INF("work_handler fired, uptime=%u ms", k_uptime_get_32());
+
 	int blinks = role_blink_count();
 	blink_red_n(blinks);
 
@@ -163,7 +165,12 @@ static void report_work_handler(struct k_work *w)
 static void report_timer_cb(struct k_timer *t)
 {
 	ARG_UNUSED(t);
-	k_work_submit(&report_work);
+	int rc = k_work_submit(&report_work);
+	/* Print directly from ISR context — LOG would defer too much.
+	 * rc < 0 = error, rc == 0 = was already pending, rc > 0 = freshly
+	 * queued. Anything other than 1 means the previous work hasn't
+	 * completed and we're stacking. */
+	printk("[timer fired, k_work_submit=%d]\n", rc);
 }
 
 int cookie_node_loop_start(void)

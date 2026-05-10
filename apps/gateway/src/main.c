@@ -59,6 +59,19 @@ int main(void)
 
 	gateway_usb_print_init();
 
+	/* DIAG: wipe persistent OT state on every boot so two Dongles do
+	 * not stay split into separate partitions (Leader + Leader) from
+	 * stale NVS. To be removed once mesh formation is stable. */
+	{
+		otInstance *inst = openthread_get_default_instance();
+		if (inst) {
+			otThreadSetEnabled(inst, false);
+			otIp6SetEnabled(inst, false);
+			(void)otInstanceErasePersistentInfo(inst);
+			LOG_INF("OT persistent info erased (factory-reset on boot)");
+		}
+	}
+
 	openthread_state_changed_callback_register(&ot_state_cb);
 
 	int orc = openthread_run();

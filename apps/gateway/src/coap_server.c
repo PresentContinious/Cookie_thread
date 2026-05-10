@@ -1,8 +1,16 @@
 /*
- * Stub CoAP server (#2a).
+ * Stub CoAP server (#2a), now on OpenThread native CoAP API.
  *
- * Listens on UDP 5683, accepts POST /sensors/data, prints the payload
- * as a JSON line on the host console, and replies with ACK 2.04.
+ * Listens on UDP 5683 via OT's CoAP layer (no Zephyr socket plumbing).
+ * Accepts POST /sensors/data, prints the payload as a JSON line on the
+ * host console, and replies with ACK 2.04 if the request was CON.
+ *
+ * Why OT-native CoAP and not Zephyr CoAP-over-socket: the Zephyr UDP
+ * socket bound to AF_INET6 ANY does not receive multicast packets even
+ * after IPV6_ADD_MEMBERSHIP / IPV6_JOIN_GROUP / net_if_ipv6_maddr_add
+ * (all return ENOTSUP / NULL on the OT-backed stack). OT's CoAP layer
+ * subscribes to the right Thread groups internally and surfaces every
+ * matching request to our handler.
  *
  * #4 will replace this handler with one that parses the frame, decorates
  * with ts_host, emits structured event lines, etc. The interface stays
@@ -16,166 +24,124 @@
 
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
-#include <zephyr/net/coap.h>
-#include <zephyr/net/socket.h>
-#include <zephyr/net/net_if.h>
 #include <zephyr/net/openthread.h>
+
+#include <openthread/coap.h>
+#include <openthread/error.h>
+#include <openthread/instance.h>
+#include <openthread/message.h>
 
 #include <errno.h>
 #include <string.h>
 
 LOG_MODULE_REGISTER(coap_server, LOG_LEVEL_INF);
 
-#define COAP_PORT       5683
-#define RX_BUF_LEN      512
-#define ACK_BUF_LEN     64
-#define MAX_OPTIONS     16
-#define STACK_SIZE      4096
+#define COAP_PORT      5683
+#define MAX_PAYLOAD    512
 
-static int srv_sock = -1;
-
-static int send_ack(struct coap_packet *req,
-		    const struct sockaddr *addr, socklen_t addr_len)
-{
-	uint8_t buf[ACK_BUF_LEN];
-	struct coap_packet ack;
-	uint8_t token[COAP_TOKEN_MAX_LEN];
-	uint8_t tlen = coap_header_get_token(req, token);
-	uint16_t mid = coap_header_get_id(req);
-
-	int rc = coap_packet_init(&ack, buf, sizeof(buf),
-				  COAP_VERSION_1, COAP_TYPE_ACK,
-				  tlen, token,
-				  COAP_RESPONSE_CODE_CHANGED, mid);
-	if (rc < 0) {
-		LOG_ERR("ack init: %d", rc);
-		return rc;
-	}
-
-	int sent = zsock_sendto(srv_sock, ack.data, ack.offset, 0, addr, addr_len);
-	if (sent < 0) {
-		LOG_ERR("ack sendto: %d", errno);
-		return -errno;
-	}
-	return 0;
-}
-
-static int sensors_post(struct coap_resource *r,
-			struct coap_packet *req,
-			struct sockaddr *addr, socklen_t addr_len)
-{
-	ARG_UNUSED(r);
-
-	uint16_t plen = 0;
-	const uint8_t *payload = coap_packet_get_payload(req, &plen);
-	if (payload && plen > 0) {
-		gateway_usb_print_line(payload, plen);
-	} else {
-		LOG_WRN("empty payload, ignoring");
-	}
-
-	uint8_t type = coap_header_get_type(req);
-	if (type == COAP_TYPE_CON) {
-		return send_ack(req, addr, addr_len);
-	}
-	return 0;
-}
-
-static struct coap_resource resources[] = {
-	{
-		.path = COOKIE_RESOURCE_SENSORS_SEGS,
-		.post = sensors_post,
-	},
-	{ .path = NULL },
+static otCoapResource sensors_resource = {
+	.mUriPath = COOKIE_RESOURCE_SENSORS_PATH,   /* "sensors/data" */
+	.mHandler = NULL,                            /* set in start() */
+	.mContext = NULL,
+	.mNext    = NULL,
 };
 
-static void server_thread(void *a, void *b, void *c)
+/* Send a 2.04 Changed response back to the requester.
+ *   - CON request -> piggyback ACK (same message ID)
+ *   - NON request -> NON response (fresh message ID)
+ * NON responses are required for our discovery flow: when the sensor sends
+ * a NON multicast POST, gateway must answer with a NON unicast so the
+ * sensor can cache the gateway's address from the response source. */
+static otError send_response_changed(otInstance *ot,
+				     const otMessage *request,
+				     const otMessageInfo *info)
 {
-	ARG_UNUSED(a); ARG_UNUSED(b); ARG_UNUSED(c);
+	otCoapType req_type = otCoapMessageGetType(request);
+	otCoapType rsp_type = (req_type == OT_COAP_TYPE_CONFIRMABLE)
+			      ? OT_COAP_TYPE_ACKNOWLEDGMENT
+			      : OT_COAP_TYPE_NON_CONFIRMABLE;
 
-	uint8_t buf[RX_BUF_LEN];
-	struct coap_option opts[MAX_OPTIONS];
-
-	while (true) {
-		struct sockaddr_in6 peer;
-		socklen_t plen = sizeof(peer);
-		int rx = zsock_recvfrom(srv_sock, buf, sizeof(buf), 0,
-					(struct sockaddr *)&peer, &plen);
-		if (rx < 0) {
-			if (errno == EAGAIN || errno == EINTR) {
-				continue;
-			}
-			LOG_ERR("recvfrom: %d", errno);
-			k_sleep(K_MSEC(100));
-			continue;
-		}
-
-		struct coap_packet pkt;
-		if (coap_packet_parse(&pkt, buf, rx, NULL, 0) < 0) {
-			LOG_WRN("malformed CoAP from peer (%d B)", rx);
-			continue;
-		}
-
-		uint8_t nopts = coap_find_options(&pkt, COAP_OPTION_URI_PATH,
-						  opts, MAX_OPTIONS);
-
-		int rc = coap_handle_request(&pkt, resources, opts, nopts,
-					     (struct sockaddr *)&peer, plen);
-		if (rc < 0) {
-			LOG_DBG("coap_handle_request: %d", rc);
-		}
+	otMessage *response = otCoapNewMessage(ot, NULL);
+	if (!response) {
+		return OT_ERROR_NO_BUFS;
 	}
+
+	otError err = otCoapMessageInitResponse(response, request, rsp_type,
+						OT_COAP_CODE_CHANGED);
+	if (err != OT_ERROR_NONE) {
+		otMessageFree(response);
+		return err;
+	}
+
+	err = otCoapSendResponse(ot, response, info);
+	if (err != OT_ERROR_NONE) {
+		otMessageFree(response);
+	}
+	return err;
 }
 
-K_THREAD_STACK_DEFINE(srv_stack, STACK_SIZE);
-static struct k_thread srv_thread_data;
+static void sensors_post_handler(void *ctx,
+				 otMessage *message,
+				 const otMessageInfo *message_info)
+{
+	ARG_UNUSED(ctx);
+
+	if (otCoapMessageGetCode(message) != OT_COAP_CODE_POST) {
+		LOG_DBG("ignoring non-POST on /sensors/data");
+		return;
+	}
+
+	uint16_t off = otMessageGetOffset(message);
+	uint16_t total = otMessageGetLength(message);
+	uint16_t plen = (total > off) ? (total - off) : 0;
+
+	if (plen > 0) {
+		uint8_t buf[MAX_PAYLOAD];
+		uint16_t copy = (plen <= sizeof(buf)) ? plen : sizeof(buf);
+		uint16_t got = otMessageRead(message, off, buf, copy);
+		gateway_usb_print_line(buf, got);
+	} else {
+		LOG_WRN("empty POST /sensors/data, ignoring");
+	}
+
+	/* Always respond — NON gets a NON response, CON gets a piggyback
+	 * ACK. The sensor's discovery flow needs a NON response back so it
+	 * can cache our address from the source field. */
+	otInstance *ot = openthread_get_default_instance();
+	(void)send_response_changed(ot, message, message_info);
+}
+
+static void default_handler(void *ctx,
+			    otMessage *message,
+			    const otMessageInfo *message_info)
+{
+	ARG_UNUSED(ctx);
+	ARG_UNUSED(message);
+	ARG_UNUSED(message_info);
+	LOG_DBG("unmatched CoAP request");
+}
 
 int gateway_coap_server_start(void)
 {
-	srv_sock = zsock_socket(AF_INET6, SOCK_DGRAM, IPPROTO_UDP);
-	if (srv_sock < 0) {
-		LOG_ERR("socket: %d", errno);
-		return -errno;
+	otInstance *ot = openthread_get_default_instance();
+	if (!ot) {
+		LOG_ERR("no OT instance");
+		return -ENODEV;
 	}
 
-	struct sockaddr_in6 local = {
-		.sin6_family = AF_INET6,
-		.sin6_port   = htons(COAP_PORT),
-		.sin6_addr   = IN6ADDR_ANY_INIT,
-	};
-	if (zsock_bind(srv_sock, (struct sockaddr *)&local, sizeof(local)) < 0) {
-		LOG_ERR("bind: %d", errno);
-		zsock_close(srv_sock);
-		srv_sock = -1;
-		return -errno;
+	sensors_resource.mHandler = sensors_post_handler;
+	sensors_resource.mContext = NULL;
+
+	otCoapSetDefaultHandler(ot, default_handler, NULL);
+	otCoapAddResource(ot, &sensors_resource);
+
+	otError err = otCoapStart(ot, COAP_PORT);
+	if (err != OT_ERROR_NONE) {
+		LOG_ERR("otCoapStart: %d", err);
+		return -EIO;
 	}
 
-	/* Subscribe to the Realm-Local All-Nodes multicast group (ff03::1)
-	 * via Zephyr's native net_if API. The standard socket-option route
-	 * (IPV6_ADD_MEMBERSHIP / IPV6_JOIN_GROUP) returns ENOTSUP on the
-	 * OT-backed Zephyr stack. Adding the group at the interface level
-	 * makes the kernel deliver matching UDP packets to the bound socket. */
-	struct in6_addr group;
-	if (zsock_inet_pton(AF_INET6, "ff03::1", &group) == 1) {
-		struct net_if *iface = openthread_get_default_context()->iface;
-		if (iface) {
-			struct net_if_mcast_addr *m = net_if_ipv6_maddr_add(iface, &group);
-			if (m) {
-				net_if_ipv6_maddr_join(iface, m);
-				LOG_INF("joined ff03::1 on iface %p", (void *)iface);
-			} else {
-				LOG_WRN("net_if_ipv6_maddr_add ff03::1 failed");
-			}
-		} else {
-			LOG_WRN("OT iface not available");
-		}
-	}
-
-	k_thread_create(&srv_thread_data, srv_stack, STACK_SIZE,
-			server_thread, NULL, NULL, NULL,
-			K_PRIO_PREEMPT(7), 0, K_NO_WAIT);
-	k_thread_name_set(&srv_thread_data, "coap_srv");
-
-	LOG_INF("CoAP server listening on UDP %d", COAP_PORT);
+	LOG_INF("OT-CoAP server listening on UDP %d, resource %s",
+		COAP_PORT, sensors_resource.mUriPath);
 	return 0;
 }

@@ -1,55 +1,54 @@
 /*
- * CoAP push client.
+ * CoAP push client on OpenThread native CoAP API.
  *
- * Discovery: first push after init or after a cache miss is a NON POST
- * to ff03::1 (Realm-Local All-Nodes). The first responder's source
- * address is cached and used as the unicast peer for all subsequent
- * pushes.
+ * The previous implementation used a Zephyr UDP socket bound to AF_INET6 ANY
+ * and sent multicast NON to ff03::1 for discovery. That approach hangs on
+ * the OT-backed Zephyr stack because the socket layer does not surface
+ * multicast packets even when joined via IPV6_JOIN_GROUP / net_if_ipv6_maddr_add
+ * (both return ENOTSUP / NULL). Symptom: first push hangs forever, work
+ * queue never advances, no further cycles ever fire.
  *
- * Cached path: CON POST to the cached unicast IPv6, with manual
- * exponential-backoff retransmission until ACK or budget exhaustion.
+ * This rewrite uses OT's CoAP layer (otCoapSendRequest) which understands
+ * Thread multicast natively and is fire-and-forget — push returns
+ * immediately and the response handler caches the gateway address when the
+ * gateway answers.
  *
- * Threading: blocking from the caller's context. Internal mutex
- * serialises concurrent pushes (workqueue handler and SED loop never
- * race in practice but the mutex makes the contract explicit).
+ * Threading: push_frame is called from the workqueue context. It builds an
+ * otMessage, hands it to OT, and returns. OT's CoAP layer manages
+ * retransmission and timeout independently. The mutex still serialises
+ * gateway-address state across pushes.
  */
 
 #include "cookie_proto/coap_client.h"
+#include "cookie_proto/frame.h"
 #include "cookie_proto/resources.h"
 
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
-#include <zephyr/net/coap.h>
-#include <zephyr/net/socket.h>
-#include <zephyr/random/random.h>
-#include <zephyr/sys/byteorder.h>
+#include <zephyr/net/openthread.h>
+
+#include <openthread/coap.h>
+#include <openthread/error.h>
+#include <openthread/instance.h>
+#include <openthread/ip6.h>
+#include <openthread/message.h>
 
 #include <errno.h>
 #include <string.h>
 
 LOG_MODULE_REGISTER(cookie_coap, CONFIG_COOKIE_PROTO_LOG_LEVEL);
 
-#define COAP_PORT          5683
-#define DISCOVERY_GROUP    "ff03::1"
-#define ACK_TIMEOUT_MS     2000
-#define MAX_RETRANSMIT     4
-#define POLL_GRANULARITY   100
+#define DISCOVERY_GROUP "ff03::1"
 
 struct ctx {
-	int                  sock;
-	bool                 initialised;
-	bool                 have_gateway;
-	struct sockaddr_in6  gateway;
-	struct k_mutex       lock;
+	otInstance       *ot;
+	bool              initialised;
+	bool              have_gateway;
+	otIp6Address      gateway;
+	struct k_mutex    lock;
 };
 
 static struct ctx ctx;
-
-static void zero_gateway(void)
-{
-	memset(&ctx.gateway, 0, sizeof(ctx.gateway));
-	ctx.have_gateway = false;
-}
 
 int cookie_coap_init(void)
 {
@@ -57,263 +56,68 @@ int cookie_coap_init(void)
 		return 0;
 	}
 
-	k_mutex_init(&ctx.lock);
-	zero_gateway();
-
-	ctx.sock = zsock_socket(AF_INET6, SOCK_DGRAM, IPPROTO_UDP);
-	if (ctx.sock < 0) {
-		LOG_ERR("socket(): %d", errno);
-		return -errno;
+	ctx.ot = openthread_get_default_instance();
+	if (!ctx.ot) {
+		LOG_ERR("no OT instance");
+		return -ENODEV;
 	}
 
-	struct sockaddr_in6 local = {
-		.sin6_family = AF_INET6,
-		.sin6_port   = htons(0),  /* ephemeral */
-		.sin6_addr   = IN6ADDR_ANY_INIT,
-	};
-	if (zsock_bind(ctx.sock, (struct sockaddr *)&local, sizeof(local)) < 0) {
-		LOG_ERR("bind(): %d", errno);
-		zsock_close(ctx.sock);
-		ctx.sock = -1;
-		return -errno;
+	k_mutex_init(&ctx.lock);
+	memset(&ctx.gateway, 0, sizeof(ctx.gateway));
+	ctx.have_gateway = false;
+
+	/* otCoapStart enables the CoAP layer (server + client). Port 0 lets
+	 * OT pick an ephemeral local port for client requests. The gateway
+	 * already started its own otCoapStart on 5683 — these are separate
+	 * OT instances so there's no conflict. */
+	otError err = otCoapStart(ctx.ot, 0);
+	if (err != OT_ERROR_NONE && err != OT_ERROR_ALREADY) {
+		LOG_ERR("otCoapStart: %d", err);
+		return -EIO;
 	}
 
 	ctx.initialised = true;
-	LOG_INF("CoAP transport ready");
+	LOG_INF("OT-CoAP transport ready");
 	return 0;
 }
 
 void cookie_coap_invalidate_gateway(void)
 {
 	k_mutex_lock(&ctx.lock, K_FOREVER);
-	zero_gateway();
+	memset(&ctx.gateway, 0, sizeof(ctx.gateway));
+	ctx.have_gateway = false;
 	k_mutex_unlock(&ctx.lock);
 }
 
 void cookie_coap_quiesce(void)
 {
-	/* Blocking-send model: nothing pending across calls.  Hook left in
-	 * place so SED loop's intent is documented, and so a future
-	 * non-blocking variant has a clear cancel point. */
+	/* Async send model: nothing to cancel. Hook left in place so the
+	 * SED loop's intent is documented. */
 }
 
-/* -------------------------------------------------------------------------- */
-/* Helpers                                                                    */
-/* -------------------------------------------------------------------------- */
-
-static int build_post(struct coap_packet *out,
-		      uint8_t *buf, size_t buf_len,
-		      uint8_t type, const uint8_t *token, uint8_t token_len,
-		      uint16_t msg_id, const char *json, size_t json_len)
+/* Called by OT CoAP when a response arrives or the request times out.
+ * For NON discovery: gateway responds with a NON containing the same token.
+ * The source address is the gateway's RLOC; cache it for subsequent
+ * unicast CON pushes. */
+static void on_response(void *user_ctx,
+			otMessage *message,
+			const otMessageInfo *info,
+			otError result)
 {
-	int rc;
+	ARG_UNUSED(user_ctx);
 
-	rc = coap_packet_init(out, buf, buf_len,
-			      COAP_VERSION_1, type, token_len, token,
-			      COAP_METHOD_POST, msg_id);
-	if (rc < 0) {
-		return rc;
+	if (result != OT_ERROR_NONE || !message || !info) {
+		LOG_DBG("response: err=%d", result);
+		return;
 	}
 
-	rc = coap_packet_append_option(out, COAP_OPTION_URI_PATH,
-				       (const uint8_t *)COOKIE_RESOURCE_SENSORS_SEG_0,
-				       strlen(COOKIE_RESOURCE_SENSORS_SEG_0));
-	if (rc < 0) {
-		return rc;
-	}
-	rc = coap_packet_append_option(out, COAP_OPTION_URI_PATH,
-				       (const uint8_t *)COOKIE_RESOURCE_SENSORS_SEG_1,
-				       strlen(COOKIE_RESOURCE_SENSORS_SEG_1));
-	if (rc < 0) {
-		return rc;
-	}
-
-	uint8_t ct = COAP_CONTENT_FORMAT_APP_JSON;
-	rc = coap_packet_append_option(out, COAP_OPTION_CONTENT_FORMAT,
-				       &ct, sizeof(ct));
-	if (rc < 0) {
-		return rc;
-	}
-
-	rc = coap_packet_append_payload_marker(out);
-	if (rc < 0) {
-		return rc;
-	}
-	rc = coap_packet_append_payload(out, (const uint8_t *)json, json_len);
-	if (rc < 0) {
-		return rc;
-	}
-	return 0;
-}
-
-static int wait_for_reply(uint8_t *buf, size_t buf_len,
-			  uint8_t *out_token, uint8_t *out_token_len,
-			  struct sockaddr_in6 *peer,
-			  k_timeout_t timeout)
-{
-	struct zsock_pollfd pfd = {
-		.fd     = ctx.sock,
-		.events = ZSOCK_POLLIN,
-	};
-
-	int64_t deadline = k_uptime_get() + k_ticks_to_ms_floor64(timeout.ticks);
-
-	while (true) {
-		int64_t now = k_uptime_get();
-		int64_t left = deadline - now;
-		if (left <= 0) {
-			return -ETIMEDOUT;
-		}
-		int n = zsock_poll(&pfd, 1, (int)MIN(left, POLL_GRANULARITY));
-		if (n < 0) {
-			return -errno;
-		}
-		if (n == 0) {
-			continue;
-		}
-		socklen_t plen = sizeof(*peer);
-		int rx = zsock_recvfrom(ctx.sock, buf, buf_len, 0,
-					(struct sockaddr *)peer, &plen);
-		if (rx < 0) {
-			return -errno;
-		}
-
-		struct coap_packet rsp;
-		if (coap_packet_parse(&rsp, buf, rx, NULL, 0) < 0) {
-			LOG_WRN("malformed CoAP reply (%d B), ignoring", rx);
-			continue;
-		}
-
-		uint8_t tok[COAP_TOKEN_MAX_LEN];
-		uint8_t tlen = coap_header_get_token(&rsp, tok);
-		memcpy(out_token, tok, tlen);
-		*out_token_len = tlen;
-		return rx;
-	}
-}
-
-static bool token_matches(const uint8_t *a, uint8_t alen,
-			  const uint8_t *b, uint8_t blen)
-{
-	return alen == blen && (alen == 0 || memcmp(a, b, alen) == 0);
-}
-
-/* -------------------------------------------------------------------------- */
-/* Discovery                                                                  */
-/* -------------------------------------------------------------------------- */
-
-static int discover(const char *json, size_t json_len)
-{
-	uint8_t buf[CONFIG_COOKIE_PROTO_COAP_BLOCK_SIZE];
-	struct coap_packet pkt;
-	uint8_t token[4];
-	sys_rand_get(token, sizeof(token));
-	uint16_t mid = coap_next_id();
-
-	int rc = build_post(&pkt, buf, sizeof(buf),
-			    COAP_TYPE_NON_CON, token, sizeof(token), mid,
-			    json, json_len);
-	if (rc < 0) {
-		LOG_ERR("build_post(NON): %d", rc);
-		return rc;
-	}
-
-	struct sockaddr_in6 mcast = {
-		.sin6_family = AF_INET6,
-		.sin6_port   = htons(COAP_PORT),
-	};
-	if (zsock_inet_pton(AF_INET6, DISCOVERY_GROUP, &mcast.sin6_addr) != 1) {
-		return -EINVAL;
-	}
-
-	int sent = zsock_sendto(ctx.sock, pkt.data, pkt.offset, 0,
-				(struct sockaddr *)&mcast, sizeof(mcast));
-	if (sent < 0) {
-		LOG_ERR("sendto(mcast): %d", errno);
-		return -errno;
-	}
-	LOG_INF("discovery NON sent to " DISCOVERY_GROUP " (%d B)", sent);
-
-	uint8_t rxbuf[CONFIG_COOKIE_PROTO_COAP_BLOCK_SIZE];
-	uint8_t rx_tok[COAP_TOKEN_MAX_LEN];
-	uint8_t rx_tlen;
-	struct sockaddr_in6 peer;
-
-	int rx = wait_for_reply(rxbuf, sizeof(rxbuf), rx_tok, &rx_tlen, &peer,
-				K_MSEC(CONFIG_COOKIE_PROTO_DISCOVERY_TIMEOUT_MS));
-	if (rx < 0) {
-		LOG_INF("discovery: no responder (%d)", rx);
-		return rx;
-	}
-	if (!token_matches(rx_tok, rx_tlen, token, sizeof(token))) {
-		LOG_WRN("discovery reply token mismatch, ignoring");
-		return -EAGAIN;
-	}
-
-	memcpy(&ctx.gateway, &peer, sizeof(peer));
-	ctx.gateway.sin6_port = htons(COAP_PORT);
+	k_mutex_lock(&ctx.lock, K_FOREVER);
+	memcpy(&ctx.gateway, &info->mPeerAddr, sizeof(ctx.gateway));
 	ctx.have_gateway = true;
+	k_mutex_unlock(&ctx.lock);
 
-	char addrbuf[INET6_ADDRSTRLEN];
-	zsock_inet_ntop(AF_INET6, &peer.sin6_addr, addrbuf, sizeof(addrbuf));
-	LOG_INF("gateway discovered: %s", addrbuf);
-	return 0;
+	LOG_INF("gateway discovered, caching address");
 }
-
-/* -------------------------------------------------------------------------- */
-/* Unicast CON push                                                           */
-/* -------------------------------------------------------------------------- */
-
-static int push_con(const char *json, size_t json_len)
-{
-	uint8_t buf[CONFIG_COOKIE_PROTO_COAP_BLOCK_SIZE];
-	struct coap_packet pkt;
-	uint8_t token[4];
-	sys_rand_get(token, sizeof(token));
-	uint16_t mid = coap_next_id();
-
-	int rc = build_post(&pkt, buf, sizeof(buf),
-			    COAP_TYPE_CON, token, sizeof(token), mid,
-			    json, json_len);
-	if (rc < 0) {
-		LOG_ERR("build_post(CON): %d", rc);
-		return rc;
-	}
-
-	int timeout_ms = ACK_TIMEOUT_MS;
-
-	for (int attempt = 0; attempt <= MAX_RETRANSMIT; attempt++) {
-		int sent = zsock_sendto(ctx.sock, pkt.data, pkt.offset, 0,
-					(struct sockaddr *)&ctx.gateway,
-					sizeof(ctx.gateway));
-		if (sent < 0) {
-			LOG_ERR("sendto(unicast): %d", errno);
-			return -errno;
-		}
-
-		uint8_t rxbuf[CONFIG_COOKIE_PROTO_COAP_BLOCK_SIZE];
-		uint8_t rx_tok[COAP_TOKEN_MAX_LEN];
-		uint8_t rx_tlen;
-		struct sockaddr_in6 peer;
-		int rx = wait_for_reply(rxbuf, sizeof(rxbuf), rx_tok, &rx_tlen,
-					&peer, K_MSEC(timeout_ms));
-		if (rx >= 0 && token_matches(rx_tok, rx_tlen, token, sizeof(token))) {
-			LOG_DBG("ACK after %d retries", attempt);
-			return 0;
-		}
-		LOG_DBG("no ACK (try %d/%d, t=%d ms)",
-			attempt + 1, MAX_RETRANSMIT + 1, timeout_ms);
-		timeout_ms *= 2;
-	}
-
-	LOG_WRN("CON exhausted, invalidating gateway");
-	zero_gateway();
-	return -ETIMEDOUT;
-}
-
-/* -------------------------------------------------------------------------- */
-/* Public push                                                                */
-/* -------------------------------------------------------------------------- */
 
 int cookie_coap_push_frame(const struct sensor_frame *f)
 {
@@ -327,21 +131,67 @@ int cookie_coap_push_frame(const struct sensor_frame *f)
 		return n;
 	}
 
-	int rc;
+	bool unicast;
+	otIp6Address peer_addr;
 	k_mutex_lock(&ctx.lock, K_FOREVER);
+	unicast = ctx.have_gateway;
+	memcpy(&peer_addr, &ctx.gateway, sizeof(peer_addr));
+	k_mutex_unlock(&ctx.lock);
 
-	if (!ctx.have_gateway) {
-		rc = discover(json, (size_t)n);
-		if (rc < 0) {
-			k_mutex_unlock(&ctx.lock);
-			return rc;
-		}
-		/* Discovery already delivered the frame as a NON; no follow-up. */
-		k_mutex_unlock(&ctx.lock);
-		return 0;
+	/* Build the CoAP message. */
+	otMessage *msg = otCoapNewMessage(ctx.ot, NULL);
+	if (!msg) {
+		LOG_WRN("otCoapNewMessage out of buffers");
+		return -ENOMEM;
 	}
 
-	rc = push_con(json, (size_t)n);
-	k_mutex_unlock(&ctx.lock);
-	return rc;
+	/* Discovery cycle uses NON multicast; cached path uses CON unicast.
+	 * Both go through the same SendRequest path; OT handles
+	 * retransmission internally for CON. */
+	otCoapType type = unicast ? OT_COAP_TYPE_CONFIRMABLE
+				  : OT_COAP_TYPE_NON_CONFIRMABLE;
+
+	/* MessageInit / GenerateToken return void in NCS v3.3 OT API. */
+	otCoapMessageInit(msg, type, OT_COAP_CODE_POST);
+	otCoapMessageGenerateToken(msg, 4);
+
+	otError err = otCoapMessageAppendUriPathOptions(msg, COOKIE_RESOURCE_SENSORS_PATH);
+	if (err != OT_ERROR_NONE) goto out_free;
+
+	err = otCoapMessageAppendContentFormatOption(msg,
+		OT_COAP_OPTION_CONTENT_FORMAT_JSON);
+	if (err != OT_ERROR_NONE) goto out_free;
+
+	err = otCoapMessageSetPayloadMarker(msg);
+	if (err != OT_ERROR_NONE) goto out_free;
+
+	err = otMessageAppend(msg, json, (uint16_t)n);
+	if (err != OT_ERROR_NONE) goto out_free;
+
+	otMessageInfo info = { 0 };
+	info.mPeerPort = OT_DEFAULT_COAP_PORT;
+	if (unicast) {
+		memcpy(&info.mPeerAddr, &peer_addr, sizeof(otIp6Address));
+	} else {
+		err = otIp6AddressFromString(DISCOVERY_GROUP, &info.mPeerAddr);
+		if (err != OT_ERROR_NONE) goto out_free;
+	}
+
+	/* Async send. Response handler runs in OT thread context when reply
+	 * arrives (or never, for NON multicast with no responder). Either
+	 * way, this call returns quickly. */
+	err = otCoapSendRequest(ctx.ot, msg, &info, on_response, NULL);
+	if (err != OT_ERROR_NONE) {
+		LOG_WRN("otCoapSendRequest: %d", err);
+		goto out_free;
+	}
+
+	LOG_INF("push: %s POST /%s, %d B",
+		unicast ? "CON" : "NON-mcast",
+		COOKIE_RESOURCE_SENSORS_PATH, n);
+	return 0;
+
+out_free:
+	otMessageFree(msg);
+	return -EIO;
 }
