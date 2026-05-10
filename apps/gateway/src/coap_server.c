@@ -18,6 +18,8 @@
 #include <zephyr/logging/log.h>
 #include <zephyr/net/coap.h>
 #include <zephyr/net/socket.h>
+#include <zephyr/net/net_if.h>
+#include <zephyr/net/openthread.h>
 
 #include <errno.h>
 #include <string.h>
@@ -146,6 +148,27 @@ int gateway_coap_server_start(void)
 		zsock_close(srv_sock);
 		srv_sock = -1;
 		return -errno;
+	}
+
+	/* Subscribe to the Realm-Local All-Nodes multicast group (ff03::1)
+	 * via Zephyr's native net_if API. The standard socket-option route
+	 * (IPV6_ADD_MEMBERSHIP / IPV6_JOIN_GROUP) returns ENOTSUP on the
+	 * OT-backed Zephyr stack. Adding the group at the interface level
+	 * makes the kernel deliver matching UDP packets to the bound socket. */
+	struct in6_addr group;
+	if (zsock_inet_pton(AF_INET6, "ff03::1", &group) == 1) {
+		struct net_if *iface = openthread_get_default_context()->iface;
+		if (iface) {
+			struct net_if_mcast_addr *m = net_if_ipv6_maddr_add(iface, &group);
+			if (m) {
+				net_if_ipv6_maddr_join(iface, m);
+				LOG_INF("joined ff03::1 on iface %p", (void *)iface);
+			} else {
+				LOG_WRN("net_if_ipv6_maddr_add ff03::1 failed");
+			}
+		} else {
+			LOG_WRN("OT iface not available");
+		}
 	}
 
 	k_thread_create(&srv_thread_data, srv_stack, STACK_SIZE,

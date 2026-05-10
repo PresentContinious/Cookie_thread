@@ -9,6 +9,10 @@
  * Sensor readings are best-effort: a missing sensor (Dongle-only build,
  * unwired ICM, broken SAADC channel) leaves the corresponding optional
  * fields cleared and the frame still goes out with whatever is available.
+ *
+ * LED feedback (visible diagnostic when no console is attached):
+ *   - red blinks ~50 ms at the start of each cycle  -> "loop is firing"
+ *   - green steady ON while attached to the mesh    -> "Thread role >= CHILD"
  */
 
 #include "node_loop.h"
@@ -22,11 +26,67 @@
 
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
+#include <zephyr/drivers/gpio.h>
+#include <zephyr/net/openthread.h>
+#include <openthread/instance.h>
+#include <openthread/thread.h>
+
+#include <string.h>
 
 LOG_MODULE_REGISTER(node_loop, LOG_LEVEL_INF);
 
+static const struct gpio_dt_spec led_red_lp =
+	GPIO_DT_SPEC_GET_OR(DT_ALIAS(led_red), gpios, {0});
+static const struct gpio_dt_spec led_grn_lp =
+	GPIO_DT_SPEC_GET_OR(DT_ALIAS(led_green), gpios, {0});
+
 static struct k_timer report_timer;
 static struct k_work  report_work;
+
+static void blink_red_n(int n)
+{
+	if (!led_red_lp.port) {
+		return;
+	}
+	for (int i = 0; i < n; i++) {
+		gpio_pin_set_dt(&led_red_lp, 1);
+		k_sleep(K_MSEC(80));
+		gpio_pin_set_dt(&led_red_lp, 0);
+		k_sleep(K_MSEC(220));
+	}
+}
+
+/* Returns blink count encoding the current OT state:
+ *   1 = otInstance NULL (broken init)
+ *   2 = DISABLED (Thread protocol never started)
+ *   3 = DETACHED (Thread started, no partition found)
+ *   4 = CHILD
+ *   5 = ROUTER
+ *   6 = LEADER
+ * User counts the red blinks per cycle to know the role.
+ */
+static int role_blink_count(void)
+{
+	otInstance *inst = openthread_get_default_instance();
+	if (!inst) {
+		return 1;
+	}
+	switch (otThreadGetDeviceRole(inst)) {
+	case OT_DEVICE_ROLE_DISABLED: return 2;
+	case OT_DEVICE_ROLE_DETACHED: return 3;
+	case OT_DEVICE_ROLE_CHILD:    return 4;
+	case OT_DEVICE_ROLE_ROUTER:   return 5;
+	case OT_DEVICE_ROLE_LEADER:   return 6;
+	default:                      return 1;
+	}
+}
+
+static void set_attached_led(bool attached)
+{
+	if (led_grn_lp.port) {
+		gpio_pin_set_dt(&led_grn_lp, attached ? 1 : 0);
+	}
+}
 
 static void fill_environmental(struct sensor_frame *f)
 {
@@ -73,8 +133,13 @@ static void report_work_handler(struct k_work *w)
 {
 	ARG_UNUSED(w);
 
-	if (cookie_thread_wait_attached(K_NO_WAIT) != 0) {
-		LOG_DBG("not attached, skipping push");
+	int blinks = role_blink_count();
+	blink_red_n(blinks);
+
+	bool attached = (blinks >= 4);  /* CHILD/ROUTER/LEADER */
+	set_attached_led(attached);
+	if (!attached) {
+		LOG_DBG("not attached (blinks=%d), skipping push", blinks);
 		return;
 	}
 
