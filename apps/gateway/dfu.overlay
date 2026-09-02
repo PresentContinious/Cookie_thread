@@ -1,0 +1,19 @@
+/*
+ * Settings storage relocated for the Open Bootloader layout.
+ *
+ * The board devicetree puts the storage partition at 0xF8000, inside the
+ * region the Nordic Open Bootloader occupies (roughly 0xE0000 to 0x100000).
+ * OpenThread writes its network credentials there through the settings NVS
+ * backend, so on a DFU image the partition moves onto the bootloader's
+ * application-data area at 0xDD000-0xDFFFF (12 kB, three NVS sectors). The
+ * bootloader never erases those pages during DFU and refuses any image that
+ * reaches into them, so the credentials survive a firmware update and no
+ * update can clobber them.
+ *
+ * Pairs with dfu.conf. The unit-address of the node keeps the name it was
+ * given in the board devicetree; only the address in reg is authoritative.
+ */
+
+&storage_partition {
+	reg = <0x000DD000 DT_SIZE_K(12)>;
+};

@@ -1,0 +1,15 @@
+# Cookie nRF V2.00 — nRF52840 SoC, same silicon as the Nordic DK/Dongle.
+# FIRST CUT: verify feature names against the pinned RIOT release.
+CPU = nrf52
+CPU_MODEL = nrf52840xxaa
+
+# Peripherals actually wired on this board.
+FEATURES_PROVIDED += periph_gpio periph_gpio_irq
+FEATURES_PROVIDED += periph_i2c
+FEATURES_PROVIDED += periph_uart
+FEATURES_PROVIDED += periph_timer
+FEATURES_PROVIDED += periph_rtt
+FEATURES_PROVIDED += periph_adc
+
+# Radio: radio_nrf802154 is provided at CPU level for nrf52840xxaa
+# (cpu/nrf52/Makefile.features), nothing to declare here.

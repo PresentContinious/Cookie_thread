@@ -1,0 +1,18 @@
+# Contiki-NG board: Cookie nRF V2.00. Copied into
+# $CONTIKI/arch/platform/nrf52840/cookie/ by CI (or by hand), then built with
+# TARGET=nrf52840 BOARD=cookie. Based on the in-tree "dk" board (UART console),
+# retargeted to the Cookie pinout.
+CONTIKI_TARGET_DIRS += cookie
+CONTIKI_TARGET_SOURCEFILES += board-leds.c board-buttons.c cookie-sensors.c
+
+# DFU image layout. The in-tree dongle board picks the bootloader linker script
+# (FLASH origin 0x1000, above the Open Bootloader's static MBR) in
+# arch/cpu/nrf52840/Makefile.nrf52840; the same script is selected here when the
+# build is asked for it with COOKIE_DFU=1, so the image can be handed to the
+# bootloader over USB with nrfutil instead of flashed at 0x0 over SWD. The CPU
+# makefile assigns LDSCRIPT with ?=, and it is included after this file, so the
+# choice below wins. CONTIKI_CPU is only defined there, hence the deferred
+# expansion.
+ifeq (1,$(COOKIE_DFU))
+  LDSCRIPT = $(CONTIKI_CPU)/ld/nrf52840-bootloader.ld
+endif

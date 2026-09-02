@@ -1,0 +1,33 @@
+# Build outputs
+build/
+build_*/
+.build/
+
+# Port build outputs (RIOT/Contiki, regenerable via ports/docker)
+ports/**/bin/
+ports/**/bin_dfu/
+*.nrf52840
+
+# Bootloader build intermediates (the deliverable hex in out/ is tracked)
+ports/bootloader/_build/
+
+# West / Zephyr workspace state
+.west/
+
+# IDE
+.vscode/
+*.swp
+*.bak
+
+# OS
+Thumbs.db
+.DS_Store
+
+# PC tool
+tools/pc_tool/.venv/
+tools/pc_tool/*.egg-info/
+tools/pc_tool/sample_run.jsonl
+tools/pc_tool/chapter6_demo.html
+__pycache__/
+.pytest_cache/
+*.pyc

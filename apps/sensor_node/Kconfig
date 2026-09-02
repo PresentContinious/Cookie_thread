@@ -1,0 +1,64 @@
+mainmenu "Cookie sensor node"
+
+choice
+	prompt "Node operation profile"
+	default NODE_PROFILE_AUTO
+	help
+	  Selects the runtime shape of the node. AUTO is the headline
+	  self-organising-mesh image (FTD, role elected by Thread).
+	  SED is the sleepy-end-device variant for low-power measurement.
+
+config NODE_PROFILE_AUTO
+	bool "AUTO — FTD, role elected by Thread"
+
+config NODE_PROFILE_SED
+	bool "SED — sleepy end device, periodic wake"
+
+endchoice
+
+config NODE_REPORT_INTERVAL_SEC
+	int "Sensor reporting cadence (seconds)"
+	default 5  if NODE_PROFILE_AUTO
+	default 30 if NODE_PROFILE_SED
+
+config NODE_MEAS_LED
+	bool "Phase markers on the LED pads (oscilloscope timing campaign)"
+	default n
+	help
+	  Drives the two LED pads as phase markers for the cross-OS timing
+	  measurement (same semantics in the RIOT and Contiki-NG ports):
+
+	    red   (P1.10)  HIGH at wake, LOW right after the transmit call
+	                   returns. Pulse width = the OS latency from hardware
+	                   wake to the frame handed off for transmission, the
+	                   scheduler-overhead figure of the Chapter 6 campaign.
+	                   Its rising edge is the scope trigger.
+	    green (P1.15)  HIGH while the sensors are being read. Width = the
+	                   sensor window; TP3 during this window = sensor cost.
+
+	  Also blinks the green LED five times at boot ("image is alive").
+	  The markers sink a known, constant LED current while high (red
+	  ~1.1 mA, green ~0.5 mA); subtract it from TP3 amplitudes, or build
+	  with this option off for the cleanest pure-current image.
+
+config NODE_PAYLOAD_PAD_BYTES
+	int "Frame padding for the packet-size sweep (bytes)"
+	default 0
+	range 0 512
+	help
+	  Appends a "pad" field of this many bytes to every reported frame so
+	  the CoAP payload grows and 6LoWPAN fragments it into several 802.15.4
+	  frames. Used for the per-packet-size energy measurement (0 / 64 / 256
+	  / 512 in the campaign). Needs COOKIE_PROTO_FRAME_BUF_SIZE raised to
+	  hold the padded frame (the measurement overlay does this).
+
+# Thread network credentials live in upstream Kconfig:
+#   CONFIG_OPENTHREAD_NETWORK_NAME
+#   CONFIG_OPENTHREAD_NETWORKKEY
+#   CONFIG_OPENTHREAD_PANID
+#   CONFIG_OPENTHREAD_XPANID
+#   CONFIG_OPENTHREAD_CHANNEL
+# Defaults are set in apps/sensor_node/prj.conf and apply to every node and
+# the gateway, so the whole mesh shares one identity at flash time.
+
+source "Kconfig.zephyr"

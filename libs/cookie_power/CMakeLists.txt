@@ -1,0 +1,5 @@
+if(CONFIG_COOKIE_POWER)
+	zephyr_library_named(cookie_power)
+	zephyr_library_sources(src/power.c)
+	zephyr_include_directories(include)
+endif()

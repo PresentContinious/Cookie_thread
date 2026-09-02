@@ -1,0 +1,26 @@
+/*
+ * USB-CDC ACM console on the nRF52840 native USB controller.
+ *
+ * Presents a COM port on the board's own USB-C so the host reads the node's
+ * JSON telemetry directly (the printk stream in node_loop.c), with no J-Link
+ * or RTT in the path. Pairs with usb_console.conf, which enables the USB
+ * device stack and auto-starts it at boot.
+ *
+ * zephyr_udc0 is the node label the CDC-ACM auto-init (cdc_acm_serial.c)
+ * looks up for the USB device; the console device is taken from the
+ * chosen zephyr,console property below.
+ */
+
+zephyr_udc0: &usbd {
+	status = "okay";
+
+	cdc_acm_uart0: cdc_acm_uart0 {
+		compatible = "zephyr,cdc-acm-uart";
+	};
+};
+
+/ {
+	chosen {
+		zephyr,console = &cdc_acm_uart0;
+	};
+};

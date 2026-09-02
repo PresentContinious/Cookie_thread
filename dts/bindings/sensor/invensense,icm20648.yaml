@@ -1,0 +1,50 @@
+description: |
+  TDK InvenSense ICM-20648 6-axis IMU (3-axis accelerometer + 3-axis gyroscope).
+
+  This binding is paired with the in-tree driver in libs/cookie_sensors/. The
+  upstream Zephyr driver collection ships ICM-426xx and ICM-456xx variants but
+  no ICM-20648, so the Cookie firmware carries its own minimal driver.
+
+  Single-shot read pattern is sufficient for the sensor-node duty cycle. FIFO
+  burst sampling can be added later without changing the binding.
+
+compatible: "invensense,icm20648"
+
+include: [sensor-device.yaml, i2c-device.yaml]
+
+properties:
+  int-gpios:
+    type: phandle-array
+    description: |
+      INT/FSYNC primary interrupt pin. Active-low per datasheet default.
+      The driver does not currently use the interrupt; the line is wired
+      so that future motion-wake / FIFO-watermark interrupt support is
+      drop-in.
+
+  int2-gpios:
+    type: phandle-array
+    description: |
+      INT2 secondary interrupt pin. Active-low. Reserved for the same
+      future use as int-gpios.
+
+  accel-fs:
+    type: int
+    default: 1
+    enum: [0, 1, 2, 3]
+    description: |
+      Accelerometer full-scale range selector applied at init time.
+        0 = +/- 2 g    (sensitivity 16384 LSB/g)
+        1 = +/- 4 g    (sensitivity  8192 LSB/g)   <-- default
+        2 = +/- 8 g    (sensitivity  4096 LSB/g)
+        3 = +/- 16 g   (sensitivity  2048 LSB/g)
+
+  gyro-fs:
+    type: int
+    default: 1
+    enum: [0, 1, 2, 3]
+    description: |
+      Gyroscope full-scale range selector applied at init time.
+        0 = +/- 250 dps   (sensitivity 131.0 LSB/dps)
+        1 = +/- 500 dps   (sensitivity  65.5 LSB/dps)   <-- default
+        2 = +/- 1000 dps  (sensitivity  32.8 LSB/dps)
+        3 = +/- 2000 dps  (sensitivity  16.4 LSB/dps)

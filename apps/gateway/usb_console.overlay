@@ -1,0 +1,22 @@
+/*
+ * USB-CDC ACM console for the Cookie gateway / border router.
+ *
+ * Routes the gateway console (printk: forwarded sensor frames + topology
+ * events + heartbeat) to a COM port on the board's own USB-C, so the whole
+ * mesh is read directly over USB with no J-Link / RTT. Pairs with
+ * usb_console.conf.
+ */
+
+zephyr_udc0: &usbd {
+	status = "okay";
+
+	cdc_acm_uart0: cdc_acm_uart0 {
+		compatible = "zephyr,cdc-acm-uart";
+	};
+};
+
+/ {
+	chosen {
+		zephyr,console = &cdc_acm_uart0;
+	};
+};

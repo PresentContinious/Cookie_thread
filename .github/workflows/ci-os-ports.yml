@@ -1,0 +1,185 @@
+name: cross-os-ports
+
+# Compiles the RIOT and Contiki-NG ports of the Cookie sensor node and gateway
+# on Linux runners, so the build can be verified without a local toolchain. The
+# Zephyr baseline is built in the NCS environment locally and is not part of CI.
+#
+# Every build step is continue-on-error so one run exercises all four binaries
+# (sensor + gateway, two OSes) and surfaces every failure at once. Artifacts
+# (the .hex/.elf) are uploaded per job; download them from the run page and
+# flash the board from Windows with nrfjprog.
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  riot:
+    name: RIOT (sensor + gateway)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ARM toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-arm-none-eabi binutils-arm-none-eabi \
+            libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib make git unzip
+
+      - name: Clone RIOT
+        run: git clone --depth 1 --branch 2024.10 https://github.com/RIOT-OS/RIOT.git "$HOME/RIOT"
+
+      - name: sensor_node — nrf52840dk
+        continue-on-error: true
+        run: make -C ports/riot/sensor_node BOARD=nrf52840dk RIOTBASE="$HOME/RIOT"
+
+      - name: sensor_node — cookie_nrf_v200
+        continue-on-error: true
+        run: make -C ports/riot/sensor_node BOARD=cookie_nrf_v200 RIOTBASE="$HOME/RIOT"
+
+      - name: gateway — nrf52840dk
+        continue-on-error: true
+        run: make -C ports/riot/gateway BOARD=nrf52840dk RIOTBASE="$HOME/RIOT"
+
+      - name: gateway — cookie_nrf_v200
+        continue-on-error: true
+        run: make -C ports/riot/gateway BOARD=cookie_nrf_v200 RIOTBASE="$HOME/RIOT"
+
+      # Measurement variants for the Chapter 6 campaign. The sleep family
+      # (RADIO_SLEEP=1, the code default) duty-cycles the radio like the
+      # Zephyr SED: packet-size sweep at a 5 s reporting interval with the
+      # phase markers on, plus one marker-free image for the cleanest
+      # pure-current reading. The rxon image (RADIO_SLEEP=0) keeps the radio
+      # in RX permanently — that is the RX-current measurement. Each variant
+      # is copied to dist/ under a self-describing name before the next build
+      # overwrites it.
+      - name: sensor_node measurement variants — cookie_nrf_v200
+        continue-on-error: true
+        run: |
+          mkdir -p dist
+          build_variant() {  # build_variant <out-name> <make-args...>
+            local out=$1; shift
+            make -C ports/riot/sensor_node clean BOARD=cookie_nrf_v200 RIOTBASE="$HOME/RIOT" || true
+            make -C ports/riot/sensor_node BOARD=cookie_nrf_v200 RIOTBASE="$HOME/RIOT" "$@"
+            arm-none-eabi-objcopy -O ihex \
+              ports/riot/sensor_node/bin/cookie_nrf_v200/cookie_sensor_node_riot.elf \
+              "dist/${out}"
+          }
+          for pad in 0 64 256 512; do
+            build_variant riot_sensor_cookie_sleep_mark_pad${pad}_int5.hex \
+              REPORT_INTERVAL_SEC=5 PAYLOAD_PAD=$pad MEAS_MARKERS=1 RADIO_SLEEP=1
+          done
+          build_variant riot_sensor_cookie_sleep_clean_int30.hex \
+            REPORT_INTERVAL_SEC=30 PAYLOAD_PAD=0 MEAS_MARKERS=0 RADIO_SLEEP=1
+          build_variant riot_sensor_cookie_rxon_mark_pad0_int5.hex \
+            REPORT_INTERVAL_SEC=5 PAYLOAD_PAD=0 MEAS_MARKERS=1 RADIO_SLEEP=0
+          ls -la dist/
+
+      - name: Convert ELF to flashable HEX
+        if: always()
+        run: |
+          for f in $(find ports/riot -name '*.elf'); do
+            arm-none-eabi-objcopy -O ihex "$f" "${f%.elf}.hex" && echo "hex: ${f%.elf}.hex"
+          done
+
+      - name: Upload RIOT binaries
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: riot-binaries
+          path: |
+            dist/*.hex
+            ports/riot/sensor_node/bin/**/*.hex
+            ports/riot/sensor_node/bin/**/*.elf
+            ports/riot/gateway/bin/**/*.hex
+            ports/riot/gateway/bin/**/*.elf
+          if-no-files-found: warn
+
+  contiki:
+    name: Contiki-NG (sensor + gateway)
+    # Contiki-NG release/v4.9 expects an older arm-gcc; ubuntu-latest ships
+    # gcc-arm 13 / newlib 4.4 whose link warnings turn fatal. 22.04 carries the
+    # ~10.3 toolchain Contiki v4.9 was tested against.
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ARM toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-arm-none-eabi binutils-arm-none-eabi \
+            libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib make git srecord python3
+
+      - name: Clone Contiki-NG
+        run: git clone --recurse-submodules --depth 1 --branch release/v4.9 https://github.com/contiki-ng/contiki-ng.git "$HOME/contiki-ng"
+
+      - name: Install Cookie board into the Contiki-NG tree
+        run: |
+          cp -r ports/contiki-ng/board-cookie "$HOME/contiki-ng/arch/platform/nrf52840/cookie"
+          sed -i 's/^BOARDS = dk dongle$/BOARDS = dk dongle cookie/' "$HOME/contiki-ng/arch/platform/nrf52840/Makefile.nrf52840"
+
+      - name: sensor_node — nrf52840 / dongle
+        continue-on-error: true
+        run: make -C ports/contiki-ng/sensor_node CONTIKI="$HOME/contiki-ng" TARGET=nrf52840 BOARD=dongle
+
+      - name: gateway — nrf52840 / dongle
+        continue-on-error: true
+        run: make -C ports/contiki-ng/gateway CONTIKI="$HOME/contiki-ng" TARGET=nrf52840 BOARD=dongle
+
+      - name: sensor_node — nrf52840 / cookie
+        continue-on-error: true
+        run: |
+          rm -f ports/contiki-ng/sensor_node/cookie-sensor-node ports/contiki-ng/sensor_node/cookie-sensor-node.nrf52840
+          make -C ports/contiki-ng/sensor_node CONTIKI="$HOME/contiki-ng" TARGET=nrf52840 BOARD=cookie
+
+      - name: gateway — nrf52840 / cookie
+        continue-on-error: true
+        run: |
+          rm -f ports/contiki-ng/gateway/cookie-gateway ports/contiki-ng/gateway/cookie-gateway.nrf52840
+          make -C ports/contiki-ng/gateway CONTIKI="$HOME/contiki-ng" TARGET=nrf52840 BOARD=cookie
+
+      # Measurement variants for the Chapter 6 campaign (see the RIOT job:
+      # sleep family = radio duty-cycled, rxon = radio always on for the
+      # RX-current measurement).
+      - name: sensor_node measurement variants — nrf52840 / cookie
+        continue-on-error: true
+        run: |
+          mkdir -p dist
+          build_variant() {  # build_variant <out-name> <make-args...>
+            local out=$1; shift
+            make -C ports/contiki-ng/sensor_node CONTIKI="$HOME/contiki-ng" TARGET=nrf52840 BOARD=cookie clean || true
+            rm -f ports/contiki-ng/sensor_node/cookie-sensor-node ports/contiki-ng/sensor_node/cookie-sensor-node.nrf52840
+            make -C ports/contiki-ng/sensor_node CONTIKI="$HOME/contiki-ng" TARGET=nrf52840 BOARD=cookie "$@"
+            arm-none-eabi-objcopy -O ihex \
+              ports/contiki-ng/sensor_node/build/nrf52840/cookie/cookie-sensor-node.elf \
+              "dist/${out}"
+          }
+          for pad in 0 64 256 512; do
+            build_variant contiki_sensor_cookie_sleep_mark_pad${pad}_int5.hex \
+              REPORT_INTERVAL_SEC=5 PAYLOAD_PAD=$pad MEAS_MARKERS=1 RADIO_SLEEP=1
+          done
+          build_variant contiki_sensor_cookie_sleep_clean_int30.hex \
+            REPORT_INTERVAL_SEC=30 PAYLOAD_PAD=0 MEAS_MARKERS=0 RADIO_SLEEP=1
+          build_variant contiki_sensor_cookie_rxon_mark_pad0_int5.hex \
+            REPORT_INTERVAL_SEC=5 PAYLOAD_PAD=0 MEAS_MARKERS=1 RADIO_SLEEP=0
+          ls -la dist/
+
+      - name: Convert ELF to flashable HEX
+        if: always()
+        run: |
+          for f in $(find ports/contiki-ng -name '*.elf'); do
+            arm-none-eabi-objcopy -O ihex "$f" "${f%.elf}.hex" && echo "hex: ${f%.elf}.hex"
+          done
+
+      - name: Upload Contiki-NG binaries
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: contiki-binaries
+          path: |
+            dist/*.hex
+            ports/contiki-ng/sensor_node/build/**/*.hex
+            ports/contiki-ng/sensor_node/build/**/*.elf
+            ports/contiki-ng/gateway/build/**/*.hex
+            ports/contiki-ng/gateway/build/**/*.elf
+          if-no-files-found: warn

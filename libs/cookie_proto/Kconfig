@@ -1,0 +1,43 @@
+menuconfig COOKIE_PROTO
+	bool "Cookie Thread mesh protocol library"
+	help
+	  Frame schema, JSON codec, and CoAP push client used by the
+	  Cookie sensor-node firmware and the gateway.
+
+if COOKIE_PROTO
+
+config COOKIE_PROTO_FRAME_BUF_SIZE
+	int "Maximum encoded frame size (bytes)"
+	default 384
+	help
+	  Upper bound on the JSON payload of a single sensor frame.
+	  Used to size stack buffers in the encoder and the CoAP send path.
+
+config COOKIE_PROTO_COAP_BLOCK_SIZE
+	int "Working CoAP send buffer size (bytes)"
+	default 512
+
+config COOKIE_PROTO_DISCOVERY_TIMEOUT_MS
+	int "Discovery response timeout (ms)"
+	default 1500
+
+config COOKIE_PROTO_LOG_LEVEL
+	int "Log level for cookie_proto"
+	depends on LOG
+	range 0 4
+	default 3
+
+config COOKIE_FACTORY_RESET_ON_BOOT
+	bool "Erase OpenThread persistent state on every boot"
+	default n
+	help
+	  When set, the node wipes its stored OpenThread dataset and network
+	  state at startup and re-forms from the Kconfig dataset. Leave this
+	  OFF for normal operation: persistence is what lets a rebooted node
+	  remember the mesh and rejoin quickly, and it is required for correct
+	  partition merge and self-healing as described in the Thread spec.
+	  Enable it for a single clean flash when stale state from an earlier
+	  experiment is causing nodes to stay split into separate partitions,
+	  then turn it back off and re-flash.
+
+endif

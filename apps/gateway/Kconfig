@@ -1,0 +1,11 @@
+mainmenu "Cookie gateway"
+
+# Thread network credentials live in upstream Kconfig:
+#   CONFIG_OPENTHREAD_NETWORK_NAME
+#   CONFIG_OPENTHREAD_NETWORKKEY
+#   CONFIG_OPENTHREAD_PANID
+#   CONFIG_OPENTHREAD_XPANID
+#   CONFIG_OPENTHREAD_CHANNEL
+# Defaults are set in apps/gateway/prj.conf.
+
+source "Kconfig.zephyr"

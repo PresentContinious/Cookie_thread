@@ -1,0 +1,4 @@
+name: cookie_sensors
+build:
+  cmake: .
+  kconfig: Kconfig

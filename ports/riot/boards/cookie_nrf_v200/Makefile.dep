@@ -1,0 +1,3 @@
+# Cookie nRF V2.00 board dependencies.
+# The nRF52840 802.15.4 radio is pulled in by the netdev default when an
+# application asks for networking; nothing board-specific is forced here.

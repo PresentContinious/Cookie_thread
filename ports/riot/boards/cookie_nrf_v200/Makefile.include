@@ -1,0 +1,21 @@
+# Programming / debug for the Cookie nRF V2.00.
+#
+# In practice the board is flashed from Windows with nrfjprog (the .hex built
+# in WSL is copied over). When flashing from the Linux build host instead, the
+# nRF52-DK presents a J-Link, so the standard RIOT J-Link flow works.
+PROGRAMMER ?= jlink
+JLINK_DEVICE = nrf52840_xxaa
+
+# DFU image layout, mirroring boards/nrf52840dongle: with the Nordic Open
+# Bootloader on the board, a static MBR holds the first 4 kB of flash and the
+# USB bootloader holds the top 128 kB, so the application links at 0x1000 and
+# gets 892 kB. Off by default (a plain SWD image links at 0x0); build with
+# COOKIE_DFU=1 for an image that is handed over USB with nrfutil.
+ifeq (1,$(COOKIE_DFU))
+  ROM_OFFSET ?= 0x1000
+  ROM_LEN ?= 0xdf000
+endif
+
+# Pull in the shared nRF52 clock/timer/RTT config headers that periph_conf.h
+# includes (cfg_clock_32_1.h, cfg_timer_default.h, cfg_rtt_default.h).
+INCLUDES += -I$(RIOTBOARD)/common/nrf52/include

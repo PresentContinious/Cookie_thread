@@ -1,0 +1,10 @@
+/*
+ * Diagnostic overlay: disable the ICM-20648 IMU so the firmware never wakes
+ * it. The ICM-20648 powers up in sleep mode (~8 uA), so with the node never
+ * initialising it the IMU stays asleep. Used to test whether the IMU's
+ * low-power accelerometer mode (~0.4-0.5 mA) is the dominant term in the
+ * measured SED sleep floor.
+ */
+&icm20648 {
+	status = "disabled";
+};

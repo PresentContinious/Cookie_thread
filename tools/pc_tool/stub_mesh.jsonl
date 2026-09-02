@@ -1,0 +1,1368 @@
+{"event": "topology", "ts_host": 510323917252800, "tree": {"b41c": ["a1b2"], "a1b2": ["c3d4", "e5f6"], "c3d4": ["9a80"]}}
+{"src": "a1b2", "role": "LEADER", "ts_host": 0, "ts": 0, "rssi": -41, "hops": 0, "temp_c": 23.65, "humid_pct": 41.9, "accel_g": [-0.006, -0.019, 0.998], "gyro_dps": [0.56, 0.21, 0.52], "i_avg_ma": 5.53, "i_pk_ma": 26.5, "t_active_ms": 86, "vbat_mv": 2915}
+[00:00:00.000,000] <inf> node_loop: work_handler fired, uptime=0 ms
+[00:00:00.001,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 0, "ts": 0, "rssi": -49, "hops": 1}
+[00:00:00.000,000] <inf> node_loop: work_handler fired, uptime=0 ms
+[00:00:00.001,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "e5f6", "role": "SED", "ts_host": 0, "ts": 0, "rssi": -53, "hops": 1, "temp_c": 24.6, "humid_pct": 46.2, "accel_g": [0.011, -0.003, 1.005], "gyro_dps": [0.32, 0.29, 0.13], "i_avg_ma": 0.37, "i_pk_ma": 24.5, "t_active_ms": 79, "vbat_mv": 2926}
+[00:00:00.000,000] <inf> node_loop: work_handler fired, uptime=0 ms
+[00:00:00.001,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "9a80", "role": "SED", "ts_host": 0, "ts": 0, "rssi": -60, "hops": 2}
+[00:00:00.000,000] <inf> node_loop: work_handler fired, uptime=0 ms
+[00:00:00.001,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 5099999999, "ts": 5099, "rssi": -42, "hops": 0, "temp_c": 23.87, "humid_pct": 41.6, "accel_g": [0.005, 0.009, 1.015], "gyro_dps": [0.02, 0.65, -1.01], "i_avg_ma": 5.34, "i_pk_ma": 25.9, "t_active_ms": 78, "vbat_mv": 2947}
+[00:00:05.099,1000] <inf> node_loop: work_handler fired, uptime=5099 ms
+[00:00:05.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:00:05.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 5099999999, "ts": 5099, "rssi": -52, "hops": 1}
+[00:00:05.099,1000] <inf> node_loop: work_handler fired, uptime=5099 ms
+[00:00:05.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+[00:00:05.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 10199999999, "ts": 10199, "rssi": -41, "hops": 0, "temp_c": 23.51, "humid_pct": 41.6, "accel_g": [-0.03, -0.037, 1.039], "gyro_dps": [-0.3, 0.71, -0.55], "i_avg_ma": 5.21, "i_pk_ma": 23.8, "t_active_ms": 89, "vbat_mv": 2955}
+[00:00:10.199,1000] <inf> node_loop: work_handler fired, uptime=10199 ms
+[00:00:10.201,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:00:10.218,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 10199999999, "ts": 10199, "rssi": -53, "hops": 1}
+[00:00:10.199,1000] <inf> node_loop: work_handler fired, uptime=10199 ms
+[00:00:10.201,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 15299999999, "ts": 15299, "rssi": -35, "hops": 0, "temp_c": 23.48, "humid_pct": 41.9, "accel_g": [0.019, -0.002, 1.045], "gyro_dps": [-0.29, 0.07, 0.13], "i_avg_ma": 5.53, "i_pk_ma": 26.1, "t_active_ms": 80, "vbat_mv": 2940}
+[00:00:15.299,1000] <inf> node_loop: work_handler fired, uptime=15299 ms
+[00:00:15.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:00:15.318,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 15299999999, "ts": 15299, "rssi": -49, "hops": 1}
+[00:00:15.299,1000] <inf> node_loop: work_handler fired, uptime=15299 ms
+[00:00:15.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 20300000000, "ts": 20300, "rssi": -41, "hops": 0, "temp_c": 23.66, "humid_pct": 41.4, "accel_g": [0.011, -0.016, 1.0], "gyro_dps": [-0.2, -0.45, 0.03], "i_avg_ma": 5.59, "i_pk_ma": 27.0, "t_active_ms": 94, "vbat_mv": 2968}
+[00:00:20.300,000] <inf> node_loop: work_handler fired, uptime=20300 ms
+[00:00:20.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 20300000000, "ts": 20300, "rssi": -51, "hops": 1}
+[00:00:20.300,000] <inf> node_loop: work_handler fired, uptime=20300 ms
+[00:00:20.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:00:20.318,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 25300000000, "ts": 25300, "rssi": -45, "hops": 0, "temp_c": 23.41, "humid_pct": 41.9, "accel_g": [0.009, 0.031, 0.98], "gyro_dps": [-0.46, -0.68, -0.97], "i_avg_ma": 5.63, "i_pk_ma": 27.7, "t_active_ms": 81, "vbat_mv": 2925}
+[00:00:25.300,000] <inf> node_loop: work_handler fired, uptime=25300 ms
+[00:00:25.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:00:25.318,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 25300000000, "ts": 25300, "rssi": -53, "hops": 1}
+[00:00:25.300,000] <inf> node_loop: work_handler fired, uptime=25300 ms
+[00:00:25.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:00:25.318,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "e5f6", "role": "SED", "ts_host": 30000000000, "ts": 30000, "rssi": -45, "hops": 1, "temp_c": 24.18, "humid_pct": 45.5, "accel_g": [0.016, 0.0, 0.971], "gyro_dps": [0.13, 0.19, -0.07], "i_avg_ma": 0.38, "i_pk_ma": 27.2, "t_active_ms": 77, "vbat_mv": 2946}
+[00:00:30.000,000] <inf> node_loop: work_handler fired, uptime=30000 ms
+[00:00:30.001,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "9a80", "role": "SED", "ts_host": 30000000000, "ts": 30000, "rssi": -61, "hops": 2}
+[00:00:30.000,000] <inf> node_loop: work_handler fired, uptime=30000 ms
+[00:00:30.001,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 30300000000, "ts": 30300, "rssi": -44, "hops": 0, "temp_c": 23.57, "humid_pct": 42.2, "accel_g": [0.005, -0.009, 0.976], "gyro_dps": [0.14, -0.26, 1.22], "i_avg_ma": 5.57, "i_pk_ma": 25.3, "t_active_ms": 84, "vbat_mv": 2936}
+[00:00:30.300,000] <inf> node_loop: work_handler fired, uptime=30300 ms
+[00:00:30.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 30300000000, "ts": 30300, "rssi": -52, "hops": 1}
+[00:00:30.300,000] <inf> node_loop: work_handler fired, uptime=30300 ms
+[00:00:30.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 35300000000, "ts": 35300, "rssi": -41, "hops": 0, "temp_c": 23.79, "humid_pct": 42.4, "accel_g": [0.03, -0.034, 0.949], "gyro_dps": [-0.17, 0.31, 0.55], "i_avg_ma": 4.57, "i_pk_ma": 27.3, "t_active_ms": 73, "vbat_mv": 2950}
+[00:00:35.300,000] <inf> node_loop: work_handler fired, uptime=35300 ms
+[00:00:35.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+[00:00:35.318,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 35300000000, "ts": 35300, "rssi": -56, "hops": 1}
+[00:00:35.300,000] <inf> node_loop: work_handler fired, uptime=35300 ms
+[00:00:35.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 40300000000, "ts": 40300, "rssi": -40, "hops": 0, "temp_c": 23.51, "humid_pct": 41.9, "accel_g": [0.015, -0.018, 0.929], "gyro_dps": [-1.11, 0.38, 1.24], "i_avg_ma": 5.39, "i_pk_ma": 25.4, "t_active_ms": 89, "vbat_mv": 2941}
+[00:00:40.300,000] <inf> node_loop: work_handler fired, uptime=40300 ms
+[00:00:40.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 40300000000, "ts": 40300, "rssi": -50, "hops": 1}
+[00:00:40.300,000] <inf> node_loop: work_handler fired, uptime=40300 ms
+[00:00:40.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 45300000000, "ts": 45300, "rssi": -44, "hops": 0, "temp_c": 23.06, "humid_pct": 42.6, "accel_g": [0.015, 0.029, 0.962], "gyro_dps": [0.0, -0.57, 0.38], "i_avg_ma": 5.97, "i_pk_ma": 24.9, "t_active_ms": 97, "vbat_mv": 2954}
+[00:00:45.300,000] <inf> node_loop: work_handler fired, uptime=45300 ms
+[00:00:45.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 45300000000, "ts": 45300, "rssi": -52, "hops": 1}
+[00:00:45.300,000] <inf> node_loop: work_handler fired, uptime=45300 ms
+[00:00:45.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 50300000000, "ts": 50300, "rssi": -40, "hops": 0, "temp_c": 23.64, "humid_pct": 42.6, "accel_g": [0.035, 0.004, 0.995], "gyro_dps": [0.65, -1.24, -0.26], "i_avg_ma": 5.2, "i_pk_ma": 25.4, "t_active_ms": 83, "vbat_mv": 2979}
+[00:00:50.300,000] <inf> node_loop: work_handler fired, uptime=50300 ms
+[00:00:50.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 50300000000, "ts": 50300, "rssi": -51, "hops": 1}
+[00:00:50.300,000] <inf> node_loop: work_handler fired, uptime=50300 ms
+[00:00:50.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 55300000000, "ts": 55300, "rssi": -37, "hops": 0, "temp_c": 23.1, "humid_pct": 42.1, "accel_g": [0.015, -0.004, 1.037], "gyro_dps": [-0.33, -0.2, -0.23], "i_avg_ma": 5.53, "i_pk_ma": 26.9, "t_active_ms": 80, "vbat_mv": 2920}
+[00:00:55.300,000] <inf> node_loop: work_handler fired, uptime=55300 ms
+[00:00:55.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 55300000000, "ts": 55300, "rssi": -50, "hops": 1}
+[00:00:55.300,000] <inf> node_loop: work_handler fired, uptime=55300 ms
+[00:00:55.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "e5f6", "role": "SED", "ts_host": 60000000000, "ts": 60000, "rssi": -47, "hops": 1, "temp_c": 24.09, "humid_pct": 45.0, "accel_g": [0.005, 0.036, 1.047], "gyro_dps": [0.27, 0.5, -0.1], "i_avg_ma": 0.35, "i_pk_ma": 25.3, "t_active_ms": 93, "vbat_mv": 2915}
+[00:01:00.000,000] <inf> node_loop: work_handler fired, uptime=60000 ms
+[00:01:00.001,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:01:00.020,400] <inf> sed_loop: radio parked, entering deep sleep
+{"src": "9a80", "role": "SED", "ts_host": 60000000000, "ts": 60000, "rssi": -64, "hops": 2}
+[00:01:00.000,000] <inf> node_loop: work_handler fired, uptime=60000 ms
+[00:01:00.001,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 60300000000, "ts": 60300, "rssi": -44, "hops": 0, "temp_c": 23.48, "humid_pct": 42.1, "accel_g": [-0.044, -0.026, 1.052], "gyro_dps": [-0.6, -0.02, -0.19], "i_avg_ma": 5.11, "i_pk_ma": 24.7, "t_active_ms": 83, "vbat_mv": 2961}
+[00:01:00.300,000] <inf> node_loop: work_handler fired, uptime=60300 ms
+[00:01:00.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 60300000000, "ts": 60300, "rssi": -53, "hops": 1}
+[00:01:00.300,000] <inf> node_loop: work_handler fired, uptime=60300 ms
+[00:01:00.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 65400000000, "ts": 65400, "rssi": -40, "hops": 0, "temp_c": 23.62, "humid_pct": 41.8, "accel_g": [0.003, 0.0, 1.051], "gyro_dps": [-0.42, -0.77, 0.23], "i_avg_ma": 5.34, "i_pk_ma": 25.6, "t_active_ms": 73, "vbat_mv": 2959}
+[00:01:05.400,000] <inf> node_loop: work_handler fired, uptime=65400 ms
+[00:01:05.401,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:01:05.418,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 65400000000, "ts": 65400, "rssi": -47, "hops": 1}
+[00:01:05.400,000] <inf> node_loop: work_handler fired, uptime=65400 ms
+[00:01:05.401,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 70500000000, "ts": 70500, "rssi": -50, "hops": 0, "temp_c": 23.57, "humid_pct": 42.1, "accel_g": [-0.01, -0.022, 1.034], "gyro_dps": [-0.18, 0.28, -0.33], "i_avg_ma": 5.93, "i_pk_ma": 27.5, "t_active_ms": 86, "vbat_mv": 2937}
+[00:01:10.500,000] <inf> node_loop: work_handler fired, uptime=70500 ms
+[00:01:10.501,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 70500000000, "ts": 70500, "rssi": -51, "hops": 1}
+[00:01:10.500,000] <inf> node_loop: work_handler fired, uptime=70500 ms
+[00:01:10.501,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 75599999999, "ts": 75599, "rssi": -32, "hops": 0, "temp_c": 23.84, "humid_pct": 42.3, "accel_g": [-0.052, 0.012, 1.004], "gyro_dps": [0.84, 0.21, -0.03], "i_avg_ma": 5.62, "i_pk_ma": 23.7, "t_active_ms": 93, "vbat_mv": 2944}
+[00:01:15.599,1000] <inf> node_loop: work_handler fired, uptime=75599 ms
+[00:01:15.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 75599999999, "ts": 75599, "rssi": -54, "hops": 1}
+[00:01:15.599,1000] <inf> node_loop: work_handler fired, uptime=75599 ms
+[00:01:15.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 80699999999, "ts": 80699, "rssi": -40, "hops": 0, "temp_c": 23.56, "humid_pct": 41.8, "accel_g": [-0.019, 0.042, 0.98], "gyro_dps": [-0.6, -0.67, 0.85], "i_avg_ma": 5.77, "i_pk_ma": 28.2, "t_active_ms": 91, "vbat_mv": 2926}
+[00:01:20.699,1000] <inf> node_loop: work_handler fired, uptime=80699 ms
+[00:01:20.701,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 80699999999, "ts": 80699, "rssi": -51, "hops": 1}
+[00:01:20.699,1000] <inf> node_loop: work_handler fired, uptime=80699 ms
+[00:01:20.701,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 85799999999, "ts": 85799, "rssi": -36, "hops": 0, "temp_c": 23.63, "humid_pct": 43.2, "accel_g": [-0.02, -0.001, 0.958], "gyro_dps": [0.64, -0.29, -0.33], "i_avg_ma": 5.41, "i_pk_ma": 24.3, "t_active_ms": 88, "vbat_mv": 2936}
+[00:01:25.799,1000] <inf> node_loop: work_handler fired, uptime=85799 ms
+[00:01:25.801,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+[00:01:25.818,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 85799999999, "ts": 85799, "rssi": -46, "hops": 1}
+[00:01:25.799,1000] <inf> node_loop: work_handler fired, uptime=85799 ms
+[00:01:25.801,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "e5f6", "role": "SED", "ts_host": 90099999999, "ts": 90099, "rssi": -48, "hops": 1, "temp_c": 24.04, "humid_pct": 44.1, "accel_g": [0.007, 0.029, 0.963], "gyro_dps": [-0.53, 0.24, 0.25], "i_avg_ma": 0.36, "i_pk_ma": 24.2, "t_active_ms": 84, "vbat_mv": 2953}
+[00:01:30.099,1000] <inf> node_loop: work_handler fired, uptime=90099 ms
+[00:01:30.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "9a80", "role": "SED", "ts_host": 90099999999, "ts": 90099, "rssi": -63, "hops": 2}
+[00:01:30.099,1000] <inf> node_loop: work_handler fired, uptime=90099 ms
+[00:01:30.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:01:30.120,400] <inf> sed_loop: radio parked, entering deep sleep
+{"src": "a1b2", "role": "LEADER", "ts_host": 90899999999, "ts": 90899, "rssi": -45, "hops": 0, "temp_c": 23.06, "humid_pct": 41.8, "accel_g": [0.003, -0.01, 0.945], "gyro_dps": [-1.33, -0.05, -0.62], "i_avg_ma": 5.16, "i_pk_ma": 26.7, "t_active_ms": 86, "vbat_mv": 2939}
+[00:01:30.899,1000] <inf> node_loop: work_handler fired, uptime=90899 ms
+[00:01:30.901,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 90899999999, "ts": 90899, "rssi": -51, "hops": 1}
+[00:01:30.899,1000] <inf> node_loop: work_handler fired, uptime=90899 ms
+[00:01:30.901,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+[00:01:30.918,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 95999999999, "ts": 95999, "rssi": -38, "hops": 0, "temp_c": 23.44, "humid_pct": 42.0, "accel_g": [0.001, -0.017, 0.981], "gyro_dps": [-0.33, -0.01, -0.05], "i_avg_ma": 5.45, "i_pk_ma": 26.0, "t_active_ms": 88, "vbat_mv": 2936}
+[00:01:35.999,1000] <inf> node_loop: work_handler fired, uptime=95999 ms
+[00:01:36.001,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 95999999999, "ts": 95999, "rssi": -51, "hops": 1}
+[00:01:35.999,1000] <inf> node_loop: work_handler fired, uptime=95999 ms
+[00:01:36.001,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+[00:01:36.018,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 101099999999, "ts": 101099, "rssi": -35, "hops": 0, "temp_c": 23.35, "humid_pct": 42.6, "accel_g": [0.035, 0.006, 0.99], "gyro_dps": [0.07, -0.8, -0.41], "i_avg_ma": 5.46, "i_pk_ma": 25.5, "t_active_ms": 81, "vbat_mv": 2950}
+[00:01:41.099,1000] <inf> node_loop: work_handler fired, uptime=101099 ms
+[00:01:41.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 101099999999, "ts": 101099, "rssi": -56, "hops": 1}
+[00:01:41.099,1000] <inf> node_loop: work_handler fired, uptime=101099 ms
+[00:01:41.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 106199999999, "ts": 106199, "rssi": -40, "hops": 0, "temp_c": 23.11, "humid_pct": 42.0, "accel_g": [-0.003, -0.014, 1.016], "gyro_dps": [-0.3, -1.21, -0.13], "i_avg_ma": 5.34, "i_pk_ma": 27.6, "t_active_ms": 87, "vbat_mv": 2954}
+[00:01:46.199,1000] <inf> node_loop: work_handler fired, uptime=106199 ms
+[00:01:46.201,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 106199999999, "ts": 106199, "rssi": -52, "hops": 1}
+[00:01:46.199,1000] <inf> node_loop: work_handler fired, uptime=106199 ms
+[00:01:46.201,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 111299999999, "ts": 111299, "rssi": -42, "hops": 0, "temp_c": 23.18, "humid_pct": 42.9, "accel_g": [0.001, -0.0, 1.037], "gyro_dps": [-0.72, -0.16, 0.75], "i_avg_ma": 5.67, "i_pk_ma": 26.0, "t_active_ms": 88, "vbat_mv": 2937}
+[00:01:51.299,1000] <inf> node_loop: work_handler fired, uptime=111299 ms
+[00:01:51.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+[00:01:51.318,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 111299999999, "ts": 111299, "rssi": -47, "hops": 1}
+[00:01:51.299,1000] <inf> node_loop: work_handler fired, uptime=111299 ms
+[00:01:51.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 116399999999, "ts": 116399, "rssi": -43, "hops": 0, "temp_c": 23.73, "humid_pct": 41.7, "accel_g": [-0.031, -0.021, 1.036], "gyro_dps": [0.25, 0.13, -0.02], "i_avg_ma": 5.99, "i_pk_ma": 25.5, "t_active_ms": 94, "vbat_mv": 2945}
+[00:01:56.399,1000] <inf> node_loop: work_handler fired, uptime=116399 ms
+[00:01:56.401,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 116399999999, "ts": 116399, "rssi": -51, "hops": 1}
+[00:01:56.399,1000] <inf> node_loop: work_handler fired, uptime=116399 ms
+[00:01:56.401,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "e5f6", "role": "SED", "ts_host": 120199999999, "ts": 120199, "rssi": -48, "hops": 1, "temp_c": 23.88, "humid_pct": 44.7, "accel_g": [-0.002, -0.01, 1.033], "gyro_dps": [0.26, -0.21, 1.16], "i_avg_ma": 0.37, "i_pk_ma": 27.3, "t_active_ms": 85, "vbat_mv": 2956}
+[00:02:00.199,1000] <inf> node_loop: work_handler fired, uptime=120199 ms
+[00:02:00.201,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "9a80", "role": "SED", "ts_host": 120199999999, "ts": 120199, "rssi": -70, "hops": 2}
+[00:02:00.199,1000] <inf> node_loop: work_handler fired, uptime=120199 ms
+[00:02:00.201,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+[00:02:00.218,200] <inf> cookie_coap: gateway discovered, caching address
+[00:02:00.220,400] <inf> sed_loop: radio parked, entering deep sleep
+{"src": "a1b2", "role": "LEADER", "ts_host": 121499999999, "ts": 121499, "rssi": -41, "hops": 0, "temp_c": 23.27, "humid_pct": 41.6, "accel_g": [0.021, -0.011, 1.019], "gyro_dps": [0.36, 0.31, -1.02], "i_avg_ma": 5.46, "i_pk_ma": 25.4, "t_active_ms": 87, "vbat_mv": 2961}
+[00:02:01.499,1000] <inf> node_loop: work_handler fired, uptime=121499 ms
+[00:02:01.501,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 121499999999, "ts": 121499, "rssi": -53, "hops": 1}
+[00:02:01.499,1000] <inf> node_loop: work_handler fired, uptime=121499 ms
+[00:02:01.501,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 126599999999, "ts": 126599, "rssi": -42, "hops": 0, "temp_c": 23.61, "humid_pct": 41.8, "accel_g": [0.015, -0.011, 1.003], "gyro_dps": [0.31, -0.12, 0.82], "i_avg_ma": 5.49, "i_pk_ma": 26.0, "t_active_ms": 87, "vbat_mv": 2916}
+[00:02:06.599,1000] <inf> node_loop: work_handler fired, uptime=126599 ms
+[00:02:06.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 126599999999, "ts": 126599, "rssi": -48, "hops": 1}
+[00:02:06.599,1000] <inf> node_loop: work_handler fired, uptime=126599 ms
+[00:02:06.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 131699999999, "ts": 131699, "rssi": -39, "hops": 0, "temp_c": 23.31, "humid_pct": 42.7, "accel_g": [0.009, -0.008, 0.961], "gyro_dps": [0.53, -0.1, -0.35], "i_avg_ma": 5.97, "i_pk_ma": 26.3, "t_active_ms": 76, "vbat_mv": 2964}
+[00:02:11.699,1000] <inf> node_loop: work_handler fired, uptime=131699 ms
+[00:02:11.701,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 131699999999, "ts": 131699, "rssi": -51, "hops": 1}
+[00:02:11.699,1000] <inf> node_loop: work_handler fired, uptime=131699 ms
+[00:02:11.701,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 136799999999, "ts": 136799, "rssi": -36, "hops": 0, "temp_c": 23.65, "humid_pct": 41.2, "accel_g": [0.01, -0.01, 0.944], "gyro_dps": [1.09, 0.35, 0.39], "i_avg_ma": 5.72, "i_pk_ma": 25.4, "t_active_ms": 90, "vbat_mv": 2937}
+[00:02:16.799,1000] <inf> node_loop: work_handler fired, uptime=136799 ms
+[00:02:16.801,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 136799999999, "ts": 136799, "rssi": -60, "hops": 1}
+[00:02:16.799,1000] <inf> node_loop: work_handler fired, uptime=136799 ms
+[00:02:16.801,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 141899999999, "ts": 141899, "rssi": -43, "hops": 0, "temp_c": 23.39, "humid_pct": 42.1, "accel_g": [0.01, 0.011, 0.976], "gyro_dps": [-0.35, 0.01, 1.4], "i_avg_ma": 4.84, "i_pk_ma": 25.4, "t_active_ms": 86, "vbat_mv": 2942}
+[00:02:21.899,1000] <inf> node_loop: work_handler fired, uptime=141899 ms
+[00:02:21.901,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 141899999999, "ts": 141899, "rssi": -50, "hops": 1}
+[00:02:21.899,1000] <inf> node_loop: work_handler fired, uptime=141899 ms
+[00:02:21.901,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+[00:02:21.918,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 146999999999, "ts": 146999, "rssi": -41, "hops": 0, "temp_c": 23.89, "humid_pct": 42.6, "accel_g": [-0.022, -0.018, 0.983], "gyro_dps": [-0.48, -0.07, -0.09], "i_avg_ma": 5.55, "i_pk_ma": 25.5, "t_active_ms": 105, "vbat_mv": 2952}
+[00:02:26.999,1000] <inf> node_loop: work_handler fired, uptime=146999 ms
+[00:02:27.001,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+[00:02:27.018,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 146999999999, "ts": 146999, "rssi": -49, "hops": 1}
+[00:02:26.999,1000] <inf> node_loop: work_handler fired, uptime=146999 ms
+[00:02:27.001,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "e5f6", "role": "SED", "ts_host": 150299999999, "ts": 150299, "rssi": -48, "hops": 1, "temp_c": 23.85, "humid_pct": 45.0, "accel_g": [0.034, 0.01, 0.996], "gyro_dps": [-0.76, 0.38, 0.44], "i_avg_ma": 0.32, "i_pk_ma": 25.5, "t_active_ms": 85, "vbat_mv": 2971}
+[00:02:30.299,1000] <inf> node_loop: work_handler fired, uptime=150299 ms
+[00:02:30.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "9a80", "role": "SED", "ts_host": 150299999999, "ts": 150299, "rssi": -65, "hops": 2}
+[00:02:30.299,1000] <inf> node_loop: work_handler fired, uptime=150299 ms
+[00:02:30.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:02:30.318,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 152099999999, "ts": 152099, "rssi": -39, "hops": 0, "temp_c": 23.47, "humid_pct": 42.4, "accel_g": [-0.028, 0.024, 0.991], "gyro_dps": [0.75, 0.44, 0.26], "i_avg_ma": 5.45, "i_pk_ma": 25.7, "t_active_ms": 84, "vbat_mv": 2931}
+[00:02:32.099,1000] <inf> node_loop: work_handler fired, uptime=152099 ms
+[00:02:32.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 152099999999, "ts": 152099, "rssi": -59, "hops": 1}
+[00:02:32.099,1000] <inf> node_loop: work_handler fired, uptime=152099 ms
+[00:02:32.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 157199999999, "ts": 157199, "rssi": -40, "hops": 0, "temp_c": 23.57, "humid_pct": 41.3, "accel_g": [-0.004, -0.011, 1.04], "gyro_dps": [-0.06, -0.04, -0.18], "i_avg_ma": 5.79, "i_pk_ma": 27.7, "t_active_ms": 82, "vbat_mv": 2952}
+[00:02:37.199,1000] <inf> node_loop: work_handler fired, uptime=157199 ms
+[00:02:37.201,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 157199999999, "ts": 157199, "rssi": -54, "hops": 1}
+[00:02:37.199,1000] <inf> node_loop: work_handler fired, uptime=157199 ms
+[00:02:37.201,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 162299999999, "ts": 162299, "rssi": -41, "hops": 0, "temp_c": 23.25, "humid_pct": 42.6, "accel_g": [0.003, -0.01, 1.04], "gyro_dps": [-0.03, 0.74, 0.32], "i_avg_ma": 5.34, "i_pk_ma": 27.1, "t_active_ms": 86, "vbat_mv": 2920}
+[00:02:42.299,1000] <inf> node_loop: work_handler fired, uptime=162299 ms
+[00:02:42.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+[00:02:42.318,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 162299999999, "ts": 162299, "rssi": -49, "hops": 1}
+[00:02:42.299,1000] <inf> node_loop: work_handler fired, uptime=162299 ms
+[00:02:42.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 167399999999, "ts": 167399, "rssi": -43, "hops": 0, "temp_c": 23.49, "humid_pct": 42.4, "accel_g": [-0.003, 0.006, 1.037], "gyro_dps": [0.15, 0.83, -0.34], "i_avg_ma": 6.22, "i_pk_ma": 25.2, "t_active_ms": 85, "vbat_mv": 2942}
+[00:02:47.399,1000] <inf> node_loop: work_handler fired, uptime=167399 ms
+[00:02:47.401,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 167399999999, "ts": 167399, "rssi": -48, "hops": 1}
+[00:02:47.399,1000] <inf> node_loop: work_handler fired, uptime=167399 ms
+[00:02:47.401,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 172499999999, "ts": 172499, "rssi": -40, "hops": 0, "temp_c": 23.52, "humid_pct": 41.6, "accel_g": [-0.012, -0.003, 1.015], "gyro_dps": [-0.75, 0.25, -0.1], "i_avg_ma": 5.6, "i_pk_ma": 26.6, "t_active_ms": 87, "vbat_mv": 2947}
+[00:02:52.499,1000] <inf> node_loop: work_handler fired, uptime=172499 ms
+[00:02:52.501,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:02:52.518,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 172499999999, "ts": 172499, "rssi": -47, "hops": 1}
+[00:02:52.499,1000] <inf> node_loop: work_handler fired, uptime=172499 ms
+[00:02:52.501,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 177599999999, "ts": 177599, "rssi": -37, "hops": 0, "temp_c": 23.47, "humid_pct": 42.2, "accel_g": [0.005, 0.018, 0.995], "gyro_dps": [0.48, -0.42, 0.03], "i_avg_ma": 5.13, "i_pk_ma": 26.1, "t_active_ms": 78, "vbat_mv": 2942}
+[00:02:57.599,1000] <inf> node_loop: work_handler fired, uptime=177599 ms
+[00:02:57.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:02:57.618,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 177599999999, "ts": 177599, "rssi": -53, "hops": 1}
+[00:02:57.599,1000] <inf> node_loop: work_handler fired, uptime=177599 ms
+[00:02:57.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:02:57.618,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "e5f6", "role": "SED", "ts_host": 180399999999, "ts": 180399, "rssi": -51, "hops": 1, "temp_c": 24.58, "humid_pct": 45.8, "accel_g": [0.004, 0.013, 0.958], "gyro_dps": [0.13, 0.03, 1.04], "i_avg_ma": 0.4, "i_pk_ma": 25.9, "t_active_ms": 98, "vbat_mv": 2950}
+[00:03:00.399,1000] <inf> node_loop: work_handler fired, uptime=180399 ms
+[00:03:00.401,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "9a80", "role": "SED", "ts_host": 180399999999, "ts": 180399, "rssi": -64, "hops": 2}
+[00:03:00.399,1000] <inf> node_loop: work_handler fired, uptime=180399 ms
+[00:03:00.401,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 182699999999, "ts": 182699, "rssi": -41, "hops": 0, "temp_c": 23.72, "humid_pct": 42.8, "accel_g": [0.001, 0.025, 0.955], "gyro_dps": [0.1, -0.04, 0.06], "i_avg_ma": 5.82, "i_pk_ma": 28.9, "t_active_ms": 79, "vbat_mv": 2931}
+[00:03:02.699,1000] <inf> node_loop: work_handler fired, uptime=182699 ms
+[00:03:02.701,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 182699999999, "ts": 182699, "rssi": -50, "hops": 1}
+[00:03:02.699,1000] <inf> node_loop: work_handler fired, uptime=182699 ms
+[00:03:02.701,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 187799999999, "ts": 187799, "rssi": -38, "hops": 0, "temp_c": 23.99, "humid_pct": 41.9, "accel_g": [-0.037, 0.004, 0.937], "gyro_dps": [-0.21, 0.39, -0.56], "i_avg_ma": 5.89, "i_pk_ma": 26.7, "t_active_ms": 87, "vbat_mv": 2940}
+[00:03:07.799,1000] <inf> node_loop: work_handler fired, uptime=187799 ms
+[00:03:07.801,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 187799999999, "ts": 187799, "rssi": -54, "hops": 1}
+[00:03:07.799,1000] <inf> node_loop: work_handler fired, uptime=187799 ms
+[00:03:07.801,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 192899999999, "ts": 192899, "rssi": -44, "hops": 0, "temp_c": 24.25, "humid_pct": 43.1, "accel_g": [-0.04, -0.001, 0.962], "gyro_dps": [0.48, 0.33, -0.14], "i_avg_ma": 5.11, "i_pk_ma": 26.1, "t_active_ms": 93, "vbat_mv": 2923}
+[00:03:12.899,1000] <inf> node_loop: work_handler fired, uptime=192899 ms
+[00:03:12.901,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 192899999999, "ts": 192899, "rssi": -55, "hops": 1}
+[00:03:12.899,1000] <inf> node_loop: work_handler fired, uptime=192899 ms
+[00:03:12.901,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 197999999999, "ts": 197999, "rssi": -43, "hops": 0, "temp_c": 23.38, "humid_pct": 42.0, "accel_g": [-0.013, 0.0, 0.989], "gyro_dps": [0.59, 0.85, -0.39], "i_avg_ma": 5.31, "i_pk_ma": 23.0, "t_active_ms": 100, "vbat_mv": 2929}
+[00:03:17.999,1000] <inf> node_loop: work_handler fired, uptime=197999 ms
+[00:03:18.001,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 197999999999, "ts": 197999, "rssi": -52, "hops": 1}
+[00:03:17.999,1000] <inf> node_loop: work_handler fired, uptime=197999 ms
+[00:03:18.001,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:03:18.018,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 203099999999, "ts": 203099, "rssi": -46, "hops": 0, "temp_c": 23.59, "humid_pct": 42.6, "accel_g": [-0.037, 0.016, 1.015], "gyro_dps": [0.24, 0.22, 0.65], "i_avg_ma": 5.38, "i_pk_ma": 27.0, "t_active_ms": 81, "vbat_mv": 2950}
+[00:03:23.099,1000] <inf> node_loop: work_handler fired, uptime=203099 ms
+[00:03:23.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 203099999999, "ts": 203099, "rssi": -54, "hops": 1}
+[00:03:23.099,1000] <inf> node_loop: work_handler fired, uptime=203099 ms
+[00:03:23.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:03:23.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 208199999999, "ts": 208199, "rssi": -44, "hops": 0, "temp_c": 23.26, "humid_pct": 42.1, "accel_g": [0.019, 0.009, 1.044], "gyro_dps": [-0.02, 0.68, -0.2], "i_avg_ma": 5.27, "i_pk_ma": 27.1, "t_active_ms": 85, "vbat_mv": 2935}
+[00:03:28.199,1000] <inf> node_loop: work_handler fired, uptime=208199 ms
+[00:03:28.201,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+[00:03:28.218,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 208199999999, "ts": 208199, "rssi": -53, "hops": 1}
+[00:03:28.199,1000] <inf> node_loop: work_handler fired, uptime=208199 ms
+[00:03:28.201,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "e5f6", "role": "SED", "ts_host": 210499999999, "ts": 210499, "rssi": -48, "hops": 1, "temp_c": 24.07, "humid_pct": 45.7, "accel_g": [0.012, -0.027, 1.042], "gyro_dps": [0.25, 0.16, -0.17], "i_avg_ma": 0.36, "i_pk_ma": 25.8, "t_active_ms": 91, "vbat_mv": 2952}
+[00:03:30.499,1000] <inf> node_loop: work_handler fired, uptime=210499 ms
+[00:03:30.501,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+[00:03:30.520,400] <inf> sed_loop: radio parked, entering deep sleep
+{"src": "9a80", "role": "SED", "ts_host": 210499999999, "ts": 210499, "rssi": -63, "hops": 2}
+[00:03:30.499,1000] <inf> node_loop: work_handler fired, uptime=210499 ms
+[00:03:30.501,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 213299999999, "ts": 213299, "rssi": -46, "hops": 0, "temp_c": 23.9, "humid_pct": 41.7, "accel_g": [0.005, 0.007, 1.053], "gyro_dps": [-0.42, -0.22, 0.04], "i_avg_ma": 5.28, "i_pk_ma": 26.6, "t_active_ms": 86, "vbat_mv": 2945}
+[00:03:33.299,1000] <inf> node_loop: work_handler fired, uptime=213299 ms
+[00:03:33.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 213299999999, "ts": 213299, "rssi": -54, "hops": 1}
+[00:03:33.299,1000] <inf> node_loop: work_handler fired, uptime=213299 ms
+[00:03:33.301,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+[00:03:33.318,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 218399999999, "ts": 218399, "rssi": -41, "hops": 0, "temp_c": 23.86, "humid_pct": 42.2, "accel_g": [-0.004, -0.036, 1.042], "gyro_dps": [0.32, -0.07, 0.84], "i_avg_ma": 6.01, "i_pk_ma": 27.4, "t_active_ms": 83, "vbat_mv": 2972}
+[00:03:38.399,1000] <inf> node_loop: work_handler fired, uptime=218399 ms
+[00:03:38.401,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:03:38.418,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 218399999999, "ts": 218399, "rssi": -49, "hops": 1}
+[00:03:38.399,1000] <inf> node_loop: work_handler fired, uptime=218399 ms
+[00:03:38.401,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 223499999999, "ts": 223499, "rssi": -38, "hops": 0, "temp_c": 23.17, "humid_pct": 41.8, "accel_g": [-0.009, -0.025, 1.019], "gyro_dps": [1.14, 0.31, 0.26], "i_avg_ma": 5.71, "i_pk_ma": 27.9, "t_active_ms": 102, "vbat_mv": 2943}
+[00:03:43.499,1000] <inf> node_loop: work_handler fired, uptime=223499 ms
+[00:03:43.501,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 223499999999, "ts": 223499, "rssi": -53, "hops": 1}
+[00:03:43.499,1000] <inf> node_loop: work_handler fired, uptime=223499 ms
+[00:03:43.501,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+[00:03:43.518,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 228599999999, "ts": 228599, "rssi": -44, "hops": 0, "temp_c": 23.28, "humid_pct": 41.7, "accel_g": [-0.012, -0.023, 0.992], "gyro_dps": [-0.65, 0.33, -0.51], "i_avg_ma": 5.57, "i_pk_ma": 27.6, "t_active_ms": 86, "vbat_mv": 2929}
+[00:03:48.599,1000] <inf> node_loop: work_handler fired, uptime=228599 ms
+[00:03:48.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 228599999999, "ts": 228599, "rssi": -51, "hops": 1}
+[00:03:48.599,1000] <inf> node_loop: work_handler fired, uptime=228599 ms
+[00:03:48.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 233699999999, "ts": 233699, "rssi": -38, "hops": 0, "temp_c": 23.62, "humid_pct": 41.4, "accel_g": [0.027, -0.029, 0.959], "gyro_dps": [0.26, 0.07, 0.38], "i_avg_ma": 5.32, "i_pk_ma": 25.9, "t_active_ms": 81, "vbat_mv": 2940}
+[00:03:53.699,1000] <inf> node_loop: work_handler fired, uptime=233699 ms
+[00:03:53.701,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+[00:03:53.718,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 233699999999, "ts": 233699, "rssi": -58, "hops": 1}
+[00:03:53.699,1000] <inf> node_loop: work_handler fired, uptime=233699 ms
+[00:03:53.701,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 238799999999, "ts": 238799, "rssi": -41, "hops": 0, "temp_c": 22.95, "humid_pct": 42.5, "accel_g": [0.053, -0.05, 0.951], "gyro_dps": [0.26, -0.15, 0.28], "i_avg_ma": 4.72, "i_pk_ma": 27.0, "t_active_ms": 87, "vbat_mv": 2940}
+[00:03:58.799,1000] <inf> node_loop: work_handler fired, uptime=238799 ms
+[00:03:58.801,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 238799999999, "ts": 238799, "rssi": -53, "hops": 1}
+[00:03:58.799,1000] <inf> node_loop: work_handler fired, uptime=238799 ms
+[00:03:58.801,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:03:58.818,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "e5f6", "role": "SED", "ts_host": 240599999999, "ts": 240599, "rssi": -53, "hops": 1, "temp_c": 24.09, "humid_pct": 45.4, "accel_g": [0.015, -0.018, 0.951], "gyro_dps": [0.31, 0.07, 0.62], "i_avg_ma": 0.43, "i_pk_ma": 24.9, "t_active_ms": 69, "vbat_mv": 2952}
+[00:04:00.599,1000] <inf> node_loop: work_handler fired, uptime=240599 ms
+[00:04:00.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:04:00.620,400] <inf> sed_loop: radio parked, entering deep sleep
+{"src": "9a80", "role": "SED", "ts_host": 240599999999, "ts": 240599, "rssi": -58, "hops": 2}
+[00:04:00.599,1000] <inf> node_loop: work_handler fired, uptime=240599 ms
+[00:04:00.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 243899999999, "ts": 243899, "rssi": -45, "hops": 0, "temp_c": 23.44, "humid_pct": 42.3, "accel_g": [-0.009, -0.038, 0.956], "gyro_dps": [-0.04, -0.48, -0.34], "i_avg_ma": 5.67, "i_pk_ma": 26.7, "t_active_ms": 90, "vbat_mv": 2949}
+[00:04:03.899,1000] <inf> node_loop: work_handler fired, uptime=243899 ms
+[00:04:03.901,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 243899999999, "ts": 243899, "rssi": -50, "hops": 1}
+[00:04:03.899,1000] <inf> node_loop: work_handler fired, uptime=243899 ms
+[00:04:03.901,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 248999999999, "ts": 248999, "rssi": -35, "hops": 0, "temp_c": 23.37, "humid_pct": 43.0, "accel_g": [-0.018, -0.004, 0.969], "gyro_dps": [0.07, 0.41, -0.37], "i_avg_ma": 5.21, "i_pk_ma": 25.8, "t_active_ms": 86, "vbat_mv": 2919}
+[00:04:08.999,1000] <inf> node_loop: work_handler fired, uptime=248999 ms
+[00:04:09.001,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:04:09.018,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 248999999999, "ts": 248999, "rssi": -51, "hops": 1}
+[00:04:08.999,1000] <inf> node_loop: work_handler fired, uptime=248999 ms
+[00:04:09.001,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 254099999999, "ts": 254099, "rssi": -42, "hops": 0, "temp_c": 23.84, "humid_pct": 41.5, "accel_g": [-0.004, -0.003, 1.022], "gyro_dps": [-0.63, 0.7, 0.05], "i_avg_ma": 5.5, "i_pk_ma": 26.6, "t_active_ms": 73, "vbat_mv": 2934}
+[00:04:14.099,1000] <inf> node_loop: work_handler fired, uptime=254099 ms
+[00:04:14.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 254099999999, "ts": 254099, "rssi": -51, "hops": 1}
+[00:04:14.099,1000] <inf> node_loop: work_handler fired, uptime=254099 ms
+[00:04:14.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 259099999999, "ts": 259099, "rssi": -41, "hops": 0, "temp_c": 23.55, "humid_pct": 41.6, "accel_g": [-0.02, -0.017, 1.053], "gyro_dps": [-1.1, 0.41, -0.04], "i_avg_ma": 5.2, "i_pk_ma": 26.3, "t_active_ms": 83, "vbat_mv": 2924}
+[00:04:19.099,1000] <inf> node_loop: work_handler fired, uptime=259099 ms
+[00:04:19.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+[00:04:19.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 259099999999, "ts": 259099, "rssi": -52, "hops": 1}
+[00:04:19.099,1000] <inf> node_loop: work_handler fired, uptime=259099 ms
+[00:04:19.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:04:19.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 264099999999, "ts": 264099, "rssi": -47, "hops": 0, "temp_c": 23.28, "humid_pct": 42.2, "accel_g": [0.01, -0.019, 1.043], "gyro_dps": [-0.58, -0.71, 0.2], "i_avg_ma": 5.7, "i_pk_ma": 25.9, "t_active_ms": 87, "vbat_mv": 2960}
+[00:04:24.099,1000] <inf> node_loop: work_handler fired, uptime=264099 ms
+[00:04:24.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 264099999999, "ts": 264099, "rssi": -55, "hops": 1}
+[00:04:24.099,1000] <inf> node_loop: work_handler fired, uptime=264099 ms
+[00:04:24.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 269099999999, "ts": 269099, "rssi": -45, "hops": 0, "temp_c": 23.61, "humid_pct": 41.7, "accel_g": [0.004, 0.011, 1.044], "gyro_dps": [0.44, 0.11, -0.0], "i_avg_ma": 4.95, "i_pk_ma": 27.1, "t_active_ms": 74, "vbat_mv": 2938}
+[00:04:29.099,1000] <inf> node_loop: work_handler fired, uptime=269099 ms
+[00:04:29.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 269099999999, "ts": 269099, "rssi": -48, "hops": 1}
+[00:04:29.099,1000] <inf> node_loop: work_handler fired, uptime=269099 ms
+[00:04:29.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "e5f6", "role": "SED", "ts_host": 270599999999, "ts": 270599, "rssi": -41, "hops": 1, "temp_c": 23.82, "humid_pct": 45.8, "accel_g": [0.012, 0.021, 1.052], "gyro_dps": [0.18, -0.28, 0.6], "i_avg_ma": 0.42, "i_pk_ma": 26.4, "t_active_ms": 92, "vbat_mv": 2928}
+[00:04:30.599,1000] <inf> node_loop: work_handler fired, uptime=270599 ms
+[00:04:30.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "9a80", "role": "SED", "ts_host": 270599999999, "ts": 270599, "rssi": -64, "hops": 2}
+[00:04:30.599,1000] <inf> node_loop: work_handler fired, uptime=270599 ms
+[00:04:30.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 274099999999, "ts": 274099, "rssi": -41, "hops": 0, "temp_c": 23.12, "humid_pct": 41.9, "accel_g": [0.013, -0.006, 1.012], "gyro_dps": [0.24, -0.15, 0.23], "i_avg_ma": 5.48, "i_pk_ma": 27.0, "t_active_ms": 81, "vbat_mv": 2942}
+[00:04:34.099,1000] <inf> node_loop: work_handler fired, uptime=274099 ms
+[00:04:34.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:04:34.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 274099999999, "ts": 274099, "rssi": -51, "hops": 1}
+[00:04:34.099,1000] <inf> node_loop: work_handler fired, uptime=274099 ms
+[00:04:34.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 279099999999, "ts": 279099, "rssi": -41, "hops": 0, "temp_c": 23.39, "humid_pct": 41.6, "accel_g": [-0.01, 0.015, 0.967], "gyro_dps": [0.14, -0.12, 0.75], "i_avg_ma": 4.91, "i_pk_ma": 26.5, "t_active_ms": 83, "vbat_mv": 2942}
+[00:04:39.099,1000] <inf> node_loop: work_handler fired, uptime=279099 ms
+[00:04:39.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 279099999999, "ts": 279099, "rssi": -50, "hops": 1}
+[00:04:39.099,1000] <inf> node_loop: work_handler fired, uptime=279099 ms
+[00:04:39.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 284099999999, "ts": 284099, "rssi": -42, "hops": 0, "temp_c": 23.32, "humid_pct": 42.2, "accel_g": [0.005, 0.001, 0.952], "gyro_dps": [-0.22, 0.48, 0.38], "i_avg_ma": 5.48, "i_pk_ma": 25.6, "t_active_ms": 97, "vbat_mv": 2931}
+[00:04:44.099,1000] <inf> node_loop: work_handler fired, uptime=284099 ms
+[00:04:44.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 284099999999, "ts": 284099, "rssi": -50, "hops": 1}
+[00:04:44.099,1000] <inf> node_loop: work_handler fired, uptime=284099 ms
+[00:04:44.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 289099999999, "ts": 289099, "rssi": -37, "hops": 0, "temp_c": 23.57, "humid_pct": 42.5, "accel_g": [0.013, 0.025, 0.954], "gyro_dps": [-0.21, -0.91, -0.37], "i_avg_ma": 5.33, "i_pk_ma": 24.7, "t_active_ms": 88, "vbat_mv": 2934}
+[00:04:49.099,1000] <inf> node_loop: work_handler fired, uptime=289099 ms
+[00:04:49.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:04:49.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 289099999999, "ts": 289099, "rssi": -47, "hops": 1}
+[00:04:49.099,1000] <inf> node_loop: work_handler fired, uptime=289099 ms
+[00:04:49.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:04:49.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 294099999999, "ts": 294099, "rssi": -42, "hops": 0, "temp_c": 22.97, "humid_pct": 42.7, "accel_g": [-0.005, 0.023, 0.957], "gyro_dps": [-0.26, -0.14, 0.47], "i_avg_ma": 4.74, "i_pk_ma": 26.1, "t_active_ms": 89, "vbat_mv": 2963}
+[00:04:54.099,1000] <inf> node_loop: work_handler fired, uptime=294099 ms
+[00:04:54.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 294099999999, "ts": 294099, "rssi": -53, "hops": 1}
+[00:04:54.099,1000] <inf> node_loop: work_handler fired, uptime=294099 ms
+[00:04:54.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 299099999999, "ts": 299099, "rssi": -42, "hops": 0, "temp_c": 23.74, "humid_pct": 41.2, "accel_g": [0.026, 0.036, 0.995], "gyro_dps": [0.34, 0.05, -0.09], "i_avg_ma": 6.15, "i_pk_ma": 24.8, "t_active_ms": 84, "vbat_mv": 2948}
+[00:04:59.099,1000] <inf> node_loop: work_handler fired, uptime=299099 ms
+[00:04:59.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:04:59.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 299099999999, "ts": 299099, "rssi": -53, "hops": 1}
+[00:04:59.099,1000] <inf> node_loop: work_handler fired, uptime=299099 ms
+[00:04:59.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "e5f6", "role": "SED", "ts_host": 300599999999, "ts": 300599, "rssi": -47, "hops": 1, "temp_c": 24.25, "humid_pct": 45.7, "accel_g": [-0.025, -0.001, 0.988], "gyro_dps": [-0.8, 0.32, -0.23], "i_avg_ma": 0.37, "i_pk_ma": 23.6, "t_active_ms": 88, "vbat_mv": 2940}
+[00:05:00.599,1000] <inf> node_loop: work_handler fired, uptime=300599 ms
+[00:05:00.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "9a80", "role": "SED", "ts_host": 300599999999, "ts": 300599, "rssi": -61, "hops": 2}
+[00:05:00.599,1000] <inf> node_loop: work_handler fired, uptime=300599 ms
+[00:05:00.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 304100000000, "ts": 304100, "rssi": -41, "hops": 0, "temp_c": 23.1, "humid_pct": 41.8, "accel_g": [0.012, 0.015, 1.013], "gyro_dps": [1.56, -0.45, 0.37], "i_avg_ma": 5.86, "i_pk_ma": 26.2, "t_active_ms": 89, "vbat_mv": 2947}
+[00:05:04.100,000] <inf> node_loop: work_handler fired, uptime=304100 ms
+[00:05:04.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 304100000000, "ts": 304100, "rssi": -49, "hops": 1}
+[00:05:04.100,000] <inf> node_loop: work_handler fired, uptime=304100 ms
+[00:05:04.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+[00:05:04.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 309100000000, "ts": 309100, "rssi": -38, "hops": 0, "temp_c": 23.37, "humid_pct": 42.4, "accel_g": [-0.015, 0.039, 1.042], "gyro_dps": [-0.33, 0.14, 0.42], "i_avg_ma": 5.42, "i_pk_ma": 26.9, "t_active_ms": 85, "vbat_mv": 2939}
+[00:05:09.100,000] <inf> node_loop: work_handler fired, uptime=309100 ms
+[00:05:09.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 309100000000, "ts": 309100, "rssi": -52, "hops": 1}
+[00:05:09.100,000] <inf> node_loop: work_handler fired, uptime=309100 ms
+[00:05:09.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 314100000000, "ts": 314100, "rssi": -44, "hops": 0, "temp_c": 23.27, "humid_pct": 42.4, "accel_g": [-0.024, -0.024, 1.033], "gyro_dps": [-0.42, -0.51, 0.04], "i_avg_ma": 5.66, "i_pk_ma": 26.9, "t_active_ms": 90, "vbat_mv": 2938}
+[00:05:14.100,000] <inf> node_loop: work_handler fired, uptime=314100 ms
+[00:05:14.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:05:14.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 314100000000, "ts": 314100, "rssi": -47, "hops": 1}
+[00:05:14.100,000] <inf> node_loop: work_handler fired, uptime=314100 ms
+[00:05:14.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 319100000000, "ts": 319100, "rssi": -42, "hops": 0, "temp_c": 23.33, "humid_pct": 41.5, "accel_g": [0.01, -0.015, 1.034], "gyro_dps": [-0.52, -1.03, 0.3], "i_avg_ma": 5.89, "i_pk_ma": 26.2, "t_active_ms": 77, "vbat_mv": 2899}
+[00:05:19.100,000] <inf> node_loop: work_handler fired, uptime=319100 ms
+[00:05:19.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 319100000000, "ts": 319100, "rssi": -51, "hops": 1}
+[00:05:19.100,000] <inf> node_loop: work_handler fired, uptime=319100 ms
+[00:05:19.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+[00:05:19.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 324100000000, "ts": 324100, "rssi": -39, "hops": 0, "temp_c": 22.8, "humid_pct": 41.8, "accel_g": [-0.001, -0.022, 1.01], "gyro_dps": [-0.12, -0.59, -0.6], "i_avg_ma": 4.98, "i_pk_ma": 24.8, "t_active_ms": 83, "vbat_mv": 2949}
+[00:05:24.100,000] <inf> node_loop: work_handler fired, uptime=324100 ms
+[00:05:24.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 324100000000, "ts": 324100, "rssi": -52, "hops": 1}
+[00:05:24.100,000] <inf> node_loop: work_handler fired, uptime=324100 ms
+[00:05:24.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 329100000000, "ts": 329100, "rssi": -44, "hops": 0, "temp_c": 23.22, "humid_pct": 42.0, "accel_g": [0.02, 0.007, 0.987], "gyro_dps": [0.61, -0.36, -0.3], "i_avg_ma": 5.07, "i_pk_ma": 26.8, "t_active_ms": 89, "vbat_mv": 2909}
+[00:05:29.100,000] <inf> node_loop: work_handler fired, uptime=329100 ms
+[00:05:29.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 329100000000, "ts": 329100, "rssi": -47, "hops": 1}
+[00:05:29.100,000] <inf> node_loop: work_handler fired, uptime=329100 ms
+[00:05:29.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "e5f6", "role": "SED", "ts_host": 330600000000, "ts": 330600, "rssi": -43, "hops": 1, "temp_c": 24.69, "humid_pct": 46.1, "accel_g": [0.015, 0.01, 0.99], "gyro_dps": [-0.17, -0.9, 0.45], "i_avg_ma": 0.41, "i_pk_ma": 27.0, "t_active_ms": 72, "vbat_mv": 2897}
+[00:05:30.600,000] <inf> node_loop: work_handler fired, uptime=330600 ms
+[00:05:30.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "9a80", "role": "SED", "ts_host": 330600000000, "ts": 330600, "rssi": -57, "hops": 2}
+[00:05:30.600,000] <inf> node_loop: work_handler fired, uptime=330600 ms
+[00:05:30.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 334100000000, "ts": 334100, "rssi": -41, "hops": 0, "temp_c": 23.82, "humid_pct": 42.0, "accel_g": [0.001, -0.003, 0.952], "gyro_dps": [0.01, 0.42, -0.52], "i_avg_ma": 5.49, "i_pk_ma": 24.9, "t_active_ms": 76, "vbat_mv": 2917}
+[00:05:34.100,000] <inf> node_loop: work_handler fired, uptime=334100 ms
+[00:05:34.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:05:34.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 334100000000, "ts": 334100, "rssi": -46, "hops": 1}
+[00:05:34.100,000] <inf> node_loop: work_handler fired, uptime=334100 ms
+[00:05:34.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 339100000000, "ts": 339100, "rssi": -37, "hops": 0, "temp_c": 23.94, "humid_pct": 41.9, "accel_g": [-0.003, 0.049, 0.952], "gyro_dps": [-0.21, -0.31, 0.22], "i_avg_ma": 5.56, "i_pk_ma": 26.2, "t_active_ms": 98, "vbat_mv": 2935}
+[00:05:39.100,000] <inf> node_loop: work_handler fired, uptime=339100 ms
+[00:05:39.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 339100000000, "ts": 339100, "rssi": -50, "hops": 1}
+[00:05:39.100,000] <inf> node_loop: work_handler fired, uptime=339100 ms
+[00:05:39.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 344100000000, "ts": 344100, "rssi": -44, "hops": 0, "temp_c": 22.74, "humid_pct": 42.9, "accel_g": [0.023, -0.027, 0.954], "gyro_dps": [-0.17, 0.56, 0.05], "i_avg_ma": 5.58, "i_pk_ma": 27.0, "t_active_ms": 74, "vbat_mv": 2945}
+[00:05:44.100,000] <inf> node_loop: work_handler fired, uptime=344100 ms
+[00:05:44.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:05:44.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 344100000000, "ts": 344100, "rssi": -50, "hops": 1}
+[00:05:44.100,000] <inf> node_loop: work_handler fired, uptime=344100 ms
+[00:05:44.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 349100000000, "ts": 349100, "rssi": -44, "hops": 0, "temp_c": 23.38, "humid_pct": 42.6, "accel_g": [-0.017, 0.0, 0.989], "gyro_dps": [-0.66, -0.48, 0.23], "i_avg_ma": 5.69, "i_pk_ma": 25.5, "t_active_ms": 76, "vbat_mv": 2935}
+[00:05:49.100,000] <inf> node_loop: work_handler fired, uptime=349100 ms
+[00:05:49.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 349100000000, "ts": 349100, "rssi": -48, "hops": 1}
+[00:05:49.100,000] <inf> node_loop: work_handler fired, uptime=349100 ms
+[00:05:49.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:05:49.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 354100000000, "ts": 354100, "rssi": -43, "hops": 0, "temp_c": 23.83, "humid_pct": 42.2, "accel_g": [0.001, -0.006, 0.977], "gyro_dps": [0.08, -0.21, -0.84], "i_avg_ma": 5.5, "i_pk_ma": 26.5, "t_active_ms": 89, "vbat_mv": 2933}
+[00:05:54.100,000] <inf> node_loop: work_handler fired, uptime=354100 ms
+[00:05:54.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 354100000000, "ts": 354100, "rssi": -51, "hops": 1}
+[00:05:54.100,000] <inf> node_loop: work_handler fired, uptime=354100 ms
+[00:05:54.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 359100000000, "ts": 359100, "rssi": -40, "hops": 0, "temp_c": 23.12, "humid_pct": 42.3, "accel_g": [-0.009, -0.008, 1.046], "gyro_dps": [0.39, 0.13, -0.36], "i_avg_ma": 5.75, "i_pk_ma": 24.3, "t_active_ms": 104, "vbat_mv": 2949}
+[00:05:59.100,000] <inf> node_loop: work_handler fired, uptime=359100 ms
+[00:05:59.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 359100000000, "ts": 359100, "rssi": -53, "hops": 1}
+[00:05:59.100,000] <inf> node_loop: work_handler fired, uptime=359100 ms
+[00:05:59.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "e5f6", "role": "SED", "ts_host": 360600000000, "ts": 360600, "rssi": -48, "hops": 1, "temp_c": 24.33, "humid_pct": 44.7, "accel_g": [-0.015, 0.001, 1.042], "gyro_dps": [-0.18, -1.03, -0.15], "i_avg_ma": 0.38, "i_pk_ma": 26.0, "t_active_ms": 85, "vbat_mv": 2952}
+[00:06:00.600,000] <inf> node_loop: work_handler fired, uptime=360600 ms
+[00:06:00.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "9a80", "role": "SED", "ts_host": 360600000000, "ts": 360600, "rssi": -56, "hops": 2}
+[00:06:00.600,000] <inf> node_loop: work_handler fired, uptime=360600 ms
+[00:06:00.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 364100000000, "ts": 364100, "rssi": -42, "hops": 0, "temp_c": 23.12, "humid_pct": 41.9, "accel_g": [-0.013, -0.011, 1.04], "gyro_dps": [0.02, -0.23, 0.06], "i_avg_ma": 5.53, "i_pk_ma": 26.4, "t_active_ms": 67, "vbat_mv": 2931}
+[00:06:04.100,000] <inf> node_loop: work_handler fired, uptime=364100 ms
+[00:06:04.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 364100000000, "ts": 364100, "rssi": -54, "hops": 1}
+[00:06:04.100,000] <inf> node_loop: work_handler fired, uptime=364100 ms
+[00:06:04.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 369100000000, "ts": 369100, "rssi": -40, "hops": 0, "temp_c": 23.57, "humid_pct": 42.6, "accel_g": [0.003, -0.039, 1.031], "gyro_dps": [-0.61, 0.01, 0.39], "i_avg_ma": 4.95, "i_pk_ma": 24.4, "t_active_ms": 90, "vbat_mv": 2935}
+[00:06:09.100,000] <inf> node_loop: work_handler fired, uptime=369100 ms
+[00:06:09.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 369100000000, "ts": 369100, "rssi": -51, "hops": 1}
+[00:06:09.100,000] <inf> node_loop: work_handler fired, uptime=369100 ms
+[00:06:09.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 374100000000, "ts": 374100, "rssi": -42, "hops": 0, "temp_c": 23.57, "humid_pct": 41.8, "accel_g": [-0.011, 0.002, 1.019], "gyro_dps": [0.76, 0.02, 0.94], "i_avg_ma": 6.04, "i_pk_ma": 28.1, "t_active_ms": 93, "vbat_mv": 2941}
+[00:06:14.100,000] <inf> node_loop: work_handler fired, uptime=374100 ms
+[00:06:14.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 374100000000, "ts": 374100, "rssi": -51, "hops": 1}
+[00:06:14.100,000] <inf> node_loop: work_handler fired, uptime=374100 ms
+[00:06:14.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 379100000000, "ts": 379100, "rssi": -44, "hops": 0, "temp_c": 23.87, "humid_pct": 41.9, "accel_g": [-0.011, 0.001, 0.979], "gyro_dps": [-0.55, -0.21, -0.51], "i_avg_ma": 4.85, "i_pk_ma": 26.3, "t_active_ms": 83, "vbat_mv": 2945}
+[00:06:19.100,000] <inf> node_loop: work_handler fired, uptime=379100 ms
+[00:06:19.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 379100000000, "ts": 379100, "rssi": -51, "hops": 1}
+[00:06:19.100,000] <inf> node_loop: work_handler fired, uptime=379100 ms
+[00:06:19.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 384100000000, "ts": 384100, "rssi": -37, "hops": 0, "temp_c": 24.01, "humid_pct": 41.8, "accel_g": [0.001, -0.018, 0.971], "gyro_dps": [-0.7, 0.28, 0.55], "i_avg_ma": 5.91, "i_pk_ma": 24.9, "t_active_ms": 93, "vbat_mv": 2929}
+[00:06:24.100,000] <inf> node_loop: work_handler fired, uptime=384100 ms
+[00:06:24.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 384100000000, "ts": 384100, "rssi": -54, "hops": 1}
+[00:06:24.100,000] <inf> node_loop: work_handler fired, uptime=384100 ms
+[00:06:24.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 389100000000, "ts": 389100, "rssi": -40, "hops": 0, "temp_c": 23.12, "humid_pct": 42.0, "accel_g": [0.007, 0.031, 0.948], "gyro_dps": [0.21, -0.4, -1.08], "i_avg_ma": 4.89, "i_pk_ma": 26.8, "t_active_ms": 75, "vbat_mv": 2934}
+[00:06:29.100,000] <inf> node_loop: work_handler fired, uptime=389100 ms
+[00:06:29.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 389100000000, "ts": 389100, "rssi": -49, "hops": 1}
+[00:06:29.100,000] <inf> node_loop: work_handler fired, uptime=389100 ms
+[00:06:29.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "e5f6", "role": "SED", "ts_host": 390600000000, "ts": 390600, "rssi": -42, "hops": 1, "temp_c": 23.77, "humid_pct": 45.3, "accel_g": [0.001, -0.002, 0.961], "gyro_dps": [-0.79, -0.48, 0.11], "i_avg_ma": 0.38, "i_pk_ma": 27.1, "t_active_ms": 72, "vbat_mv": 2953}
+[00:06:30.600,000] <inf> node_loop: work_handler fired, uptime=390600 ms
+[00:06:30.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "9a80", "role": "SED", "ts_host": 390600000000, "ts": 390600, "rssi": -65, "hops": 2}
+[00:06:30.600,000] <inf> node_loop: work_handler fired, uptime=390600 ms
+[00:06:30.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:06:30.620,400] <inf> sed_loop: radio parked, entering deep sleep
+{"src": "a1b2", "role": "LEADER", "ts_host": 394100000000, "ts": 394100, "rssi": -46, "hops": 0, "temp_c": 23.32, "humid_pct": 42.3, "accel_g": [0.032, 0.013, 0.955], "gyro_dps": [-0.59, -0.47, -0.33], "i_avg_ma": 5.5, "i_pk_ma": 25.9, "t_active_ms": 98, "vbat_mv": 2944}
+[00:06:34.100,000] <inf> node_loop: work_handler fired, uptime=394100 ms
+[00:06:34.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 394100000000, "ts": 394100, "rssi": -55, "hops": 1}
+[00:06:34.100,000] <inf> node_loop: work_handler fired, uptime=394100 ms
+[00:06:34.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 399100000000, "ts": 399100, "rssi": -40, "hops": 0, "temp_c": 23.89, "humid_pct": 42.8, "accel_g": [-0.025, -0.023, 0.98], "gyro_dps": [-0.27, -0.17, 0.11], "i_avg_ma": 5.64, "i_pk_ma": 25.7, "t_active_ms": 77, "vbat_mv": 2926}
+[00:06:39.100,000] <inf> node_loop: work_handler fired, uptime=399100 ms
+[00:06:39.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+[00:06:39.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 399100000000, "ts": 399100, "rssi": -53, "hops": 1}
+[00:06:39.100,000] <inf> node_loop: work_handler fired, uptime=399100 ms
+[00:06:39.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 404100000000, "ts": 404100, "rssi": -37, "hops": 0, "temp_c": 23.76, "humid_pct": 42.1, "accel_g": [-0.011, -0.015, 1.007], "gyro_dps": [-0.1, -0.01, 1.49], "i_avg_ma": 5.66, "i_pk_ma": 26.9, "t_active_ms": 78, "vbat_mv": 2929}
+[00:06:44.100,000] <inf> node_loop: work_handler fired, uptime=404100 ms
+[00:06:44.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 404100000000, "ts": 404100, "rssi": -52, "hops": 1}
+[00:06:44.100,000] <inf> node_loop: work_handler fired, uptime=404100 ms
+[00:06:44.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 409100000000, "ts": 409100, "rssi": -37, "hops": 0, "temp_c": 22.8, "humid_pct": 42.0, "accel_g": [0.006, 0.004, 1.044], "gyro_dps": [0.14, 0.08, -0.95], "i_avg_ma": 5.22, "i_pk_ma": 23.2, "t_active_ms": 90, "vbat_mv": 2944}
+[00:06:49.100,000] <inf> node_loop: work_handler fired, uptime=409100 ms
+[00:06:49.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 409100000000, "ts": 409100, "rssi": -52, "hops": 1}
+[00:06:49.100,000] <inf> node_loop: work_handler fired, uptime=409100 ms
+[00:06:49.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 414100000000, "ts": 414100, "rssi": -44, "hops": 0, "temp_c": 23.33, "humid_pct": 42.7, "accel_g": [-0.008, -0.017, 1.057], "gyro_dps": [0.7, 1.1, 0.35], "i_avg_ma": 5.44, "i_pk_ma": 26.9, "t_active_ms": 86, "vbat_mv": 2920}
+[00:06:54.100,000] <inf> node_loop: work_handler fired, uptime=414100 ms
+[00:06:54.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 414100000000, "ts": 414100, "rssi": -46, "hops": 1}
+[00:06:54.100,000] <inf> node_loop: work_handler fired, uptime=414100 ms
+[00:06:54.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 419100000000, "ts": 419100, "rssi": -45, "hops": 0, "temp_c": 23.46, "humid_pct": 42.0, "accel_g": [-0.023, 0.014, 1.048], "gyro_dps": [0.33, 0.01, -0.01], "i_avg_ma": 5.01, "i_pk_ma": 24.4, "t_active_ms": 89, "vbat_mv": 2925}
+[00:06:59.100,000] <inf> node_loop: work_handler fired, uptime=419100 ms
+[00:06:59.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:06:59.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 419100000000, "ts": 419100, "rssi": -51, "hops": 1}
+[00:06:59.100,000] <inf> node_loop: work_handler fired, uptime=419100 ms
+[00:06:59.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "e5f6", "role": "SED", "ts_host": 420600000000, "ts": 420600, "rssi": -52, "hops": 1, "temp_c": 24.3, "humid_pct": 46.2, "accel_g": [-0.022, -0.043, 1.041], "gyro_dps": [0.09, -0.28, 0.1], "i_avg_ma": 0.37, "i_pk_ma": 25.1, "t_active_ms": 79, "vbat_mv": 2939}
+[00:07:00.600,000] <inf> node_loop: work_handler fired, uptime=420600 ms
+[00:07:00.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "9a80", "role": "SED", "ts_host": 420600000000, "ts": 420600, "rssi": -68, "hops": 2}
+[00:07:00.600,000] <inf> node_loop: work_handler fired, uptime=420600 ms
+[00:07:00.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 424100000000, "ts": 424100, "rssi": -43, "hops": 0, "temp_c": 23.97, "humid_pct": 41.3, "accel_g": [0.004, 0.009, 1.025], "gyro_dps": [0.74, 0.28, -0.26], "i_avg_ma": 5.39, "i_pk_ma": 26.6, "t_active_ms": 80, "vbat_mv": 2932}
+[00:07:04.100,000] <inf> node_loop: work_handler fired, uptime=424100 ms
+[00:07:04.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 424100000000, "ts": 424100, "rssi": -51, "hops": 1}
+[00:07:04.100,000] <inf> node_loop: work_handler fired, uptime=424100 ms
+[00:07:04.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 429100000000, "ts": 429100, "rssi": -39, "hops": 0, "temp_c": 23.8, "humid_pct": 41.6, "accel_g": [0.039, 0.042, 1.007], "gyro_dps": [0.99, 0.37, -0.17], "i_avg_ma": 5.25, "i_pk_ma": 25.0, "t_active_ms": 85, "vbat_mv": 2939}
+[00:07:09.100,000] <inf> node_loop: work_handler fired, uptime=429100 ms
+[00:07:09.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 429100000000, "ts": 429100, "rssi": -49, "hops": 1}
+[00:07:09.100,000] <inf> node_loop: work_handler fired, uptime=429100 ms
+[00:07:09.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 434100000000, "ts": 434100, "rssi": -39, "hops": 0, "temp_c": 23.44, "humid_pct": 41.7, "accel_g": [0.041, 0.03, 0.968], "gyro_dps": [-0.37, 1.34, 0.9], "i_avg_ma": 5.51, "i_pk_ma": 25.6, "t_active_ms": 88, "vbat_mv": 2968}
+[00:07:14.100,000] <inf> node_loop: work_handler fired, uptime=434100 ms
+[00:07:14.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+[00:07:14.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 434100000000, "ts": 434100, "rssi": -51, "hops": 1}
+[00:07:14.100,000] <inf> node_loop: work_handler fired, uptime=434100 ms
+[00:07:14.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:07:14.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 439100000000, "ts": 439100, "rssi": -43, "hops": 0, "temp_c": 23.63, "humid_pct": 42.4, "accel_g": [0.035, -0.014, 0.949], "gyro_dps": [0.31, 0.6, 0.5], "i_avg_ma": 4.85, "i_pk_ma": 25.8, "t_active_ms": 71, "vbat_mv": 2943}
+[00:07:19.100,000] <inf> node_loop: work_handler fired, uptime=439100 ms
+[00:07:19.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 439100000000, "ts": 439100, "rssi": -50, "hops": 1}
+[00:07:19.100,000] <inf> node_loop: work_handler fired, uptime=439100 ms
+[00:07:19.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+[00:07:19.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 444100000000, "ts": 444100, "rssi": -42, "hops": 0, "temp_c": 23.16, "humid_pct": 42.6, "accel_g": [-0.037, -0.018, 0.956], "gyro_dps": [-0.14, 0.7, 0.21], "i_avg_ma": 5.4, "i_pk_ma": 24.3, "t_active_ms": 92, "vbat_mv": 2954}
+[00:07:24.100,000] <inf> node_loop: work_handler fired, uptime=444100 ms
+[00:07:24.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+[00:07:24.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 444100000000, "ts": 444100, "rssi": -48, "hops": 1}
+[00:07:24.100,000] <inf> node_loop: work_handler fired, uptime=444100 ms
+[00:07:24.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+[00:07:24.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 449100000000, "ts": 449100, "rssi": -42, "hops": 0, "temp_c": 23.13, "humid_pct": 42.3, "accel_g": [-0.015, 0.048, 0.969], "gyro_dps": [0.42, 0.2, 0.03], "i_avg_ma": 6.07, "i_pk_ma": 27.8, "t_active_ms": 77, "vbat_mv": 2953}
+[00:07:29.100,000] <inf> node_loop: work_handler fired, uptime=449100 ms
+[00:07:29.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 449100000000, "ts": 449100, "rssi": -54, "hops": 1}
+[00:07:29.100,000] <inf> node_loop: work_handler fired, uptime=449100 ms
+[00:07:29.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "e5f6", "role": "SED", "ts_host": 450600000000, "ts": 450600, "rssi": -50, "hops": 1, "temp_c": 24.11, "humid_pct": 44.7, "accel_g": [-0.005, 0.052, 0.992], "gyro_dps": [0.05, 0.31, 0.3], "i_avg_ma": 0.39, "i_pk_ma": 26.1, "t_active_ms": 83, "vbat_mv": 2959}
+[00:07:30.600,000] <inf> node_loop: work_handler fired, uptime=450600 ms
+[00:07:30.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "9a80", "role": "SED", "ts_host": 450600000000, "ts": 450600, "rssi": -60, "hops": 2}
+[00:07:30.600,000] <inf> node_loop: work_handler fired, uptime=450600 ms
+[00:07:30.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 454100000000, "ts": 454100, "rssi": -36, "hops": 0, "temp_c": 23.86, "humid_pct": 42.0, "accel_g": [-0.006, 0.017, 1.019], "gyro_dps": [-0.4, -0.0, 0.37], "i_avg_ma": 5.68, "i_pk_ma": 27.0, "t_active_ms": 93, "vbat_mv": 2945}
+[00:07:34.100,000] <inf> node_loop: work_handler fired, uptime=454100 ms
+[00:07:34.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 454100000000, "ts": 454100, "rssi": -53, "hops": 1}
+[00:07:34.100,000] <inf> node_loop: work_handler fired, uptime=454100 ms
+[00:07:34.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 459100000000, "ts": 459100, "rssi": -36, "hops": 0, "temp_c": 23.55, "humid_pct": 41.8, "accel_g": [-0.025, -0.004, 1.036], "gyro_dps": [0.16, -0.03, -0.33], "i_avg_ma": 5.7, "i_pk_ma": 27.0, "t_active_ms": 74, "vbat_mv": 2950}
+[00:07:39.100,000] <inf> node_loop: work_handler fired, uptime=459100 ms
+[00:07:39.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 459100000000, "ts": 459100, "rssi": -55, "hops": 1}
+[00:07:39.100,000] <inf> node_loop: work_handler fired, uptime=459100 ms
+[00:07:39.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 464100000000, "ts": 464100, "rssi": -38, "hops": 0, "temp_c": 23.86, "humid_pct": 41.4, "accel_g": [0.032, -0.002, 1.048], "gyro_dps": [0.25, 0.2, -0.15], "i_avg_ma": 5.65, "i_pk_ma": 25.6, "t_active_ms": 80, "vbat_mv": 2926}
+[00:07:44.100,000] <inf> node_loop: work_handler fired, uptime=464100 ms
+[00:07:44.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 464100000000, "ts": 464100, "rssi": -50, "hops": 1}
+[00:07:44.100,000] <inf> node_loop: work_handler fired, uptime=464100 ms
+[00:07:44.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:07:44.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 469100000000, "ts": 469100, "rssi": -42, "hops": 0, "temp_c": 23.32, "humid_pct": 41.8, "accel_g": [-0.014, -0.044, 1.037], "gyro_dps": [-0.27, -0.26, -0.53], "i_avg_ma": 5.41, "i_pk_ma": 26.9, "t_active_ms": 82, "vbat_mv": 2932}
+[00:07:49.100,000] <inf> node_loop: work_handler fired, uptime=469100 ms
+[00:07:49.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:07:49.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 469100000000, "ts": 469100, "rssi": -47, "hops": 1}
+[00:07:49.100,000] <inf> node_loop: work_handler fired, uptime=469100 ms
+[00:07:49.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+[00:07:49.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 474100000000, "ts": 474100, "rssi": -46, "hops": 0, "temp_c": 23.13, "humid_pct": 41.4, "accel_g": [0.009, 0.033, 1.006], "gyro_dps": [-0.35, -0.19, -0.07], "i_avg_ma": 4.92, "i_pk_ma": 25.7, "t_active_ms": 93, "vbat_mv": 2936}
+[00:07:54.100,000] <inf> node_loop: work_handler fired, uptime=474100 ms
+[00:07:54.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:07:54.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 474100000000, "ts": 474100, "rssi": -53, "hops": 1}
+[00:07:54.100,000] <inf> node_loop: work_handler fired, uptime=474100 ms
+[00:07:54.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 479100000000, "ts": 479100, "rssi": -44, "hops": 0, "temp_c": 23.38, "humid_pct": 41.6, "accel_g": [0.003, 0.001, 0.997], "gyro_dps": [-0.49, -0.04, -0.07], "i_avg_ma": 5.42, "i_pk_ma": 24.6, "t_active_ms": 97, "vbat_mv": 2941}
+[00:07:59.100,000] <inf> node_loop: work_handler fired, uptime=479100 ms
+[00:07:59.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 479100000000, "ts": 479100, "rssi": -48, "hops": 1}
+[00:07:59.100,000] <inf> node_loop: work_handler fired, uptime=479100 ms
+[00:07:59.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "e5f6", "role": "SED", "ts_host": 480600000000, "ts": 480600, "rssi": -46, "hops": 1, "temp_c": 23.93, "humid_pct": 46.2, "accel_g": [0.017, -0.007, 0.983], "gyro_dps": [-0.41, 0.35, -0.02], "i_avg_ma": 0.37, "i_pk_ma": 26.5, "t_active_ms": 104, "vbat_mv": 2939}
+[00:08:00.600,000] <inf> node_loop: work_handler fired, uptime=480600 ms
+[00:08:00.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+[00:08:00.620,400] <inf> sed_loop: radio parked, entering deep sleep
+{"src": "9a80", "role": "SED", "ts_host": 480600000000, "ts": 480600, "rssi": -64, "hops": 2}
+[00:08:00.600,000] <inf> node_loop: work_handler fired, uptime=480600 ms
+[00:08:00.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 484100000000, "ts": 484100, "rssi": -39, "hops": 0, "temp_c": 23.17, "humid_pct": 41.9, "accel_g": [-0.033, 0.001, 0.952], "gyro_dps": [0.17, -0.77, 0.22], "i_avg_ma": 5.36, "i_pk_ma": 26.1, "t_active_ms": 84, "vbat_mv": 2941}
+[00:08:04.100,000] <inf> node_loop: work_handler fired, uptime=484100 ms
+[00:08:04.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 484100000000, "ts": 484100, "rssi": -55, "hops": 1}
+[00:08:04.100,000] <inf> node_loop: work_handler fired, uptime=484100 ms
+[00:08:04.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 489100000000, "ts": 489100, "rssi": -39, "hops": 0, "temp_c": 22.9, "humid_pct": 41.6, "accel_g": [-0.012, -0.021, 0.954], "gyro_dps": [-0.07, -0.41, -0.49], "i_avg_ma": 5.71, "i_pk_ma": 25.2, "t_active_ms": 89, "vbat_mv": 2946}
+[00:08:09.100,000] <inf> node_loop: work_handler fired, uptime=489100 ms
+[00:08:09.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 489100000000, "ts": 489100, "rssi": -57, "hops": 1}
+[00:08:09.100,000] <inf> node_loop: work_handler fired, uptime=489100 ms
+[00:08:09.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+[00:08:09.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 494100000000, "ts": 494100, "rssi": -41, "hops": 0, "temp_c": 23.66, "humid_pct": 41.4, "accel_g": [-0.012, 0.038, 0.968], "gyro_dps": [-0.43, 0.86, 0.66], "i_avg_ma": 4.75, "i_pk_ma": 26.4, "t_active_ms": 93, "vbat_mv": 2941}
+[00:08:14.100,000] <inf> node_loop: work_handler fired, uptime=494100 ms
+[00:08:14.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 494100000000, "ts": 494100, "rssi": -52, "hops": 1}
+[00:08:14.100,000] <inf> node_loop: work_handler fired, uptime=494100 ms
+[00:08:14.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 499100000000, "ts": 499100, "rssi": -43, "hops": 0, "temp_c": 23.44, "humid_pct": 41.6, "accel_g": [-0.015, 0.015, 0.964], "gyro_dps": [-0.51, 0.24, 0.73], "i_avg_ma": 5.57, "i_pk_ma": 25.8, "t_active_ms": 85, "vbat_mv": 2949}
+[00:08:19.100,000] <inf> node_loop: work_handler fired, uptime=499100 ms
+[00:08:19.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 499100000000, "ts": 499100, "rssi": -51, "hops": 1}
+[00:08:19.100,000] <inf> node_loop: work_handler fired, uptime=499100 ms
+[00:08:19.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 504100000000, "ts": 504100, "rssi": -39, "hops": 0, "temp_c": 23.42, "humid_pct": 42.2, "accel_g": [0.019, -0.028, 1.019], "gyro_dps": [0.54, -0.39, -0.3], "i_avg_ma": 4.94, "i_pk_ma": 27.0, "t_active_ms": 89, "vbat_mv": 2936}
+[00:08:24.100,000] <inf> node_loop: work_handler fired, uptime=504100 ms
+[00:08:24.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 504100000000, "ts": 504100, "rssi": -51, "hops": 1}
+[00:08:24.100,000] <inf> node_loop: work_handler fired, uptime=504100 ms
+[00:08:24.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 509100000000, "ts": 509100, "rssi": -41, "hops": 0, "temp_c": 23.76, "humid_pct": 42.5, "accel_g": [-0.009, 0.028, 1.034], "gyro_dps": [-0.91, -0.14, 0.28], "i_avg_ma": 6.12, "i_pk_ma": 25.6, "t_active_ms": 86, "vbat_mv": 2933}
+[00:08:29.100,000] <inf> node_loop: work_handler fired, uptime=509100 ms
+[00:08:29.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 509100000000, "ts": 509100, "rssi": -52, "hops": 1}
+[00:08:29.100,000] <inf> node_loop: work_handler fired, uptime=509100 ms
+[00:08:29.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "e5f6", "role": "SED", "ts_host": 510600000000, "ts": 510600, "rssi": -48, "hops": 1, "temp_c": 24.53, "humid_pct": 45.7, "accel_g": [0.0, 0.015, 1.031], "gyro_dps": [-0.16, -0.29, -0.63], "i_avg_ma": 0.38, "i_pk_ma": 25.8, "t_active_ms": 96, "vbat_mv": 2889}
+[00:08:30.600,000] <inf> node_loop: work_handler fired, uptime=510600 ms
+[00:08:30.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+[00:08:30.620,400] <inf> sed_loop: radio parked, entering deep sleep
+{"src": "9a80", "role": "SED", "ts_host": 510600000000, "ts": 510600, "rssi": -65, "hops": 2}
+[00:08:30.600,000] <inf> node_loop: work_handler fired, uptime=510600 ms
+[00:08:30.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 514100000000, "ts": 514100, "rssi": -39, "hops": 0, "temp_c": 23.52, "humid_pct": 42.5, "accel_g": [-0.007, -0.021, 1.052], "gyro_dps": [0.23, -0.69, -0.26], "i_avg_ma": 5.06, "i_pk_ma": 26.5, "t_active_ms": 89, "vbat_mv": 2939}
+[00:08:34.100,000] <inf> node_loop: work_handler fired, uptime=514100 ms
+[00:08:34.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 514100000000, "ts": 514100, "rssi": -51, "hops": 1}
+[00:08:34.100,000] <inf> node_loop: work_handler fired, uptime=514100 ms
+[00:08:34.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 519100000000, "ts": 519100, "rssi": -43, "hops": 0, "temp_c": 23.59, "humid_pct": 43.0, "accel_g": [0.014, -0.044, 1.032], "gyro_dps": [-0.65, 0.26, 0.0], "i_avg_ma": 5.55, "i_pk_ma": 28.1, "t_active_ms": 78, "vbat_mv": 2927}
+[00:08:39.100,000] <inf> node_loop: work_handler fired, uptime=519100 ms
+[00:08:39.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 519100000000, "ts": 519100, "rssi": -46, "hops": 1}
+[00:08:39.100,000] <inf> node_loop: work_handler fired, uptime=519100 ms
+[00:08:39.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 524100000000, "ts": 524100, "rssi": -48, "hops": 0, "temp_c": 23.52, "humid_pct": 42.0, "accel_g": [0.02, -0.003, 1.015], "gyro_dps": [-0.37, 0.95, -0.88], "i_avg_ma": 5.51, "i_pk_ma": 26.0, "t_active_ms": 89, "vbat_mv": 2933}
+[00:08:44.100,000] <inf> node_loop: work_handler fired, uptime=524100 ms
+[00:08:44.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 524100000000, "ts": 524100, "rssi": -50, "hops": 1}
+[00:08:44.100,000] <inf> node_loop: work_handler fired, uptime=524100 ms
+[00:08:44.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+[00:08:44.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 529100000000, "ts": 529100, "rssi": -43, "hops": 0, "temp_c": 23.44, "humid_pct": 41.8, "accel_g": [0.004, 0.027, 1.005], "gyro_dps": [-0.22, 0.3, 0.15], "i_avg_ma": 5.7, "i_pk_ma": 26.0, "t_active_ms": 87, "vbat_mv": 2932}
+[00:08:49.100,000] <inf> node_loop: work_handler fired, uptime=529100 ms
+[00:08:49.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+[00:08:49.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 529100000000, "ts": 529100, "rssi": -54, "hops": 1}
+[00:08:49.100,000] <inf> node_loop: work_handler fired, uptime=529100 ms
+[00:08:49.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+[00:08:49.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 534100000000, "ts": 534100, "rssi": -41, "hops": 0, "temp_c": 24.07, "humid_pct": 42.4, "accel_g": [0.016, 0.019, 0.949], "gyro_dps": [0.25, 0.39, -0.08], "i_avg_ma": 5.14, "i_pk_ma": 26.8, "t_active_ms": 83, "vbat_mv": 2956}
+[00:08:54.100,000] <inf> node_loop: work_handler fired, uptime=534100 ms
+[00:08:54.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 534100000000, "ts": 534100, "rssi": -53, "hops": 1}
+[00:08:54.100,000] <inf> node_loop: work_handler fired, uptime=534100 ms
+[00:08:54.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 539100000000, "ts": 539100, "rssi": -36, "hops": 0, "temp_c": 23.49, "humid_pct": 40.6, "accel_g": [0.022, -0.02, 0.948], "gyro_dps": [-0.26, -0.02, 0.0], "i_avg_ma": 4.96, "i_pk_ma": 28.0, "t_active_ms": 93, "vbat_mv": 2937}
+[00:08:59.100,000] <inf> node_loop: work_handler fired, uptime=539100 ms
+[00:08:59.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 539100000000, "ts": 539100, "rssi": -57, "hops": 1}
+[00:08:59.100,000] <inf> node_loop: work_handler fired, uptime=539100 ms
+[00:08:59.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "e5f6", "role": "SED", "ts_host": 540600000000, "ts": 540600, "rssi": -47, "hops": 1, "temp_c": 24.18, "humid_pct": 45.7, "accel_g": [0.035, -0.013, 0.963], "gyro_dps": [0.5, 0.41, -0.38], "i_avg_ma": 0.4, "i_pk_ma": 25.9, "t_active_ms": 87, "vbat_mv": 2935}
+[00:09:00.600,000] <inf> node_loop: work_handler fired, uptime=540600 ms
+[00:09:00.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "9a80", "role": "SED", "ts_host": 540600000000, "ts": 540600, "rssi": -61, "hops": 2}
+[00:09:00.600,000] <inf> node_loop: work_handler fired, uptime=540600 ms
+[00:09:00.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 544100000000, "ts": 544100, "rssi": -40, "hops": 0, "temp_c": 22.89, "humid_pct": 42.2, "accel_g": [-0.008, -0.001, 0.958], "gyro_dps": [-0.32, -0.67, -0.31], "i_avg_ma": 5.72, "i_pk_ma": 25.0, "t_active_ms": 74, "vbat_mv": 2940}
+[00:09:04.100,000] <inf> node_loop: work_handler fired, uptime=544100 ms
+[00:09:04.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 544100000000, "ts": 544100, "rssi": -46, "hops": 1}
+[00:09:04.100,000] <inf> node_loop: work_handler fired, uptime=544100 ms
+[00:09:04.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:09:04.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 549100000000, "ts": 549100, "rssi": -36, "hops": 0, "temp_c": 23.94, "humid_pct": 41.9, "accel_g": [-0.031, 0.006, 0.978], "gyro_dps": [0.17, 0.28, -0.16], "i_avg_ma": 5.75, "i_pk_ma": 27.0, "t_active_ms": 86, "vbat_mv": 2933}
+[00:09:09.100,000] <inf> node_loop: work_handler fired, uptime=549100 ms
+[00:09:09.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 549100000000, "ts": 549100, "rssi": -53, "hops": 1}
+[00:09:09.100,000] <inf> node_loop: work_handler fired, uptime=549100 ms
+[00:09:09.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 554100000000, "ts": 554100, "rssi": -42, "hops": 0, "temp_c": 23.16, "humid_pct": 42.2, "accel_g": [-0.004, 0.003, 0.993], "gyro_dps": [0.83, -0.59, -0.66], "i_avg_ma": 5.19, "i_pk_ma": 27.8, "t_active_ms": 83, "vbat_mv": 2952}
+[00:09:14.100,000] <inf> node_loop: work_handler fired, uptime=554100 ms
+[00:09:14.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 554100000000, "ts": 554100, "rssi": -51, "hops": 1}
+[00:09:14.100,000] <inf> node_loop: work_handler fired, uptime=554100 ms
+[00:09:14.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 559100000000, "ts": 559100, "rssi": -41, "hops": 0, "temp_c": 22.44, "humid_pct": 41.7, "accel_g": [-0.009, -0.018, 1.033], "gyro_dps": [0.51, -0.17, -0.32], "i_avg_ma": 5.78, "i_pk_ma": 25.1, "t_active_ms": 70, "vbat_mv": 2927}
+[00:09:19.100,000] <inf> node_loop: work_handler fired, uptime=559100 ms
+[00:09:19.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 559100000000, "ts": 559100, "rssi": -54, "hops": 1}
+[00:09:19.100,000] <inf> node_loop: work_handler fired, uptime=559100 ms
+[00:09:19.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 564100000000, "ts": 564100, "rssi": -38, "hops": 0, "temp_c": 24.19, "humid_pct": 42.3, "accel_g": [-0.023, 0.005, 1.055], "gyro_dps": [0.07, -0.36, -0.08], "i_avg_ma": 6.29, "i_pk_ma": 26.5, "t_active_ms": 91, "vbat_mv": 2957}
+[00:09:24.100,000] <inf> node_loop: work_handler fired, uptime=564100 ms
+[00:09:24.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+[00:09:24.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 564100000000, "ts": 564100, "rssi": -49, "hops": 1}
+[00:09:24.100,000] <inf> node_loop: work_handler fired, uptime=564100 ms
+[00:09:24.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 569100000000, "ts": 569100, "rssi": -40, "hops": 0, "temp_c": 23.72, "humid_pct": 41.5, "accel_g": [-0.002, 0.017, 1.041], "gyro_dps": [-0.32, 0.99, 0.4], "i_avg_ma": 5.78, "i_pk_ma": 24.9, "t_active_ms": 97, "vbat_mv": 2915}
+[00:09:29.100,000] <inf> node_loop: work_handler fired, uptime=569100 ms
+[00:09:29.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 569100000000, "ts": 569100, "rssi": -53, "hops": 1}
+[00:09:29.100,000] <inf> node_loop: work_handler fired, uptime=569100 ms
+[00:09:29.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "e5f6", "role": "SED", "ts_host": 570600000000, "ts": 570600, "rssi": -51, "hops": 1, "temp_c": 24.22, "humid_pct": 45.4, "accel_g": [-0.009, -0.005, 1.049], "gyro_dps": [0.05, 0.17, -0.06], "i_avg_ma": 0.39, "i_pk_ma": 25.6, "t_active_ms": 76, "vbat_mv": 2950}
+[00:09:30.600,000] <inf> node_loop: work_handler fired, uptime=570600 ms
+[00:09:30.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "9a80", "role": "SED", "ts_host": 570600000000, "ts": 570600, "rssi": -61, "hops": 2}
+[00:09:30.600,000] <inf> node_loop: work_handler fired, uptime=570600 ms
+[00:09:30.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:09:30.618,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 574100000000, "ts": 574100, "rssi": -37, "hops": 0, "temp_c": 23.46, "humid_pct": 42.0, "accel_g": [-0.018, -0.001, 1.016], "gyro_dps": [-0.77, -0.99, -0.87], "i_avg_ma": 5.49, "i_pk_ma": 25.5, "t_active_ms": 91, "vbat_mv": 2950}
+[00:09:34.100,000] <inf> node_loop: work_handler fired, uptime=574100 ms
+[00:09:34.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 574100000000, "ts": 574100, "rssi": -50, "hops": 1}
+[00:09:34.100,000] <inf> node_loop: work_handler fired, uptime=574100 ms
+[00:09:34.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:09:34.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 579100000000, "ts": 579100, "rssi": -35, "hops": 0, "temp_c": 23.59, "humid_pct": 42.2, "accel_g": [-0.014, 0.011, 1.007], "gyro_dps": [0.65, -0.94, 0.43], "i_avg_ma": 5.95, "i_pk_ma": 27.0, "t_active_ms": 73, "vbat_mv": 2935}
+[00:09:39.100,000] <inf> node_loop: work_handler fired, uptime=579100 ms
+[00:09:39.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 579100000000, "ts": 579100, "rssi": -50, "hops": 1}
+[00:09:39.100,000] <inf> node_loop: work_handler fired, uptime=579100 ms
+[00:09:39.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+[00:09:39.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 584100000000, "ts": 584100, "rssi": -35, "hops": 0, "temp_c": 23.22, "humid_pct": 42.0, "accel_g": [0.007, 0.028, 0.977], "gyro_dps": [1.88, -1.01, -0.13], "i_avg_ma": 5.51, "i_pk_ma": 26.3, "t_active_ms": 93, "vbat_mv": 2934}
+[00:09:44.100,000] <inf> node_loop: work_handler fired, uptime=584100 ms
+[00:09:44.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:09:44.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 584100000000, "ts": 584100, "rssi": -61, "hops": 1}
+[00:09:44.100,000] <inf> node_loop: work_handler fired, uptime=584100 ms
+[00:09:44.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+[00:09:44.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 589100000000, "ts": 589100, "rssi": -48, "hops": 0, "temp_c": 23.78, "humid_pct": 42.1, "accel_g": [0.003, -0.012, 0.953], "gyro_dps": [-0.01, -0.04, 0.53], "i_avg_ma": 4.91, "i_pk_ma": 26.3, "t_active_ms": 76, "vbat_mv": 2935}
+[00:09:49.100,000] <inf> node_loop: work_handler fired, uptime=589100 ms
+[00:09:49.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 589100000000, "ts": 589100, "rssi": -47, "hops": 1}
+[00:09:49.100,000] <inf> node_loop: work_handler fired, uptime=589100 ms
+[00:09:49.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 594100000000, "ts": 594100, "rssi": -43, "hops": 0, "temp_c": 23.02, "humid_pct": 42.2, "accel_g": [-0.007, -0.006, 0.965], "gyro_dps": [-0.43, -0.18, 0.07], "i_avg_ma": 5.58, "i_pk_ma": 25.4, "t_active_ms": 92, "vbat_mv": 2972}
+[00:09:54.100,000] <inf> node_loop: work_handler fired, uptime=594100 ms
+[00:09:54.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 594100000000, "ts": 594100, "rssi": -53, "hops": 1}
+[00:09:54.100,000] <inf> node_loop: work_handler fired, uptime=594100 ms
+[00:09:54.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 599100000000, "ts": 599100, "rssi": -36, "hops": 0, "temp_c": 23.67, "humid_pct": 41.7, "accel_g": [-0.011, -0.045, 0.965], "gyro_dps": [-0.72, 0.09, -0.14], "i_avg_ma": 5.74, "i_pk_ma": 26.2, "t_active_ms": 83, "vbat_mv": 2948}
+[00:09:59.100,000] <inf> node_loop: work_handler fired, uptime=599100 ms
+[00:09:59.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 599100000000, "ts": 599100, "rssi": -47, "hops": 1}
+[00:09:59.100,000] <inf> node_loop: work_handler fired, uptime=599100 ms
+[00:09:59.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "e5f6", "role": "SED", "ts_host": 600600000000, "ts": 600600, "rssi": -49, "hops": 1, "temp_c": 24.38, "humid_pct": 44.8, "accel_g": [0.012, -0.018, 0.98], "gyro_dps": [0.24, 0.21, 0.49], "i_avg_ma": 0.36, "i_pk_ma": 27.8, "t_active_ms": 95, "vbat_mv": 2939}
+[00:10:00.600,000] <inf> node_loop: work_handler fired, uptime=600600 ms
+[00:10:00.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "9a80", "role": "SED", "ts_host": 600600000000, "ts": 600600, "rssi": -61, "hops": 2}
+[00:10:00.600,000] <inf> node_loop: work_handler fired, uptime=600600 ms
+[00:10:00.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:10:00.618,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 604100000000, "ts": 604100, "rssi": -38, "hops": 0, "temp_c": 23.73, "humid_pct": 41.8, "accel_g": [-0.004, -0.007, 1.008], "gyro_dps": [-0.93, 0.37, -0.75], "i_avg_ma": 5.29, "i_pk_ma": 26.0, "t_active_ms": 81, "vbat_mv": 2963}
+[00:10:04.100,000] <inf> node_loop: work_handler fired, uptime=604100 ms
+[00:10:04.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 604100000000, "ts": 604100, "rssi": -52, "hops": 1}
+[00:10:04.100,000] <inf> node_loop: work_handler fired, uptime=604100 ms
+[00:10:04.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 609100000000, "ts": 609100, "rssi": -39, "hops": 0, "temp_c": 23.46, "humid_pct": 41.8, "accel_g": [0.001, -0.019, 1.044], "gyro_dps": [-0.13, 0.09, 0.75], "i_avg_ma": 5.58, "i_pk_ma": 27.3, "t_active_ms": 82, "vbat_mv": 2945}
+[00:10:09.100,000] <inf> node_loop: work_handler fired, uptime=609100 ms
+[00:10:09.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 609100000000, "ts": 609100, "rssi": -50, "hops": 1}
+[00:10:09.100,000] <inf> node_loop: work_handler fired, uptime=609100 ms
+[00:10:09.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 614100000000, "ts": 614100, "rssi": -35, "hops": 0, "temp_c": 23.2, "humid_pct": 42.4, "accel_g": [0.029, -0.018, 1.063], "gyro_dps": [-0.4, -0.85, 0.35], "i_avg_ma": 5.67, "i_pk_ma": 25.8, "t_active_ms": 65, "vbat_mv": 2939}
+[00:10:14.100,000] <inf> node_loop: work_handler fired, uptime=614100 ms
+[00:10:14.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+[00:10:14.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 614100000000, "ts": 614100, "rssi": -52, "hops": 1}
+[00:10:14.100,000] <inf> node_loop: work_handler fired, uptime=614100 ms
+[00:10:14.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 619100000000, "ts": 619100, "rssi": -35, "hops": 0, "temp_c": 23.95, "humid_pct": 41.8, "accel_g": [-0.014, 0.008, 1.056], "gyro_dps": [0.35, -0.56, 0.08], "i_avg_ma": 5.49, "i_pk_ma": 27.7, "t_active_ms": 94, "vbat_mv": 2947}
+[00:10:19.100,000] <inf> node_loop: work_handler fired, uptime=619100 ms
+[00:10:19.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 619100000000, "ts": 619100, "rssi": -48, "hops": 1}
+[00:10:19.100,000] <inf> node_loop: work_handler fired, uptime=619100 ms
+[00:10:19.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 624100000000, "ts": 624100, "rssi": -42, "hops": 0, "temp_c": 23.38, "humid_pct": 42.8, "accel_g": [-0.001, -0.003, 1.036], "gyro_dps": [1.59, 0.25, -0.57], "i_avg_ma": 5.48, "i_pk_ma": 28.2, "t_active_ms": 88, "vbat_mv": 2958}
+[00:10:24.100,000] <inf> node_loop: work_handler fired, uptime=624100 ms
+[00:10:24.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 624100000000, "ts": 624100, "rssi": -50, "hops": 1}
+[00:10:24.100,000] <inf> node_loop: work_handler fired, uptime=624100 ms
+[00:10:24.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 629100000000, "ts": 629100, "rssi": -43, "hops": 0, "temp_c": 23.57, "humid_pct": 42.6, "accel_g": [-0.006, -0.016, 1.005], "gyro_dps": [-0.1, 0.25, -0.24], "i_avg_ma": 5.29, "i_pk_ma": 26.8, "t_active_ms": 73, "vbat_mv": 2931}
+[00:10:29.100,000] <inf> node_loop: work_handler fired, uptime=629100 ms
+[00:10:29.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 629100000000, "ts": 629100, "rssi": -49, "hops": 1}
+[00:10:29.100,000] <inf> node_loop: work_handler fired, uptime=629100 ms
+[00:10:29.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "e5f6", "role": "SED", "ts_host": 630600000000, "ts": 630600, "rssi": -47, "hops": 1, "temp_c": 24.15, "humid_pct": 43.9, "accel_g": [0.015, 0.011, 0.988], "gyro_dps": [-0.19, -0.35, -0.09], "i_avg_ma": 0.41, "i_pk_ma": 25.9, "t_active_ms": 95, "vbat_mv": 2902}
+[00:10:30.600,000] <inf> node_loop: work_handler fired, uptime=630600 ms
+[00:10:30.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "9a80", "role": "SED", "ts_host": 630600000000, "ts": 630600, "rssi": -64, "hops": 2}
+[00:10:30.600,000] <inf> node_loop: work_handler fired, uptime=630600 ms
+[00:10:30.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 634100000000, "ts": 634100, "rssi": -43, "hops": 0, "temp_c": 23.18, "humid_pct": 41.7, "accel_g": [0.012, 0.011, 0.947], "gyro_dps": [0.7, -0.28, -0.28], "i_avg_ma": 5.97, "i_pk_ma": 25.9, "t_active_ms": 75, "vbat_mv": 2930}
+[00:10:34.100,000] <inf> node_loop: work_handler fired, uptime=634100 ms
+[00:10:34.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 634100000000, "ts": 634100, "rssi": -54, "hops": 1}
+[00:10:34.100,000] <inf> node_loop: work_handler fired, uptime=634100 ms
+[00:10:34.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 639100000000, "ts": 639100, "rssi": -37, "hops": 0, "temp_c": 23.15, "humid_pct": 40.9, "accel_g": [-0.001, 0.025, 0.92], "gyro_dps": [0.2, 0.28, 0.57], "i_avg_ma": 5.14, "i_pk_ma": 25.0, "t_active_ms": 89, "vbat_mv": 2944}
+[00:10:39.100,000] <inf> node_loop: work_handler fired, uptime=639100 ms
+[00:10:39.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:10:39.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 639100000000, "ts": 639100, "rssi": -58, "hops": 1}
+[00:10:39.100,000] <inf> node_loop: work_handler fired, uptime=639100 ms
+[00:10:39.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 644100000000, "ts": 644100, "rssi": -44, "hops": 0, "temp_c": 23.31, "humid_pct": 42.2, "accel_g": [-0.002, 0.017, 0.975], "gyro_dps": [-0.37, -0.22, -0.34], "i_avg_ma": 5.74, "i_pk_ma": 27.8, "t_active_ms": 82, "vbat_mv": 2933}
+[00:10:44.100,000] <inf> node_loop: work_handler fired, uptime=644100 ms
+[00:10:44.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 644100000000, "ts": 644100, "rssi": -58, "hops": 1}
+[00:10:44.100,000] <inf> node_loop: work_handler fired, uptime=644100 ms
+[00:10:44.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 649100000000, "ts": 649100, "rssi": -41, "hops": 0, "temp_c": 23.56, "humid_pct": 42.2, "accel_g": [0.014, -0.004, 0.967], "gyro_dps": [-0.27, 0.2, -0.8], "i_avg_ma": 5.06, "i_pk_ma": 25.5, "t_active_ms": 80, "vbat_mv": 2936}
+[00:10:49.100,000] <inf> node_loop: work_handler fired, uptime=649100 ms
+[00:10:49.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:10:49.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 649100000000, "ts": 649100, "rssi": -59, "hops": 1}
+[00:10:49.100,000] <inf> node_loop: work_handler fired, uptime=649100 ms
+[00:10:49.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 654100000000, "ts": 654100, "rssi": -38, "hops": 0, "temp_c": 23.51, "humid_pct": 41.9, "accel_g": [-0.003, -0.002, 1.006], "gyro_dps": [-0.44, 0.91, 0.57], "i_avg_ma": 5.51, "i_pk_ma": 24.3, "t_active_ms": 75, "vbat_mv": 2953}
+[00:10:54.100,000] <inf> node_loop: work_handler fired, uptime=654100 ms
+[00:10:54.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:10:54.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 654100000000, "ts": 654100, "rssi": -46, "hops": 1}
+[00:10:54.100,000] <inf> node_loop: work_handler fired, uptime=654100 ms
+[00:10:54.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 659100000000, "ts": 659100, "rssi": -37, "hops": 0, "temp_c": 23.48, "humid_pct": 42.9, "accel_g": [-0.015, 0.017, 1.034], "gyro_dps": [-0.25, -0.36, -0.68], "i_avg_ma": 5.71, "i_pk_ma": 26.4, "t_active_ms": 80, "vbat_mv": 2950}
+[00:10:59.100,000] <inf> node_loop: work_handler fired, uptime=659100 ms
+[00:10:59.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 659100000000, "ts": 659100, "rssi": -51, "hops": 1}
+[00:10:59.100,000] <inf> node_loop: work_handler fired, uptime=659100 ms
+[00:10:59.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "e5f6", "role": "SED", "ts_host": 660600000000, "ts": 660600, "rssi": -50, "hops": 1, "temp_c": 24.0, "humid_pct": 44.6, "accel_g": [-0.01, -0.014, 1.034], "gyro_dps": [-0.02, -0.39, -0.2], "i_avg_ma": 0.34, "i_pk_ma": 26.2, "t_active_ms": 78, "vbat_mv": 2945}
+[00:11:00.600,000] <inf> node_loop: work_handler fired, uptime=660600 ms
+[00:11:00.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "9a80", "role": "SED", "ts_host": 660600000000, "ts": 660600, "rssi": -71, "hops": 2}
+[00:11:00.600,000] <inf> node_loop: work_handler fired, uptime=660600 ms
+[00:11:00.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+[00:11:00.618,200] <inf> cookie_coap: gateway discovered, caching address
+[00:11:00.620,400] <inf> sed_loop: radio parked, entering deep sleep
+{"src": "a1b2", "role": "LEADER", "ts_host": 664100000000, "ts": 664100, "rssi": -45, "hops": 0, "temp_c": 23.57, "humid_pct": 42.1, "accel_g": [-0.019, 0.014, 1.048], "gyro_dps": [0.01, -0.22, 0.26], "i_avg_ma": 5.48, "i_pk_ma": 27.3, "t_active_ms": 88, "vbat_mv": 2931}
+[00:11:04.100,000] <inf> node_loop: work_handler fired, uptime=664100 ms
+[00:11:04.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 664100000000, "ts": 664100, "rssi": -52, "hops": 1}
+[00:11:04.100,000] <inf> node_loop: work_handler fired, uptime=664100 ms
+[00:11:04.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 669100000000, "ts": 669100, "rssi": -37, "hops": 0, "temp_c": 23.09, "humid_pct": 41.5, "accel_g": [-0.003, -0.005, 1.036], "gyro_dps": [0.22, -0.27, 0.92], "i_avg_ma": 5.08, "i_pk_ma": 25.4, "t_active_ms": 88, "vbat_mv": 2940}
+[00:11:09.100,000] <inf> node_loop: work_handler fired, uptime=669100 ms
+[00:11:09.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:11:09.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 669100000000, "ts": 669100, "rssi": -52, "hops": 1}
+[00:11:09.100,000] <inf> node_loop: work_handler fired, uptime=669100 ms
+[00:11:09.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 674100000000, "ts": 674100, "rssi": -42, "hops": 0, "temp_c": 23.67, "humid_pct": 41.2, "accel_g": [0.031, -0.021, 1.037], "gyro_dps": [0.08, -0.1, 0.78], "i_avg_ma": 5.52, "i_pk_ma": 26.1, "t_active_ms": 92, "vbat_mv": 2932}
+[00:11:14.100,000] <inf> node_loop: work_handler fired, uptime=674100 ms
+[00:11:14.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 674100000000, "ts": 674100, "rssi": -49, "hops": 1}
+[00:11:14.100,000] <inf> node_loop: work_handler fired, uptime=674100 ms
+[00:11:14.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:11:14.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 679100000000, "ts": 679100, "rssi": -42, "hops": 0, "temp_c": 23.43, "humid_pct": 42.7, "accel_g": [-0.031, -0.004, 1.013], "gyro_dps": [0.18, -0.37, -0.28], "i_avg_ma": 5.78, "i_pk_ma": 26.6, "t_active_ms": 81, "vbat_mv": 2931}
+[00:11:19.100,000] <inf> node_loop: work_handler fired, uptime=679100 ms
+[00:11:19.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:11:19.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 679100000000, "ts": 679100, "rssi": -55, "hops": 1}
+[00:11:19.100,000] <inf> node_loop: work_handler fired, uptime=679100 ms
+[00:11:19.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 684100000000, "ts": 684100, "rssi": -39, "hops": 0, "temp_c": 24.1, "humid_pct": 41.4, "accel_g": [0.027, 0.008, 0.963], "gyro_dps": [1.06, -1.22, -0.03], "i_avg_ma": 5.52, "i_pk_ma": 28.5, "t_active_ms": 98, "vbat_mv": 2972}
+[00:11:24.100,000] <inf> node_loop: work_handler fired, uptime=684100 ms
+[00:11:24.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 684100000000, "ts": 684100, "rssi": -51, "hops": 1}
+[00:11:24.100,000] <inf> node_loop: work_handler fired, uptime=684100 ms
+[00:11:24.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+[00:11:24.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 689100000000, "ts": 689100, "rssi": -38, "hops": 0, "temp_c": 23.9, "humid_pct": 42.4, "accel_g": [0.01, 0.028, 0.944], "gyro_dps": [1.03, -0.94, 0.36], "i_avg_ma": 5.5, "i_pk_ma": 26.5, "t_active_ms": 73, "vbat_mv": 2957}
+[00:11:29.100,000] <inf> node_loop: work_handler fired, uptime=689100 ms
+[00:11:29.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 689100000000, "ts": 689100, "rssi": -51, "hops": 1}
+[00:11:29.100,000] <inf> node_loop: work_handler fired, uptime=689100 ms
+[00:11:29.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "e5f6", "role": "SED", "ts_host": 690600000000, "ts": 690600, "rssi": -40, "hops": 1, "temp_c": 24.29, "humid_pct": 45.5, "accel_g": [0.004, 0.051, 0.943], "gyro_dps": [-0.04, -0.01, 0.1], "i_avg_ma": 0.41, "i_pk_ma": 25.0, "t_active_ms": 77, "vbat_mv": 2958}
+[00:11:30.600,000] <inf> node_loop: work_handler fired, uptime=690600 ms
+[00:11:30.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:11:30.620,400] <inf> sed_loop: radio parked, entering deep sleep
+{"src": "9a80", "role": "SED", "ts_host": 690600000000, "ts": 690600, "rssi": -63, "hops": 2}
+[00:11:30.600,000] <inf> node_loop: work_handler fired, uptime=690600 ms
+[00:11:30.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 694100000000, "ts": 694100, "rssi": -40, "hops": 0, "temp_c": 23.61, "humid_pct": 42.0, "accel_g": [-0.003, -0.006, 0.979], "gyro_dps": [0.05, 0.15, 0.3], "i_avg_ma": 4.67, "i_pk_ma": 25.9, "t_active_ms": 92, "vbat_mv": 2955}
+[00:11:34.100,000] <inf> node_loop: work_handler fired, uptime=694100 ms
+[00:11:34.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 694100000000, "ts": 694100, "rssi": -51, "hops": 1}
+[00:11:34.100,000] <inf> node_loop: work_handler fired, uptime=694100 ms
+[00:11:34.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 699100000000, "ts": 699100, "rssi": -37, "hops": 0, "temp_c": 23.16, "humid_pct": 41.6, "accel_g": [0.01, -0.047, 0.986], "gyro_dps": [-0.37, 0.32, -0.23], "i_avg_ma": 5.55, "i_pk_ma": 26.1, "t_active_ms": 84, "vbat_mv": 2913}
+[00:11:39.100,000] <inf> node_loop: work_handler fired, uptime=699100 ms
+[00:11:39.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 699100000000, "ts": 699100, "rssi": -56, "hops": 1}
+[00:11:39.100,000] <inf> node_loop: work_handler fired, uptime=699100 ms
+[00:11:39.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 704100000000, "ts": 704100, "rssi": -38, "hops": 0, "temp_c": 23.11, "humid_pct": 42.6, "accel_g": [0.014, 0.031, 1.006], "gyro_dps": [-0.53, 0.36, -0.22], "i_avg_ma": 5.13, "i_pk_ma": 25.3, "t_active_ms": 77, "vbat_mv": 2924}
+[00:11:44.100,000] <inf> node_loop: work_handler fired, uptime=704100 ms
+[00:11:44.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 704100000000, "ts": 704100, "rssi": -53, "hops": 1}
+[00:11:44.100,000] <inf> node_loop: work_handler fired, uptime=704100 ms
+[00:11:44.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:11:44.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 709100000000, "ts": 709100, "rssi": -44, "hops": 0, "temp_c": 23.14, "humid_pct": 41.4, "accel_g": [0.022, -0.019, 1.039], "gyro_dps": [-0.57, -0.49, -0.31], "i_avg_ma": 5.86, "i_pk_ma": 25.2, "t_active_ms": 83, "vbat_mv": 2931}
+[00:11:49.100,000] <inf> node_loop: work_handler fired, uptime=709100 ms
+[00:11:49.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 709100000000, "ts": 709100, "rssi": -53, "hops": 1}
+[00:11:49.100,000] <inf> node_loop: work_handler fired, uptime=709100 ms
+[00:11:49.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 714100000000, "ts": 714100, "rssi": -43, "hops": 0, "temp_c": 23.53, "humid_pct": 42.7, "accel_g": [0.036, -0.024, 1.046], "gyro_dps": [-0.9, -0.16, 0.02], "i_avg_ma": 5.65, "i_pk_ma": 26.6, "t_active_ms": 77, "vbat_mv": 2922}
+[00:11:54.100,000] <inf> node_loop: work_handler fired, uptime=714100 ms
+[00:11:54.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 714100000000, "ts": 714100, "rssi": -56, "hops": 1}
+[00:11:54.100,000] <inf> node_loop: work_handler fired, uptime=714100 ms
+[00:11:54.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 719100000000, "ts": 719100, "rssi": -40, "hops": 0, "temp_c": 23.36, "humid_pct": 42.2, "accel_g": [0.013, 0.015, 1.053], "gyro_dps": [0.2, -0.57, -0.21], "i_avg_ma": 5.49, "i_pk_ma": 22.8, "t_active_ms": 101, "vbat_mv": 2934}
+[00:11:59.100,000] <inf> node_loop: work_handler fired, uptime=719100 ms
+[00:11:59.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 719100000000, "ts": 719100, "rssi": -55, "hops": 1}
+[00:11:59.100,000] <inf> node_loop: work_handler fired, uptime=719100 ms
+[00:11:59.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "e5f6", "role": "SED", "ts_host": 720600000000, "ts": 720600, "rssi": -44, "hops": 1, "temp_c": 24.47, "humid_pct": 44.9, "accel_g": [0.018, 0.001, 1.052], "gyro_dps": [-0.26, 0.41, 0.33], "i_avg_ma": 0.38, "i_pk_ma": 25.6, "t_active_ms": 83, "vbat_mv": 2950}
+[00:12:00.600,000] <inf> node_loop: work_handler fired, uptime=720600 ms
+[00:12:00.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "9a80", "role": "SED", "ts_host": 720600000000, "ts": 720600, "rssi": -58, "hops": 2}
+[00:12:00.600,000] <inf> node_loop: work_handler fired, uptime=720600 ms
+[00:12:00.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+[00:12:00.620,400] <inf> sed_loop: radio parked, entering deep sleep
+{"src": "a1b2", "role": "LEADER", "ts_host": 724100000000, "ts": 724100, "rssi": -44, "hops": 0, "temp_c": 23.05, "humid_pct": 42.2, "accel_g": [0.02, 0.007, 1.015], "gyro_dps": [-0.1, 0.11, -0.45], "i_avg_ma": 5.56, "i_pk_ma": 25.8, "t_active_ms": 78, "vbat_mv": 2921}
+[00:12:04.100,000] <inf> node_loop: work_handler fired, uptime=724100 ms
+[00:12:04.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 724100000000, "ts": 724100, "rssi": -49, "hops": 1}
+[00:12:04.100,000] <inf> node_loop: work_handler fired, uptime=724100 ms
+[00:12:04.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 729100000000, "ts": 729100, "rssi": -38, "hops": 0, "temp_c": 23.8, "humid_pct": 43.0, "accel_g": [-0.005, -0.006, 0.997], "gyro_dps": [0.29, 0.95, 0.48], "i_avg_ma": 5.62, "i_pk_ma": 25.0, "t_active_ms": 90, "vbat_mv": 2959}
+[00:12:09.100,000] <inf> node_loop: work_handler fired, uptime=729100 ms
+[00:12:09.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:12:09.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 729100000000, "ts": 729100, "rssi": -53, "hops": 1}
+[00:12:09.100,000] <inf> node_loop: work_handler fired, uptime=729100 ms
+[00:12:09.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 734100000000, "ts": 734100, "rssi": -41, "hops": 0, "temp_c": 23.19, "humid_pct": 42.3, "accel_g": [-0.0, 0.018, 0.973], "gyro_dps": [0.55, 0.63, 0.36], "i_avg_ma": 5.46, "i_pk_ma": 26.5, "t_active_ms": 94, "vbat_mv": 2951}
+[00:12:14.100,000] <inf> node_loop: work_handler fired, uptime=734100 ms
+[00:12:14.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 734100000000, "ts": 734100, "rssi": -53, "hops": 1}
+[00:12:14.100,000] <inf> node_loop: work_handler fired, uptime=734100 ms
+[00:12:14.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:12:14.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 739100000000, "ts": 739100, "rssi": -40, "hops": 0, "temp_c": 23.62, "humid_pct": 42.1, "accel_g": [-0.008, 0.028, 0.961], "gyro_dps": [-0.15, -0.07, -0.33], "i_avg_ma": 4.98, "i_pk_ma": 25.6, "t_active_ms": 85, "vbat_mv": 2934}
+[00:12:19.100,000] <inf> node_loop: work_handler fired, uptime=739100 ms
+[00:12:19.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 739100000000, "ts": 739100, "rssi": -54, "hops": 1}
+[00:12:19.100,000] <inf> node_loop: work_handler fired, uptime=739100 ms
+[00:12:19.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 744100000000, "ts": 744100, "rssi": -39, "hops": 0, "temp_c": 23.71, "humid_pct": 41.9, "accel_g": [-0.0, 0.016, 0.952], "gyro_dps": [-0.03, 0.43, -0.03], "i_avg_ma": 6.1, "i_pk_ma": 24.7, "t_active_ms": 81, "vbat_mv": 2935}
+[00:12:24.100,000] <inf> node_loop: work_handler fired, uptime=744100 ms
+[00:12:24.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+[00:12:24.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 744100000000, "ts": 744100, "rssi": -51, "hops": 1}
+[00:12:24.100,000] <inf> node_loop: work_handler fired, uptime=744100 ms
+[00:12:24.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 749100000000, "ts": 749100, "rssi": -39, "hops": 0, "temp_c": 23.32, "humid_pct": 42.0, "accel_g": [0.006, -0.019, 0.969], "gyro_dps": [-0.56, 0.13, -0.41], "i_avg_ma": 5.29, "i_pk_ma": 26.3, "t_active_ms": 79, "vbat_mv": 2956}
+[00:12:29.100,000] <inf> node_loop: work_handler fired, uptime=749100 ms
+[00:12:29.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 749100000000, "ts": 749100, "rssi": -53, "hops": 1}
+[00:12:29.100,000] <inf> node_loop: work_handler fired, uptime=749100 ms
+[00:12:29.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "e5f6", "role": "SED", "ts_host": 750600000000, "ts": 750600, "rssi": -50, "hops": 1, "temp_c": 24.31, "humid_pct": 45.1, "accel_g": [0.014, 0.005, 0.972], "gyro_dps": [-0.22, -0.87, -0.46], "i_avg_ma": 0.37, "i_pk_ma": 27.2, "t_active_ms": 81, "vbat_mv": 2943}
+[00:12:30.600,000] <inf> node_loop: work_handler fired, uptime=750600 ms
+[00:12:30.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:12:30.620,400] <inf> sed_loop: radio parked, entering deep sleep
+{"src": "9a80", "role": "SED", "ts_host": 750600000000, "ts": 750600, "rssi": -63, "hops": 2}
+[00:12:30.600,000] <inf> node_loop: work_handler fired, uptime=750600 ms
+[00:12:30.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+[00:12:30.620,400] <inf> sed_loop: radio parked, entering deep sleep
+{"src": "a1b2", "role": "LEADER", "ts_host": 754100000000, "ts": 754100, "rssi": -42, "hops": 0, "temp_c": 23.39, "humid_pct": 42.6, "accel_g": [-0.012, 0.007, 0.99], "gyro_dps": [-0.35, -0.67, -0.1], "i_avg_ma": 5.67, "i_pk_ma": 26.4, "t_active_ms": 81, "vbat_mv": 2948}
+[00:12:34.100,000] <inf> node_loop: work_handler fired, uptime=754100 ms
+[00:12:34.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 754100000000, "ts": 754100, "rssi": -53, "hops": 1}
+[00:12:34.100,000] <inf> node_loop: work_handler fired, uptime=754100 ms
+[00:12:34.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 759100000000, "ts": 759100, "rssi": -38, "hops": 0, "temp_c": 23.41, "humid_pct": 41.8, "accel_g": [-0.013, 0.025, 1.021], "gyro_dps": [0.1, 0.14, -0.05], "i_avg_ma": 5.36, "i_pk_ma": 26.5, "t_active_ms": 79, "vbat_mv": 2942}
+[00:12:39.100,000] <inf> node_loop: work_handler fired, uptime=759100 ms
+[00:12:39.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 759100000000, "ts": 759100, "rssi": -48, "hops": 1}
+[00:12:39.100,000] <inf> node_loop: work_handler fired, uptime=759100 ms
+[00:12:39.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 764100000000, "ts": 764100, "rssi": -41, "hops": 0, "temp_c": 23.88, "humid_pct": 42.3, "accel_g": [0.047, -0.007, 1.041], "gyro_dps": [0.44, -0.07, 0.23], "i_avg_ma": 5.68, "i_pk_ma": 25.0, "t_active_ms": 74, "vbat_mv": 2942}
+[00:12:44.100,000] <inf> node_loop: work_handler fired, uptime=764100 ms
+[00:12:44.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 764100000000, "ts": 764100, "rssi": -50, "hops": 1}
+[00:12:44.100,000] <inf> node_loop: work_handler fired, uptime=764100 ms
+[00:12:44.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:12:44.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 769100000000, "ts": 769100, "rssi": -40, "hops": 0, "temp_c": 23.37, "humid_pct": 43.5, "accel_g": [-0.031, 0.023, 1.043], "gyro_dps": [-0.12, 0.45, 0.0], "i_avg_ma": 5.07, "i_pk_ma": 26.5, "t_active_ms": 83, "vbat_mv": 2910}
+[00:12:49.100,000] <inf> node_loop: work_handler fired, uptime=769100 ms
+[00:12:49.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:12:49.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 769100000000, "ts": 769100, "rssi": -51, "hops": 1}
+[00:12:49.100,000] <inf> node_loop: work_handler fired, uptime=769100 ms
+[00:12:49.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 774100000000, "ts": 774100, "rssi": -36, "hops": 0, "temp_c": 23.14, "humid_pct": 42.2, "accel_g": [0.045, 0.026, 1.032], "gyro_dps": [0.45, -0.09, 0.69], "i_avg_ma": 5.29, "i_pk_ma": 27.0, "t_active_ms": 87, "vbat_mv": 2929}
+[00:12:54.100,000] <inf> node_loop: work_handler fired, uptime=774100 ms
+[00:12:54.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+[00:12:54.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 774100000000, "ts": 774100, "rssi": -51, "hops": 1}
+[00:12:54.100,000] <inf> node_loop: work_handler fired, uptime=774100 ms
+[00:12:54.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 779100000000, "ts": 779100, "rssi": -41, "hops": 0, "temp_c": 23.17, "humid_pct": 42.0, "accel_g": [-0.01, 0.011, 1.009], "gyro_dps": [0.14, 0.03, -0.45], "i_avg_ma": 5.29, "i_pk_ma": 25.6, "t_active_ms": 77, "vbat_mv": 2943}
+[00:12:59.100,000] <inf> node_loop: work_handler fired, uptime=779100 ms
+[00:12:59.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 779100000000, "ts": 779100, "rssi": -53, "hops": 1}
+[00:12:59.100,000] <inf> node_loop: work_handler fired, uptime=779100 ms
+[00:12:59.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "e5f6", "role": "SED", "ts_host": 780600000000, "ts": 780600, "rssi": -43, "hops": 1, "temp_c": 23.59, "humid_pct": 45.0, "accel_g": [0.001, 0.034, 1.002], "gyro_dps": [0.43, 0.39, -0.24], "i_avg_ma": 0.38, "i_pk_ma": 25.3, "t_active_ms": 85, "vbat_mv": 2922}
+[00:13:00.600,000] <inf> node_loop: work_handler fired, uptime=780600 ms
+[00:13:00.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "9a80", "role": "SED", "ts_host": 780600000000, "ts": 780600, "rssi": -63, "hops": 2}
+[00:13:00.600,000] <inf> node_loop: work_handler fired, uptime=780600 ms
+[00:13:00.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 784100000000, "ts": 784100, "rssi": -41, "hops": 0, "temp_c": 23.13, "humid_pct": 42.0, "accel_g": [0.009, 0.005, 0.973], "gyro_dps": [0.2, -0.75, 0.2], "i_avg_ma": 5.97, "i_pk_ma": 26.6, "t_active_ms": 87, "vbat_mv": 2968}
+[00:13:04.100,000] <inf> node_loop: work_handler fired, uptime=784100 ms
+[00:13:04.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 784100000000, "ts": 784100, "rssi": -60, "hops": 1}
+[00:13:04.100,000] <inf> node_loop: work_handler fired, uptime=784100 ms
+[00:13:04.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 789100000000, "ts": 789100, "rssi": -40, "hops": 0, "temp_c": 23.42, "humid_pct": 41.7, "accel_g": [-0.007, -0.029, 0.943], "gyro_dps": [-0.04, -0.17, 0.02], "i_avg_ma": 5.89, "i_pk_ma": 26.3, "t_active_ms": 84, "vbat_mv": 2923}
+[00:13:09.100,000] <inf> node_loop: work_handler fired, uptime=789100 ms
+[00:13:09.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 789100000000, "ts": 789100, "rssi": -55, "hops": 1}
+[00:13:09.100,000] <inf> node_loop: work_handler fired, uptime=789100 ms
+[00:13:09.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 794100000000, "ts": 794100, "rssi": -39, "hops": 0, "temp_c": 23.74, "humid_pct": 42.8, "accel_g": [-0.015, 0.035, 0.956], "gyro_dps": [0.36, 0.48, 0.44], "i_avg_ma": 5.96, "i_pk_ma": 26.1, "t_active_ms": 79, "vbat_mv": 2960}
+[00:13:14.100,000] <inf> node_loop: work_handler fired, uptime=794100 ms
+[00:13:14.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 794100000000, "ts": 794100, "rssi": -54, "hops": 1}
+[00:13:14.100,000] <inf> node_loop: work_handler fired, uptime=794100 ms
+[00:13:14.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:13:14.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 799100000000, "ts": 799100, "rssi": -43, "hops": 0, "temp_c": 23.46, "humid_pct": 42.6, "accel_g": [0.011, 0.037, 0.978], "gyro_dps": [0.45, 0.15, -0.62], "i_avg_ma": 5.7, "i_pk_ma": 27.6, "t_active_ms": 83, "vbat_mv": 2945}
+[00:13:19.100,000] <inf> node_loop: work_handler fired, uptime=799100 ms
+[00:13:19.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:13:19.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 799100000000, "ts": 799100, "rssi": -55, "hops": 1}
+[00:13:19.100,000] <inf> node_loop: work_handler fired, uptime=799100 ms
+[00:13:19.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 804100000000, "ts": 804100, "rssi": -41, "hops": 0, "temp_c": 22.93, "humid_pct": 42.2, "accel_g": [-0.025, -0.034, 1.006], "gyro_dps": [0.22, -0.99, -0.39], "i_avg_ma": 6.24, "i_pk_ma": 23.2, "t_active_ms": 81, "vbat_mv": 2969}
+[00:13:24.100,000] <inf> node_loop: work_handler fired, uptime=804100 ms
+[00:13:24.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 804100000000, "ts": 804100, "rssi": -46, "hops": 1}
+[00:13:24.100,000] <inf> node_loop: work_handler fired, uptime=804100 ms
+[00:13:24.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+[00:13:24.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 809100000000, "ts": 809100, "rssi": -44, "hops": 0, "temp_c": 23.3, "humid_pct": 42.5, "accel_g": [-0.018, 0.038, 1.02], "gyro_dps": [0.7, 0.23, -0.55], "i_avg_ma": 5.73, "i_pk_ma": 26.2, "t_active_ms": 77, "vbat_mv": 2913}
+[00:13:29.100,000] <inf> node_loop: work_handler fired, uptime=809100 ms
+[00:13:29.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 809100000000, "ts": 809100, "rssi": -46, "hops": 1}
+[00:13:29.100,000] <inf> node_loop: work_handler fired, uptime=809100 ms
+[00:13:29.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "e5f6", "role": "SED", "ts_host": 810600000000, "ts": 810600, "rssi": -44, "hops": 1, "temp_c": 23.92, "humid_pct": 45.2, "accel_g": [0.016, -0.039, 1.021], "gyro_dps": [0.41, -0.39, -0.36], "i_avg_ma": 0.39, "i_pk_ma": 26.9, "t_active_ms": 92, "vbat_mv": 2953}
+[00:13:30.600,000] <inf> node_loop: work_handler fired, uptime=810600 ms
+[00:13:30.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "9a80", "role": "SED", "ts_host": 810600000000, "ts": 810600, "rssi": -61, "hops": 2}
+[00:13:30.600,000] <inf> node_loop: work_handler fired, uptime=810600 ms
+[00:13:30.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 814100000000, "ts": 814100, "rssi": -38, "hops": 0, "temp_c": 23.3, "humid_pct": 41.6, "accel_g": [-0.004, 0.006, 1.061], "gyro_dps": [-0.76, 0.75, -0.35], "i_avg_ma": 5.64, "i_pk_ma": 26.4, "t_active_ms": 88, "vbat_mv": 2923}
+[00:13:34.100,000] <inf> node_loop: work_handler fired, uptime=814100 ms
+[00:13:34.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 814100000000, "ts": 814100, "rssi": -47, "hops": 1}
+[00:13:34.100,000] <inf> node_loop: work_handler fired, uptime=814100 ms
+[00:13:34.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 819100000000, "ts": 819100, "rssi": -49, "hops": 0, "temp_c": 23.46, "humid_pct": 42.3, "accel_g": [0.035, 0.013, 1.058], "gyro_dps": [0.31, 0.0, 0.52], "i_avg_ma": 5.33, "i_pk_ma": 26.3, "t_active_ms": 79, "vbat_mv": 2935}
+[00:13:39.100,000] <inf> node_loop: work_handler fired, uptime=819100 ms
+[00:13:39.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:13:39.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 819100000000, "ts": 819100, "rssi": -50, "hops": 1}
+[00:13:39.100,000] <inf> node_loop: work_handler fired, uptime=819100 ms
+[00:13:39.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 824100000000, "ts": 824100, "rssi": -37, "hops": 0, "temp_c": 23.69, "humid_pct": 40.8, "accel_g": [0.017, -0.019, 1.042], "gyro_dps": [-0.33, -0.36, -0.74], "i_avg_ma": 5.38, "i_pk_ma": 27.2, "t_active_ms": 79, "vbat_mv": 2913}
+[00:13:44.100,000] <inf> node_loop: work_handler fired, uptime=824100 ms
+[00:13:44.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 824100000000, "ts": 824100, "rssi": -45, "hops": 1}
+[00:13:44.100,000] <inf> node_loop: work_handler fired, uptime=824100 ms
+[00:13:44.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 829100000000, "ts": 829100, "rssi": -45, "hops": 0, "temp_c": 23.66, "humid_pct": 42.6, "accel_g": [-0.02, -0.0, 0.999], "gyro_dps": [-0.12, 0.24, 1.01], "i_avg_ma": 5.25, "i_pk_ma": 27.0, "t_active_ms": 93, "vbat_mv": 2935}
+[00:13:49.100,000] <inf> node_loop: work_handler fired, uptime=829100 ms
+[00:13:49.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:13:49.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 829100000000, "ts": 829100, "rssi": -52, "hops": 1}
+[00:13:49.100,000] <inf> node_loop: work_handler fired, uptime=829100 ms
+[00:13:49.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 834100000000, "ts": 834100, "rssi": -40, "hops": 0, "temp_c": 24.02, "humid_pct": 42.6, "accel_g": [0.004, -0.007, 0.974], "gyro_dps": [0.68, -0.22, -1.35], "i_avg_ma": 5.49, "i_pk_ma": 24.3, "t_active_ms": 98, "vbat_mv": 2927}
+[00:13:54.100,000] <inf> node_loop: work_handler fired, uptime=834100 ms
+[00:13:54.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 834100000000, "ts": 834100, "rssi": -46, "hops": 1}
+[00:13:54.100,000] <inf> node_loop: work_handler fired, uptime=834100 ms
+[00:13:54.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 839100000000, "ts": 839100, "rssi": -39, "hops": 0, "temp_c": 24.02, "humid_pct": 42.4, "accel_g": [0.006, -0.03, 0.951], "gyro_dps": [0.56, -0.36, 0.85], "i_avg_ma": 5.35, "i_pk_ma": 24.8, "t_active_ms": 94, "vbat_mv": 2935}
+[00:13:59.100,000] <inf> node_loop: work_handler fired, uptime=839100 ms
+[00:13:59.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:13:59.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 839100000000, "ts": 839100, "rssi": -45, "hops": 1}
+[00:13:59.100,000] <inf> node_loop: work_handler fired, uptime=839100 ms
+[00:13:59.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "e5f6", "role": "SED", "ts_host": 840600000000, "ts": 840600, "rssi": -50, "hops": 1, "temp_c": 24.36, "humid_pct": 45.0, "accel_g": [0.013, 0.006, 0.94], "gyro_dps": [0.87, 0.74, -0.42], "i_avg_ma": 0.36, "i_pk_ma": 25.4, "t_active_ms": 87, "vbat_mv": 2943}
+[00:14:00.600,000] <inf> node_loop: work_handler fired, uptime=840600 ms
+[00:14:00.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "9a80", "role": "SED", "ts_host": 840600000000, "ts": 840600, "rssi": -63, "hops": 2}
+[00:14:00.600,000] <inf> node_loop: work_handler fired, uptime=840600 ms
+[00:14:00.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 844100000000, "ts": 844100, "rssi": -45, "hops": 0, "temp_c": 24.01, "humid_pct": 41.6, "accel_g": [-0.003, -0.011, 0.946], "gyro_dps": [0.02, -0.14, 0.3], "i_avg_ma": 5.08, "i_pk_ma": 24.3, "t_active_ms": 100, "vbat_mv": 2938}
+[00:14:04.100,000] <inf> node_loop: work_handler fired, uptime=844100 ms
+[00:14:04.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 844100000000, "ts": 844100, "rssi": -49, "hops": 1}
+[00:14:04.100,000] <inf> node_loop: work_handler fired, uptime=844100 ms
+[00:14:04.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 849100000000, "ts": 849100, "rssi": -42, "hops": 0, "temp_c": 23.22, "humid_pct": 42.1, "accel_g": [-0.009, -0.01, 0.982], "gyro_dps": [0.69, -0.14, -0.31], "i_avg_ma": 4.92, "i_pk_ma": 23.8, "t_active_ms": 96, "vbat_mv": 2939}
+[00:14:09.100,000] <inf> node_loop: work_handler fired, uptime=849100 ms
+[00:14:09.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 849100000000, "ts": 849100, "rssi": -54, "hops": 1}
+[00:14:09.100,000] <inf> node_loop: work_handler fired, uptime=849100 ms
+[00:14:09.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 854100000000, "ts": 854100, "rssi": -38, "hops": 0, "temp_c": 24.06, "humid_pct": 41.4, "accel_g": [-0.005, -0.021, 0.979], "gyro_dps": [0.3, 0.34, 0.47], "i_avg_ma": 5.59, "i_pk_ma": 23.7, "t_active_ms": 84, "vbat_mv": 2930}
+[00:14:14.100,000] <inf> node_loop: work_handler fired, uptime=854100 ms
+[00:14:14.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:14:14.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 854100000000, "ts": 854100, "rssi": -55, "hops": 1}
+[00:14:14.100,000] <inf> node_loop: work_handler fired, uptime=854100 ms
+[00:14:14.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 859100000000, "ts": 859100, "rssi": -43, "hops": 0, "temp_c": 22.97, "humid_pct": 42.2, "accel_g": [0.01, 0.009, 1.021], "gyro_dps": [0.29, 0.29, 1.29], "i_avg_ma": 5.63, "i_pk_ma": 27.1, "t_active_ms": 81, "vbat_mv": 2934}
+[00:14:19.100,000] <inf> node_loop: work_handler fired, uptime=859100 ms
+[00:14:19.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 859100000000, "ts": 859100, "rssi": -47, "hops": 1}
+[00:14:19.100,000] <inf> node_loop: work_handler fired, uptime=859100 ms
+[00:14:19.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 864100000000, "ts": 864100, "rssi": -40, "hops": 0, "temp_c": 23.09, "humid_pct": 41.3, "accel_g": [-0.002, 0.014, 1.042], "gyro_dps": [-0.41, 0.5, 0.15], "i_avg_ma": 5.36, "i_pk_ma": 27.4, "t_active_ms": 86, "vbat_mv": 2966}
+[00:14:24.100,000] <inf> node_loop: work_handler fired, uptime=864100 ms
+[00:14:24.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+[00:14:24.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 864100000000, "ts": 864100, "rssi": -46, "hops": 1}
+[00:14:24.100,000] <inf> node_loop: work_handler fired, uptime=864100 ms
+[00:14:24.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 869100000000, "ts": 869100, "rssi": -49, "hops": 0, "temp_c": 23.48, "humid_pct": 41.4, "accel_g": [-0.014, 0.024, 1.051], "gyro_dps": [-0.56, 0.12, -0.32], "i_avg_ma": 6.19, "i_pk_ma": 27.4, "t_active_ms": 82, "vbat_mv": 2942}
+[00:14:29.100,000] <inf> node_loop: work_handler fired, uptime=869100 ms
+[00:14:29.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 869100000000, "ts": 869100, "rssi": -48, "hops": 1}
+[00:14:29.100,000] <inf> node_loop: work_handler fired, uptime=869100 ms
+[00:14:29.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:14:29.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "e5f6", "role": "SED", "ts_host": 870600000000, "ts": 870600, "rssi": -44, "hops": 1, "temp_c": 24.58, "humid_pct": 45.2, "accel_g": [0.019, 0.015, 1.043], "gyro_dps": [0.21, 0.13, -0.96], "i_avg_ma": 0.42, "i_pk_ma": 24.5, "t_active_ms": 91, "vbat_mv": 2943}
+[00:14:30.600,000] <inf> node_loop: work_handler fired, uptime=870600 ms
+[00:14:30.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "9a80", "role": "SED", "ts_host": 870600000000, "ts": 870600, "rssi": -63, "hops": 2}
+[00:14:30.600,000] <inf> node_loop: work_handler fired, uptime=870600 ms
+[00:14:30.601,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+[00:14:30.618,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 874100000000, "ts": 874100, "rssi": -38, "hops": 0, "temp_c": 23.75, "humid_pct": 41.7, "accel_g": [-0.029, -0.018, 1.035], "gyro_dps": [0.19, 0.47, -0.07], "i_avg_ma": 5.66, "i_pk_ma": 25.9, "t_active_ms": 75, "vbat_mv": 2930}
+[00:14:34.100,000] <inf> node_loop: work_handler fired, uptime=874100 ms
+[00:14:34.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 874100000000, "ts": 874100, "rssi": -51, "hops": 1}
+[00:14:34.100,000] <inf> node_loop: work_handler fired, uptime=874100 ms
+[00:14:34.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 879100000000, "ts": 879100, "rssi": -43, "hops": 0, "temp_c": 22.73, "humid_pct": 42.0, "accel_g": [-0.049, 0.028, 0.996], "gyro_dps": [-0.03, -0.18, 0.02], "i_avg_ma": 5.5, "i_pk_ma": 27.3, "t_active_ms": 75, "vbat_mv": 2931}
+[00:14:39.100,000] <inf> node_loop: work_handler fired, uptime=879100 ms
+[00:14:39.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 879100000000, "ts": 879100, "rssi": -53, "hops": 1}
+[00:14:39.100,000] <inf> node_loop: work_handler fired, uptime=879100 ms
+[00:14:39.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 884100000000, "ts": 884100, "rssi": -41, "hops": 0, "temp_c": 23.58, "humid_pct": 42.2, "accel_g": [0.017, 0.029, 0.963], "gyro_dps": [-0.22, 0.06, 0.23], "i_avg_ma": 5.57, "i_pk_ma": 26.2, "t_active_ms": 76, "vbat_mv": 2972}
+[00:14:44.100,000] <inf> node_loop: work_handler fired, uptime=884100 ms
+[00:14:44.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 61 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 884100000000, "ts": 884100, "rssi": -52, "hops": 1}
+[00:14:44.100,000] <inf> node_loop: work_handler fired, uptime=884100 ms
+[00:14:44.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 889100000000, "ts": 889100, "rssi": -43, "hops": 0, "temp_c": 23.46, "humid_pct": 41.6, "accel_g": [0.012, -0.026, 0.934], "gyro_dps": [0.14, 0.38, 0.24], "i_avg_ma": 5.09, "i_pk_ma": 26.3, "t_active_ms": 72, "vbat_mv": 2956}
+[00:14:49.100,000] <inf> node_loop: work_handler fired, uptime=889100 ms
+[00:14:49.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+[00:14:49.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 889100000000, "ts": 889100, "rssi": -46, "hops": 1}
+[00:14:49.100,000] <inf> node_loop: work_handler fired, uptime=889100 ms
+[00:14:49.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 59 B
+[00:14:49.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "a1b2", "role": "LEADER", "ts_host": 894100000000, "ts": 894100, "rssi": -41, "hops": 0, "temp_c": 23.13, "humid_pct": 42.9, "accel_g": [0.006, 0.008, 0.951], "gyro_dps": [0.06, -0.33, -0.99], "i_avg_ma": 5.13, "i_pk_ma": 26.7, "t_active_ms": 79, "vbat_mv": 2924}
+[00:14:54.100,000] <inf> node_loop: work_handler fired, uptime=894100 ms
+[00:14:54.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+[00:14:54.118,200] <inf> cookie_coap: gateway discovered, caching address
+{"src": "c3d4", "role": "ROUTER", "ts_host": 894100000000, "ts": 894100, "rssi": -53, "hops": 1}
+[00:14:54.100,000] <inf> node_loop: work_handler fired, uptime=894100 ms
+[00:14:54.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
+{"src": "a1b2", "role": "LEADER", "ts_host": 899100000000, "ts": 899100, "rssi": -42, "hops": 0, "temp_c": 23.59, "humid_pct": 41.8, "accel_g": [-0.006, 0.007, 0.978], "gyro_dps": [-0.61, -0.36, -0.14], "i_avg_ma": 5.11, "i_pk_ma": 27.8, "t_active_ms": 90, "vbat_mv": 2955}
+[00:14:59.100,000] <inf> node_loop: work_handler fired, uptime=899100 ms
+[00:14:59.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 62 B
+{"src": "c3d4", "role": "ROUTER", "ts_host": 899100000000, "ts": 899100, "rssi": -50, "hops": 1}
+[00:14:59.100,000] <inf> node_loop: work_handler fired, uptime=899100 ms
+[00:14:59.101,500] <inf> cookie_coap: push: CON POST /sensors/data, 60 B
